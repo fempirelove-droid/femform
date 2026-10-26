@@ -124,29 +124,63 @@
     border: 0;
   }
 
-  /* Cookie bar: denser frost for readability on busy mesh backgrounds */
+  /* Cookie bar: heavy frost so mesh/page text cannot read through */
   .cookie-frost {
-    background: rgba(36, 16, 25, 0.72);
-    -webkit-backdrop-filter: blur(28px) saturate(160%);
-    backdrop-filter: blur(28px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    background:
+      linear-gradient(
+        155deg,
+        rgba(251, 242, 237, 0.22) 0%,
+        rgba(118, 27, 65, 0.88) 42%,
+        rgba(96, 23, 51, 0.94) 100%
+      );
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: blur(40px) saturate(180%);
     box-shadow:
-      0 16px 48px rgba(0, 0, 0, 0.45),
-      inset 0 1px 0 rgba(255, 255, 255, 0.14);
+      0 18px 50px rgba(36, 16, 25, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .cookie-frost::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: rgba(96, 23, 51, 0.55);
+    pointer-events: none;
   }
 
   @media (max-width: 640px) {
     .cookie-frost {
-      background: rgba(36, 16, 25, 0.82);
-      -webkit-backdrop-filter: blur(20px) saturate(140%);
-      backdrop-filter: blur(20px) saturate(140%);
+      background:
+        linear-gradient(
+          155deg,
+          rgba(251, 242, 237, 0.18) 0%,
+          rgba(118, 27, 65, 0.92) 40%,
+          rgba(96, 23, 51, 0.97) 100%
+        );
+      -webkit-backdrop-filter: blur(32px) saturate(160%);
+      backdrop-filter: blur(32px) saturate(160%);
+    }
+
+    .cookie-frost::before {
+      background: rgba(96, 23, 51, 0.62);
     }
   }
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .cookie-frost {
-      background: rgba(36, 16, 25, 0.94);
+      background: #761b41;
+    }
+
+    .cookie-frost::before {
+      display: none;
     }
   }
 

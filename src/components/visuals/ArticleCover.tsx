@@ -36,7 +36,7 @@ export function ArticleCover({
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(160deg, rgba(36,16,25,0.15) 0%, rgba(96,23,51,0.55) 55%, rgba(36,16,25,0.78) 100%)',
+            'linear-gradient(160deg, rgba(36,16,25,0.05) 0%, rgba(96,23,51,0.22) 55%, rgba(36,16,25,0.45) 100%)',
         }}
       />
       <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-3">

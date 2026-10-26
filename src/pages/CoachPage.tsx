@@ -15,7 +15,7 @@ export function CoachPage({ navigate }: Props) {
     description:
       'Meet the coach behind Fempire.Love and With Love Academy: warm, practical guidance on hormones, the change, motherhood, and mental wellness.',
     canonical: '/coach',
-    image: `https://fempire.love${MEDIA.coachStill}`,
+    image: `https://fempire.love${MEDIA.coachRoom}`,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Person',
@@ -63,15 +63,15 @@ export function CoachPage({ navigate }: Props) {
           <GlassPanel data-reveal className="p-4 sm:p-5 relative overflow-hidden">
             <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5">
               <img
-                src={MEDIA.coachStill}
-                alt="Warm coaching space: linen chair, bougainvillea, golden afternoon light"
+                src={MEDIA.coachRoom}
+                alt="Bright coaching room with Caribbean light, linen chair and bougainvillea by the window"
                 className="absolute inset-0 w-full h-full object-cover scene-ken"
               />
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(180deg, transparent 45%, rgba(36,16,25,0.88) 100%)',
+                    'linear-gradient(180deg, transparent 55%, rgba(36,16,25,0.55) 100%)',
                 }}
               />
               <div className="absolute bottom-0 left-0 right-0 p-5">

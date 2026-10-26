@@ -15,7 +15,7 @@ export function VisionPage({ navigate }: Props) {
     description:
       'Fempire.Love is the digital first voice of the Vrouwencentrum Curaçao, a warm home for women across the Caribbean and the diaspora.',
     canonical: '/vision',
-    image: `https://fempire.love${MEDIA.heroDusk}`,
+    image: `https://fempire.love${MEDIA.willemstad}`,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Organization',
@@ -28,9 +28,10 @@ export function VisionPage({ navigate }: Props) {
   return (
     <main ref={ref} className="reveal-ready pb-20">
       <SceneBanner
-        src={MEDIA.heroDusk}
-        alt="Curaçao coastline at dusk, the home this vision is building toward"
+        src={MEDIA.willemstad}
+        alt="Willemstad waterfront, the island home this vision is building toward"
         className="min-h-[38vh] flex items-end mb-10"
+        overlay="soft"
       >
         <div className="max-w-[720px] mx-auto px-[22px] pt-[70px] pb-10 w-full">
           <EyebrowChip className="mb-5" data-reveal>

@@ -105,16 +105,16 @@ export function HomePage({ navigate }: Props) {
       <section className="min-h-[94vh] flex items-center pt-[110px] pb-16 relative overflow-hidden">
         <div className="absolute inset-0 z-0" aria-hidden>
           <img
-            src={MEDIA.heroDusk}
+            src={MEDIA.heroCoast}
             alt=""
-            className="w-full h-full object-cover scene-ken opacity-55"
+            className="w-full h-full object-cover scene-ken"
             fetchPriority="high"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(105deg, rgba(36,16,25,0.92) 0%, rgba(36,16,25,0.72) 42%, rgba(96,23,51,0.45) 100%)',
+                'linear-gradient(105deg, rgba(36,16,25,0.55) 0%, rgba(36,16,25,0.28) 48%, rgba(158,19,69,0.18) 100%)',
             }}
           />
         </div>
@@ -180,10 +180,10 @@ export function HomePage({ navigate }: Props) {
                   style={{ transform: 'rotate(4deg)', animationDelay: '1s' }}
                 >
                   <img
-                    src={MEDIA.bloomTexture}
+                    src={MEDIA.bougainvillea}
                     alt=""
                     aria-hidden
-                    className="absolute inset-0 w-full h-full object-cover opacity-40"
+                    className="absolute inset-0 w-full h-full object-cover opacity-55"
                   />
                   <p className="font-display text-[14px] font-semibold m-0 relative">$0 to start</p>
                 </GlassPanel>
@@ -234,21 +234,21 @@ export function HomePage({ navigate }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {tracks.map((track, i) => {
               const scene =
-                i === 0 ? MEDIA.heroDusk : i === 1 ? MEDIA.circleOrbs : MEDIA.bloomTexture;
+                i === 0 ? MEDIA.willemstad : i === 1 ? MEDIA.heroCoast : MEDIA.bougainvillea;
               return (
                 <GlassPanel key={i} as="article" data-reveal className="relative overflow-hidden p-0">
-                  <div className="relative h-[120px] overflow-hidden">
+                  <div className="relative h-[140px] overflow-hidden">
                     <img
                       src={scene}
                       alt=""
                       aria-hidden
-                      className="absolute inset-0 w-full h-full object-cover scene-ken opacity-80"
+                      className="absolute inset-0 w-full h-full object-cover scene-ken"
                       loading="lazy"
                     />
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: `linear-gradient(180deg, transparent, rgba(36,16,25,0.85)), radial-gradient(circle at 80% 20%, ${track.glow}, transparent 55%)`,
+                        background: `linear-gradient(180deg, transparent 20%, rgba(36,16,25,0.55)), radial-gradient(circle at 80% 20%, ${track.glow}, transparent 60%)`,
                       }}
                     />
                   </div>
@@ -439,7 +439,7 @@ export function HomePage({ navigate }: Props) {
           >
             <div className="absolute inset-0" aria-hidden>
               <img
-                src={MEDIA.heroDusk}
+                src={MEDIA.willemstad}
                 alt=""
                 className="w-full h-full object-cover scene-ken"
                 loading="lazy"
@@ -448,7 +448,7 @@ export function HomePage({ navigate }: Props) {
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(115deg, rgba(110,13,46,0.88) 0%, rgba(242,120,156,0.55) 45%, rgba(158,19,69,0.82) 100%)',
+                    'linear-gradient(115deg, rgba(110,13,46,0.55) 0%, rgba(242,120,156,0.35) 45%, rgba(158,19,69,0.5) 100%)',
                 }}
               />
             </div>

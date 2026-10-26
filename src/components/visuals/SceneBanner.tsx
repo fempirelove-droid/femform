@@ -8,20 +8,20 @@ type Props = {
   children?: ReactNode;
 };
 
-/** Full-bleed brand photograph with a brand-safe veil. */
+/** Full-bleed brand photograph with a light brand-safe veil (images stay visible). */
 export function SceneBanner({
   src,
   alt,
   className = '',
-  overlay = 'heavy',
+  overlay = 'soft',
   children,
 }: Props) {
   const veil =
     overlay === 'none'
       ? 'transparent'
       : overlay === 'soft'
-        ? 'linear-gradient(180deg, rgba(36,16,25,0.25) 0%, rgba(36,16,25,0.55) 100%)'
-        : 'linear-gradient(115deg, rgba(36,16,25,0.72) 0%, rgba(110,13,46,0.55) 45%, rgba(36,16,25,0.75) 100%)';
+        ? 'linear-gradient(180deg, rgba(36,16,25,0.12) 0%, rgba(96,23,51,0.28) 55%, rgba(36,16,25,0.42) 100%)'
+        : 'linear-gradient(115deg, rgba(36,16,25,0.35) 0%, rgba(158,19,69,0.28) 45%, rgba(36,16,25,0.48) 100%)';
 
   return (
     <div className={`relative overflow-hidden ${className}`.trim()}>

@@ -19,7 +19,7 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
     title: category ? `${category.name} · Fempire.Love` : 'Loading… · Fempire.Love',
     description: category?.description,
     canonical: `/${categorySlug}`,
-    image: `https://fempire.love${MEDIA.bloomTexture}`,
+    image: `https://fempire.love${MEDIA.bougainvillea}`,
   });
 
   useEffect(() => {
@@ -72,13 +72,13 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
   return (
     <main>
       <div className="relative overflow-hidden pt-[50px] pb-10">
-        <div className="absolute inset-0 z-0 opacity-40" aria-hidden>
-          <img src={MEDIA.bloomTexture} alt="" className="w-full h-full object-cover scene-ken" />
+        <div className="absolute inset-0 z-0" aria-hidden>
+          <img src={MEDIA.bougainvillea} alt="" className="w-full h-full object-cover scene-ken" />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(36,16,25,0.7), rgba(36,16,25,0.95))',
+                'linear-gradient(180deg, rgba(36,16,25,0.35), rgba(36,16,25,0.72))',
             }}
           />
         </div>

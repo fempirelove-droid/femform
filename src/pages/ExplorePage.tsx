@@ -21,7 +21,7 @@ const pathways = [
     cta: 'Latest reads',
     action: 'articles' as const,
     icon: BookOpen,
-    scene: MEDIA.bloomTexture,
+    scene: MEDIA.bougainvillea,
   },
   {
     title: 'Live webinars',
@@ -29,7 +29,7 @@ const pathways = [
     cta: 'Browse webinars',
     route: '/webinars',
     icon: CalendarHeart,
-    scene: MEDIA.circleOrbs,
+    scene: MEDIA.circleLight,
   },
   {
     title: 'Member community',
@@ -37,7 +37,7 @@ const pathways = [
     cta: 'Enter community',
     route: '/community',
     icon: HeartHandshake,
-    scene: MEDIA.circleOrbs,
+    scene: MEDIA.willemstad,
   },
   {
     title: 'Free cycle diary',
@@ -45,7 +45,7 @@ const pathways = [
     cta: 'Open guide',
     href: FREE_GUIDE_URL,
     icon: Sparkles,
-    scene: MEDIA.bloomTexture,
+    scene: MEDIA.heroCoast,
   },
 ];
 
@@ -105,10 +105,10 @@ export function ExplorePage({ navigate }: Props) {
   return (
     <main ref={ref} className="reveal-ready">
       <SceneBanner
-        src={MEDIA.circleOrbs}
-        alt="Soft circle of light suggesting a women’s gathering"
+        src={MEDIA.heroCoast}
+        alt="Bright Curaçao coast with turquoise sea and bougainvillea"
         className="min-h-[42vh] flex items-end"
-        overlay="heavy"
+        overlay="soft"
       >
         <div className="max-w-site mx-auto px-[22px] pt-[80px] pb-12 w-full">
           <EyebrowChip className="mb-5" data-reveal>
@@ -140,19 +140,19 @@ export function ExplorePage({ navigate }: Props) {
             const Icon = item.icon;
             return (
               <GlassPanel key={item.title} data-reveal className="p-0 overflow-hidden flex flex-col">
-                <div className="relative h-[100px]">
+                <div className="relative h-[120px]">
                   <img
                     src={item.scene}
                     alt=""
                     aria-hidden
-                    className="absolute inset-0 w-full h-full object-cover scene-ken opacity-75"
+                    className="absolute inset-0 w-full h-full object-cover scene-ken"
                     loading="lazy"
                   />
                   <div
                     className="absolute inset-0"
                     style={{
                       background:
-                        'linear-gradient(180deg, rgba(36,16,25,0.2), rgba(36,16,25,0.85))',
+                        'linear-gradient(180deg, rgba(36,16,25,0.05), rgba(36,16,25,0.45))',
                     }}
                   />
                   <span

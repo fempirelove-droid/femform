@@ -11,9 +11,8 @@ export function ConfigBanner() {
         color: '#241019',
       }}
     >
-      Deploy is missing Supabase env vars. Add{' '}
-      <code className="font-bold">VITE_SUPABASE_URL</code> and{' '}
-      <code className="font-bold">VITE_SUPABASE_ANON_KEY</code> in your host settings, then rebuild.
+      Supabase env not visible to Vite yet. Connect the Supabase integration in Vercel (or set{' '}
+      <code className="font-bold">VITE_SUPABASE_*</code>), then redeploy.
     </div>
   );
 }

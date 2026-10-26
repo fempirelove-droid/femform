@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui';
 import {
+  FREE_GUIDE_URL,
   SEGMENT_OPTIONS,
   segmentSuccessMessage,
   type NewsletterSegment,
@@ -49,9 +50,17 @@ export function NewsletterForm({
 
   if (done && joinedSegment) {
     return (
-      <p className="text-soft text-sm leading-relaxed max-w-[360px]">
-        {segmentSuccessMessage(joinedSegment)}
-      </p>
+      <div className="text-soft text-sm leading-relaxed max-w-[360px] flex flex-col gap-3">
+        <p className="m-0">{segmentSuccessMessage(joinedSegment)}</p>
+        <a
+          href={FREE_GUIDE_URL}
+          className="btn-primary small text-center no-underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open free cycle diary
+        </a>
+      </div>
     );
   }
 

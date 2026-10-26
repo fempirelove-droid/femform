@@ -39,10 +39,9 @@ export function useSEO({ title, description, image, type = 'website', jsonLd, ca
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:card', 'summary_large_image');
 
-    if (image) {
-      setMeta('property', 'og:image', image);
-      setMeta('name', 'twitter:image', image);
-    }
+    const ogImage = image || 'https://fempire.love/og-default.jpg';
+    setMeta('property', 'og:image', ogImage);
+    setMeta('name', 'twitter:image', ogImage);
 
     let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!link) {

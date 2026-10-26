@@ -1,9 +1,11 @@
 User-agent: *
 Allow: /
-Allow: /$
 
-# AI crawlers welcome
+# AI / answer-engine crawlers welcome (AEO)
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: PerplexityBot
@@ -12,7 +14,13 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://fempire.love/sitemap.xml

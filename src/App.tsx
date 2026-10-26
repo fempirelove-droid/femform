@@ -19,6 +19,7 @@ import { AccountPage } from '@/pages/AccountPage';
 import { ExplorePage } from '@/pages/ExplorePage';
 import { useRouter } from '@/hooks/useRouter';
 import { useSEO } from '@/hooks/useSEO';
+import { trackPageView } from '@/lib/analytics';
 
 const STATIC_PAGES = new Set([
   '/',
@@ -45,6 +46,7 @@ function App() {
   });
 
   useEffect(() => {
+    trackPageView(pathOnly);
     if (pathOnly === '/') {
       const anchor = window.location.hash.split('#')[1];
       if (anchor) {

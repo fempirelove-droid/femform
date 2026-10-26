@@ -1,45 +1,32 @@
 import { useState, useEffect } from 'react';
+import { loadAnalyticsIfAllowed } from '@/lib/analytics';
+import { hasAnalyticsConsent, setAnalyticsConsent } from '@/lib/consent';
 
-const CONSENT_KEY = 'fempire-cookie-consent';
-
-export function hasAnalyticsConsent(): boolean {
-  return localStorage.getItem(CONSENT_KEY) === 'accepted';
-}
-
-function loadAnalyticsIfAllowed() {
-  if (!hasAnalyticsConsent()) return;
-  if (document.getElementById('fempire-analytics')) return;
-  const marker = document.createElement('meta');
-  marker.id = 'fempire-analytics';
-  marker.name = 'fempire-analytics-consent';
-  marker.content = 'accepted';
-  document.head.appendChild(marker);
-  window.dispatchEvent(new CustomEvent('fempire:analytics-consent'));
-}
+export { hasAnalyticsConsent };
 
 export function CookieConsent() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem(CONSENT_KEY);
-    if (consent === 'accepted') {
+    if (hasAnalyticsConsent()) {
       loadAnalyticsIfAllowed();
       return;
     }
-    if (!consent) {
+    const existing = localStorage.getItem('fempire-cookie-consent');
+    if (!existing) {
       const timer = setTimeout(() => setShow(true), 1500);
       return () => clearTimeout(timer);
     }
   }, []);
 
   const accept = () => {
-    localStorage.setItem(CONSENT_KEY, 'accepted');
+    setAnalyticsConsent('accepted');
     setShow(false);
     loadAnalyticsIfAllowed();
   };
 
   const decline = () => {
-    localStorage.setItem(CONSENT_KEY, 'declined');
+    setAnalyticsConsent('declined');
     setShow(false);
   };
 
@@ -61,11 +48,11 @@ export function CookieConsent() {
           </a>
           .
         </p>
-        <div className="flex flex-col xs:flex-row gap-2 w-full sm:flex-row">
-          <button className="btn-glass small w-full sm:w-auto flex-1 sm:flex-none" onClick={decline}>
+        <div className="flex flex-col gap-2 w-full sm:flex-row">
+          <button className="btn-glass small w-full sm:w-auto" onClick={decline}>
             Essential only
           </button>
-          <button className="btn-primary small w-full sm:w-auto flex-1 sm:flex-none" onClick={accept}>
+          <button className="btn-primary small w-full sm:w-auto" onClick={accept}>
             Accept all
           </button>
         </div>

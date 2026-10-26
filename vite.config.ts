@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 import { fileURLToPath, URL } from 'node:url';
 
 /**
@@ -37,7 +38,63 @@ function supabaseEnvBridge(): Plugin {
 }
 
 export default defineConfig({
-  plugins: [supabaseEnvBridge(), react()],
+  plugins: [
+    supabaseEnvBridge(),
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['robots.txt', 'sitemap.xml', 'og-default.jpg', 'apple-touch-icon.jpg', 'icons/icon-1024.jpg'],
+      manifest: {
+        name: 'Fempire.Love',
+        short_name: 'Fempire',
+        description:
+          'A warm digital home for women across Curaçao, the Caribbean and the diaspora.',
+        theme_color: '#601733',
+        background_color: '#601733',
+        display: 'standalone',
+        orientation: 'portrait-primary',
+        start_url: '/',
+        lang: 'en',
+        icons: [
+          {
+            src: '/icons/icon-1024.jpg',
+            sizes: '1024x1024',
+            type: 'image/jpeg',
+            purpose: 'any',
+          },
+          {
+            src: '/icons/icon-1024.jpg',
+            sizes: '1024x1024',
+            type: 'image/jpeg',
+            purpose: 'maskable',
+          },
+        ],
+      },
+      workbox: {
+        navigateFallback: '/index.html',
+        globPatterns: ['**/*.{js,css,html,ico,jpg,jpeg,png,svg,woff2}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-css',
+              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 },
+            },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-webfonts',
+              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 },
+            },
+          },
+        ],
+      },
+      devOptions: { enabled: false },
+    }),
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

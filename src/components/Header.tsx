@@ -34,7 +34,6 @@ export function Header({ onNavigate, current }: Props) {
     { label: 'Explore', route: '/explore' },
     { label: 'Webinars', route: '/webinars' },
     { label: 'Membership', route: '/membership' },
-    { label: 'Journey', route: '/journey' },
     { label: 'Coach', route: '/coach' },
   ];
 

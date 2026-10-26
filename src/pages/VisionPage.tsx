@@ -95,9 +95,6 @@ export function VisionPage({ navigate }: Props) {
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
           <Button onClick={() => navigate('/membership')}>Start free</Button>
-          <Button variant="glass" onClick={() => navigate('/journey')}>
-            See the journey
-          </Button>
           <Button variant="glass" onClick={() => navigate('/coach')}>
             Meet the coach
           </Button>

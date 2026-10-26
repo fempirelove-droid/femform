@@ -15,7 +15,6 @@ import { DisclaimerPage } from '@/pages/DisclaimerPage';
 import { CoachPage } from '@/pages/CoachPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { WebinarsPage } from '@/pages/WebinarsPage';
-import { JourneyPage } from '@/pages/JourneyPage';
 import { AccountPage } from '@/pages/AccountPage';
 import { ExplorePage } from '@/pages/ExplorePage';
 import { useRouter } from '@/hooks/useRouter';
@@ -32,7 +31,6 @@ const STATIC_PAGES = new Set([
   '/coach',
   '/contact',
   '/webinars',
-  '/journey',
   '/account',
 ]);
 
@@ -83,8 +81,6 @@ function App() {
           return <ContactPage navigate={navigate} />;
         case '/webinars':
           return <WebinarsPage navigate={navigate} />;
-        case '/journey':
-          return <JourneyPage navigate={navigate} />;
         case '/account':
           return <AccountPage navigate={navigate} />;
         default:

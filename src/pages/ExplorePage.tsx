@@ -14,9 +14,9 @@ export function ExplorePage({ navigate }: Props) {
   const ref = useAnimeReveal<HTMLElement>({ staggerMs: 55 });
 
   useSEO({
-    title: 'Explore topics — Fempire.Love',
+    title: 'Explore topics · Fempire.Love',
     description:
-      'Browse hormones, the change, motherhood, mind & wellness, body wisdom and more — honest topics for women of the Caribbean and beyond.',
+      'Browse hormones, the change, motherhood, mind & wellness, body wisdom and more: honest topics for women of the Caribbean and beyond.',
     canonical: '/explore',
   });
 

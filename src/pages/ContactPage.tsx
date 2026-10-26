@@ -18,8 +18,8 @@ export function ContactPage({ navigate }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   useSEO({
-    title: 'Contact — Fempire.Love',
-    description: 'Reach the Fempire.Love team — questions, partnerships, or a warm hello.',
+    title: 'Contact · Fempire.Love',
+    description: 'Reach the Fempire.Love team: questions, partnerships, or a warm hello.',
     canonical: '/contact',
   });
 
@@ -54,7 +54,7 @@ export function ContactPage({ navigate }: Props) {
         Say hello. We read every note.
       </h1>
       <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[520px] mb-12">
-        Partnerships, press, coaching questions, or just a warm hello — we&apos;re here.
+        Partnerships, press, coaching questions, or just a warm hello. We&apos;re here.
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

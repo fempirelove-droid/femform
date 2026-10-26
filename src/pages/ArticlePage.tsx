@@ -18,7 +18,7 @@ export function ArticlePage({ navigate, slug }: Props) {
   const isMember = tier === 'community' || tier === 'premium';
 
   useSEO({
-    title: article ? `${article.title} — Fempire.Love` : 'Loading… — Fempire.Love',
+    title: article ? `${article.title} · Fempire.Love` : 'Loading� · Fempire.Love',
     description: article?.excerpt,
     type: 'article',
     canonical: article ? `/${article.category?.slug}/${article.slug}` : undefined,
@@ -77,7 +77,7 @@ export function ArticlePage({ navigate, slug }: Props) {
   if (loading) {
     return (
       <main className="min-h-[60vh] flex items-center justify-center">
-        <p className="text-soft text-sm">Loading…</p>
+        <p className="text-soft text-sm">Loading�</p>
       </main>
     );
   }
@@ -113,7 +113,7 @@ export function ArticlePage({ navigate, slug }: Props) {
         >
           Home
         </a>
-        {' · '}
+        {' � '}
         <a
           href={`/${article.category?.slug}`}
           className="text-soft no-underline hover:text-cream cursor-pointer"
@@ -170,7 +170,7 @@ export function ArticlePage({ navigate, slug }: Props) {
                 WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
               }}
               dangerouslySetInnerHTML={{
-                __html: article.body.slice(0, 480) + (article.body.length > 480 ? '…' : ''),
+                __html: article.body.slice(0, 480) + (article.body.length > 480 ? '�' : ''),
               }}
             />
             <GlassPanel className="p-8 text-center mt-6">
@@ -233,7 +233,7 @@ export function ArticlePage({ navigate, slug }: Props) {
             <div className="mt-8 pt-6" style={{ borderTop: '1px solid var(--glass-b)' }}>
               <p className="text-[13px] text-soft-2">
                 <span className="text-cream font-semibold">{article.author_name}</span>
-                {article.author_bio ? ` — ${article.author_bio}` : ''}
+                {article.author_bio ? ` � ${article.author_bio}` : ''}
               </p>
             </div>
           </>

@@ -5,7 +5,7 @@ type Props = { navigate: NavigateFn };
 
 export function DisclaimerPage({ navigate: _navigate }: Props) {
   useSEO({
-    title: 'Medical Disclaimer — Fempire.Love',
+    title: 'Medical Disclaimer · Fempire.Love',
     description: 'Fempire.Love provides educational content, not medical advice. Always consult a qualified healthcare provider.',
     canonical: '/disclaimer',
   });
@@ -32,7 +32,7 @@ export function DisclaimerPage({ navigate: _navigate }: Props) {
         <p>
           Our articles are written to help you understand your body, your hormones, and your health.
           They are based on current research and, where indicated, reviewed by qualified medical
-          professionals. But they are educational content — not personalized medical advice.
+          professionals. But they are educational content, not personalized medical advice.
         </p>
 
         <h2>What our content is not</h2>
@@ -47,8 +47,8 @@ export function DisclaimerPage({ navigate: _navigate }: Props) {
         <p>
           Always consult a qualified healthcare provider if you have concerns about your health. Do
           not delay seeking medical advice because of something you read on this site. If you
-          experience severe symptoms — including but not limited to severe pain, heavy bleeding,
-          thoughts of self-harm, or symptoms that are getting worse — contact a healthcare provider
+          experience severe symptoms, including but not limited to severe pain, heavy bleeding,
+          thoughts of self-harm, or symptoms that are getting worse, contact a healthcare provider
           or emergency services immediately.
         </p>
 

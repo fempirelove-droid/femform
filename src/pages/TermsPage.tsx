@@ -5,7 +5,7 @@ type Props = { navigate: NavigateFn };
 
 export function TermsPage({ navigate: _navigate }: Props) {
   useSEO({
-    title: 'Terms & Conditions â€” Fempire.Love',
+    title: 'Terms & Conditions · Fempire.Love',
     description: 'The terms and conditions for using Fempire.Love and its membership services.',
     canonical: '/terms',
   });
@@ -31,7 +31,7 @@ export function TermsPage({ navigate: _navigate }: Props) {
 
         <h2>Content access</h2>
         <p>
-          Free articles are available to everyone. Members-only content is accessible only to active
+          Free articles are available to everyone. Members only content is accessible only to active
           paying members. Sharing your account credentials with others is not permitted.
         </p>
 
@@ -44,14 +44,14 @@ export function TermsPage({ navigate: _navigate }: Props) {
 
         <h2>Webinars and coaching</h2>
         <p>
-          Live webinars may be purchased as one-time purchases ($20-$35). Premium members receive
+          Live webinars may be purchased as one time purchases ($20 to $35). Premium members receive
           quarterly 1:1 coaching sessions, booked through a scheduling link. Coaching sessions must
           be used within the billing period in which they are allocated.
         </p>
 
         <h2>Refunds</h2>
         <p>
-          Due to the digital nature of our content, membership fees are non-refundable. You may
+          Due to the digital nature of our content, membership fees are not refundable. You may
           cancel at any time to prevent future charges. Single-purchase webinars are refundable up
           to 48 hours before the scheduled event.
         </p>

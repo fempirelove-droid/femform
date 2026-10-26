@@ -40,9 +40,9 @@ function App() {
   const pathOnly = current.split('?')[0].split('#')[0] || '/';
 
   useSEO({
-    title: 'Fempire.Love — A digital home for women of the Caribbean & beyond',
+    title: 'Fempire.Love · A digital home for women of the Caribbean & beyond',
     description:
-      'Fempire.Love is a warm, modern digital home for women across Curaçao, the Caribbean and the diaspora — hormones, the change, motherhood, mind and body, without judgement.',
+      'Fempire.Love is a warm, modern digital home for women across Curaçao, the Caribbean and the diaspora: hormones, the change, motherhood, mind and body, without judgement.',
   });
 
   useEffect(() => {

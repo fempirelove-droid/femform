@@ -124,7 +124,7 @@
     border: 0;
   }
 
-  /* Cookie bar — denser frost for readability on busy mesh backgrounds */
+  /* Cookie bar: denser frost for readability on busy mesh backgrounds */
   .cookie-frost {
     background: rgba(36, 16, 25, 0.72);
     -webkit-backdrop-filter: blur(28px) saturate(160%);

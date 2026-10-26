@@ -12,7 +12,7 @@ const webinars = [
   {
     id: 'boundaries-without-guilt',
     title: 'How do I set boundaries without guilt?',
-    blurb: 'A live hour on the language of no — soft, clear, and rooted in Caribbean reality.',
+    blurb: 'A live hour on the language of no: soft, clear, and rooted in Caribbean reality.',
     dateLabel: 'Launch webinar · TBA',
     price: 25,
     tag: 'Mind & Wellness',
@@ -28,7 +28,7 @@ const webinars = [
   {
     id: 'hormones-week',
     title: 'Why do I feel so different every week of my cycle?',
-    blurb: 'A clear map of your cycle in plain language — no jargon, no shame.',
+    blurb: 'A clear map of your cycle in plain language, with no jargon, no shame.',
     dateLabel: 'Guest session · TBA',
     price: 35,
     tag: 'Hormones & Cycle',
@@ -42,9 +42,9 @@ export function WebinarsPage({ navigate }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   useSEO({
-    title: 'Webinars — Fempire.Love',
+    title: 'Webinars · Fempire.Love',
     description:
-      'Join live Fempire.Love webinars as a member or buy a single ticket for $20–35. Replays for Community and Premium.',
+      'Join live Fempire.Love webinars as a member or buy a single ticket for $20 to $35. Replays for Community and Premium.',
     canonical: '/webinars',
   });
 
@@ -76,7 +76,7 @@ export function WebinarsPage({ navigate }: Props) {
           Live rooms. Honest questions. Real answers.
         </h1>
         <p data-reveal className="text-soft text-[16.5px] max-w-[520px] mx-auto leading-[1.75]">
-          Members get access included. Guests can buy a single ticket for $20–35 — a low-pressure way
+          Members get access included. Guests can buy a single ticket for $20 to $35, a low pressure way
           to meet the Circle.
         </p>
       </section>

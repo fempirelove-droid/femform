@@ -10,9 +10,9 @@ export function CoachPage({ navigate }: Props) {
   const ref = useAnimeReveal<HTMLElement>({ staggerMs: 80, y: 18 });
 
   useSEO({
-    title: 'The Coach — Fempire.Love',
+    title: 'The Coach · Fempire.Love',
     description:
-      'Meet the coach behind Fempire.Love and With Love Academy — warm, practical guidance on hormones, the change, motherhood, and mental wellness.',
+      'Meet the coach behind Fempire.Love and With Love Academy: warm, practical guidance on hormones, the change, motherhood, and mental wellness.',
     canonical: '/coach',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -24,7 +24,7 @@ export function CoachPage({ navigate }: Props) {
         name: 'With Love Academy / Fempire.Love',
       },
       description:
-        'Coach in women’s health, personal growth and community — the primary face of Fempire.Love content and Premium coaching.',
+        'Coach in women’s health, personal growth and community, the primary face of Fempire.Love content and Premium coaching.',
     },
   });
 
@@ -44,7 +44,7 @@ export function CoachPage({ navigate }: Props) {
             </h1>
             <p data-reveal className="text-soft text-[17px] leading-[1.75] max-w-[540px] mb-6">
               Fempire.Love content and Premium coaching are rooted in the practice of With Love
-              Academy — coaching, women’s health, and personal growth with a Caribbean heart. Warm.
+              Academy: coaching, women’s health, and personal growth with a Caribbean heart. Warm.
               Direct. Never clinical for the sake of sounding smart.
             </p>
             <div data-reveal className="flex flex-wrap gap-3">
@@ -78,7 +78,7 @@ export function CoachPage({ navigate }: Props) {
             </div>
             <p className="text-soft text-[14.5px] leading-[1.7] m-0 relative">
               Photo coming soon. Until then, her voice lives in every article, webinar, and Premium
-              coaching session — the expertise behind the platform&apos;s warmth.
+              coaching session, the expertise behind the platform&apos;s warmth.
             </p>
           </GlassPanel>
         </div>
@@ -89,7 +89,7 @@ export function CoachPage({ navigate }: Props) {
           {[
             {
               t: 'Expertise',
-              d: 'Coaching, women’s health, personal growth, and community — practical tools for real lives.',
+              d: 'Coaching, women’s health, personal growth, and community: practical tools for real lives.',
             },
             {
               t: 'On the platform',

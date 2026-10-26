@@ -60,7 +60,7 @@ const compareRows = [
 const faqs = [
   {
     q: 'Can I cancel anytime?',
-    a: 'Yes — no contracts, no lock-in. Cancel from your account in two clicks, any time.',
+    a: 'Yes. No contracts, no lock-in. Cancel from your account in two clicks, any time.',
     open: true,
   },
   {
@@ -70,17 +70,17 @@ const faqs = [
   },
   {
     q: 'Does part of this help other women?',
-    a: "Yes. Part of every paid membership opens the door for a woman on Curaçao who can't afford it — because no one should be left out of this conversation.",
+    a: "Yes. Part of every paid membership opens the door for a woman on Cura�ao who can't afford it, because no one should be left out of this conversation.",
     open: false,
   },
   {
     q: 'What if I want to switch tiers later?',
-    a: 'Upgrade or downgrade whenever you like — changes take effect on your next billing date.',
+    a: 'Upgrade or downgrade whenever you like. Changes take effect on your next billing date.',
     open: false,
   },
   {
     q: 'Is the community live yet?',
-    a: 'Founding members join now and get every benefit that is ready. The closed community follows soon — you will be first through the door.',
+    a: 'Founding members join now and get every benefit that is ready. The closed community follows soon. You will be first through the door.',
     open: false,
   },
 ];
@@ -93,7 +93,7 @@ export function MembershipPage({ navigate }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   useSEO({
-    title: 'Membership — Fempire.Love',
+    title: 'Membership · Fempire.Love',
     description:
       'Start free, or join Community ($10/mo) or Premium ($33/mo) with quarterly coaching. Founding members welcome.',
     canonical: '/membership',
@@ -148,7 +148,7 @@ export function MembershipPage({ navigate }: Props) {
           {user && (
             <p data-reveal className="mt-4">
               <button className="btn-glass small" onClick={handlePortal} disabled={busy === 'portal'}>
-                {busy === 'portal' ? 'Opening…' : 'Manage billing'}
+                {busy === 'portal' ? 'Opening�' : 'Manage billing'}
               </button>
             </p>
           )}
@@ -193,14 +193,14 @@ export function MembershipPage({ navigate }: Props) {
                 disabled={authLoading || busy === tier.id}
                 onClick={() => handleTier(tier.id)}
               >
-                {busy === tier.id ? 'Redirecting…' : tier.cta}
+                {busy === tier.id ? 'Redirecting�' : tier.cta}
               </Button>
             </GlassPanel>
           ))}
         </div>
         <p data-reveal className="text-center text-[13px] text-soft-2 mt-8 max-w-[560px] mx-auto">
           Founding members: the closed community launches soon. You join now for every benefit that
-          is ready — and you will be first when the door opens.
+          is ready, and you will be first when the door opens.
         </p>
       </div>
 
@@ -209,7 +209,7 @@ export function MembershipPage({ navigate }: Props) {
           <div>
             <h3 className="font-display font-bold text-xl mb-2">Just want one webinar?</h3>
             <p className="text-soft text-[14.5px] m-0 max-w-[420px]">
-              Join a live session as a one-time guest for $20–35 — no membership required.
+              Join a live session as a one time guest for $20 to $35, no membership required.
             </p>
           </div>
           <Button variant="glass" onClick={() => navigate('/webinars')}>
@@ -244,9 +244,9 @@ export function MembershipPage({ navigate }: Props) {
                   {[row.free, row.community, row.premium].map((val, i) => (
                     <td key={i} className="p-4 text-center text-[13.5px]">
                       {val ? (
-                        <span className="text-mustard-hi font-bold">✓</span>
+                        <span className="text-mustard-hi font-bold">?</span>
                       ) : (
-                        <span className="text-soft-2">—</span>
+                        <span className="text-soft-2">�</span>
                       )}
                     </td>
                   ))}

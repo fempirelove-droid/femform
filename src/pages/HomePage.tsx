@@ -21,19 +21,19 @@ const forYouCards = [
 const tracks = [
   {
     tag: 'Curaçao',
-    text: 'Workshops, sessions at the salon, and soon, a space of your own on the island. This is where you can show up in person — not just on a screen.',
-    soft: 'When you are ready, we will gently introduce you to the salon — an invitation, never a hard sell.',
+    text: 'Workshops, sessions at the salon, and soon, a space of your own on the island. This is where you can show up in person, not just on a screen.',
+    soft: 'When you are ready, we will gently introduce you to the salon: an invitation, never a hard sell.',
     glow: 'var(--bougain)',
   },
   {
     tag: 'Caribbean & Suriname',
-    text: 'Aruba, Bonaire, Trinidad, Jamaica, Barbados, Suriname — everything here is for you, the full conversation, no matter where you call home.',
+    text: 'Aruba, Bonaire, Trinidad, Jamaica, Barbados, Suriname. Everything here is for you, the full conversation, no matter where you call home.',
     soft: 'Your journey stays fully digital, with a community that understands your region.',
     glow: 'var(--mustard)',
   },
   {
     tag: 'Far from home',
-    text: "Netherlands, the US, or anywhere else you've landed — a way back to something that still knows where you're from.",
+    text: "Netherlands, the US, or anywhere else you've landed: a way back to something that still knows where you're from.",
     soft: 'Identity, belonging, and coaching that bridges distance.',
     glow: 'var(--blush)',
   },
@@ -79,16 +79,16 @@ export function HomePage({ navigate }: Props) {
   const visionRef = useAnimeReveal<HTMLElement>({ y: 24 });
 
   useSEO({
-    title: 'Fempire.Love — A digital home for women of the Caribbean & beyond',
+    title: 'Fempire.Love · A digital home for women of the Caribbean & beyond',
     description:
-      'Fempire.Love is a warm, modern digital home for women across Curaçao, the Caribbean and the diaspora — hormones, the change, motherhood, mind and body, without judgement.',
+      'Fempire.Love is a warm, modern digital home for women across Curaçao, the Caribbean and the diaspora: hormones, the change, motherhood, mind and body, without judgement.',
     canonical: '/',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'Fempire.Love',
       description:
-        'A digital home for women across the Caribbean and the diaspora — hormones, the change, motherhood, mind and body, without judgement.',
+        'A digital home for women across the Caribbean and the diaspora: hormones, the change, motherhood, mind and body, without judgement.',
     },
   });
 
@@ -119,7 +119,7 @@ export function HomePage({ navigate }: Props) {
               </h1>
               <p data-reveal className="text-soft text-[17.5px] leading-[1.75] max-w-[520px] mt-6 mb-[30px]">
                 Change or repeat. The choice is always yours, my lovelies. A warm, modern home for the
-                questions about your hormones, your cycle, your mind and your body — the ones you'd
+                questions about your hormones, your cycle, your mind and your body, the ones you'd
                 never ask out loud.
               </p>
               <div data-reveal className="flex flex-wrap gap-3.5 mb-7">
@@ -363,7 +363,7 @@ export function HomePage({ navigate }: Props) {
                 One warm letter. Tell us where you are.
               </h2>
               <p className="text-soft text-[15px] leading-[1.7] m-0">
-                That single answer — Curaçao, the wider Caribbean, or elsewhere — shapes how we
+                That single answer (Curaçao, the wider Caribbean, or elsewhere) shapes how we
                 meet you. Soft invitations for the island. A full digital home everywhere else.
               </p>
             </div>
@@ -400,7 +400,7 @@ export function HomePage({ navigate }: Props) {
               <p className="text-cream/80 text-[14.5px] leading-[1.75] max-w-[560px] m-0 mb-6">
                 When you join Fempire.Love, you're not just reading articles. You're helping create a
                 real space on the island where women can come together. Part of every paid membership
-                opens the door for a woman who can't afford it — because no one should be left out of
+                opens the door for a woman who can't afford it, because no one should be left out of
                 this conversation.
               </p>
               <Button

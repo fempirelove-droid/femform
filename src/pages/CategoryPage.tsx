@@ -13,7 +13,7 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
   const [loading, setLoading] = useState(true);
 
   useSEO({
-    title: category ? `${category.name} — Fempire.Love` : 'Loading… — Fempire.Love',
+    title: category ? `${category.name} · Fempire.Love` : 'Loading… · Fempire.Love',
     description: category?.description,
     canonical: `/${categorySlug}`,
   });
@@ -87,7 +87,7 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
         {articles.length === 0 ? (
           <div className="glass p-10 text-center">
             <p className="text-soft text-[15px]">
-              No articles in this category yet. New content is coming soon — stay tuned.
+              No articles in this category yet. New content is coming soon. Stay tuned.
             </p>
           </div>
         ) : (

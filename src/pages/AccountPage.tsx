@@ -16,7 +16,7 @@ export function AccountPage({ navigate }: Props) {
   const [busy, setBusy] = useState(false);
 
   useSEO({
-    title: 'Account — Fempire.Love',
+    title: 'Account · Fempire.Love',
     description: 'Sign in to Fempire.Love with a magic link. Manage membership and coaching.',
     canonical: '/account',
   });
@@ -56,7 +56,7 @@ export function AccountPage({ navigate }: Props) {
           Sign in with email
         </h1>
         <p className="text-soft text-[15px] leading-[1.7] mb-8">
-          No password. We&apos;ll send a magic link — open it, and you&apos;re in.
+          No password. We&apos;ll send a magic link. Open it, and you&apos;re in.
         </p>
         <GlassPanel className="p-7">
           {sent ? (

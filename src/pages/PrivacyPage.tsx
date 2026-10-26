@@ -5,7 +5,7 @@ type Props = { navigate: NavigateFn };
 
 export function PrivacyPage({ navigate: _navigate }: Props) {
   useSEO({
-    title: 'Privacy Policy — Fempire.Love',
+    title: 'Privacy Policy · Fempire.Love',
     description: 'How Fempire.Love collects, uses, and protects your personal data in line with GDPR.',
     canonical: '/privacy',
   });
@@ -26,11 +26,11 @@ export function PrivacyPage({ navigate: _navigate }: Props) {
 
         <h2>What data we collect</h2>
         <ul>
-          <li><strong>Email address</strong> — when you subscribe to our newsletter.</li>
-          <li><strong>Account information</strong> — name and email when you create an account.</li>
-          <li><strong>Payment information</strong> — handled entirely by Stripe. We never see or store your card details.</li>
-          <li><strong>Usage data</strong> — anonymous analytics about which pages are visited, to improve our content.</li>
-          <li><strong>Location data</strong> — your country or region, when you tell us where you are joining from.</li>
+          <li><strong>Email address</strong>: when you subscribe to our newsletter.</li>
+          <li><strong>Account information</strong>: name and email when you create an account.</li>
+          <li><strong>Payment information</strong>: handled entirely by Stripe. We never see or store your card details.</li>
+          <li><strong>Usage data</strong>: anonymous analytics about which pages are visited, to improve our content.</li>
+          <li><strong>Location data</strong>: your country or region, when you tell us where you are joining from.</li>
         </ul>
 
         <h2>How we use your data</h2>

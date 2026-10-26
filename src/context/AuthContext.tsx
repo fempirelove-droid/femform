@@ -15,6 +15,8 @@ export type AuthState = {
   session: Session | null;
   loading: boolean;
   tier: MembershipTier;
+  communityAccess: boolean;
+  canUseCommunity: boolean;
   refreshProfile: () => Promise<void>;
   signInWithMagicLink: (email: string) => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
@@ -27,6 +29,7 @@ function useAuthLocal(): AuthState {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [tier, setTier] = useState<MembershipTier>('free');
+  const [communityAccess, setCommunityAccess] = useState(false);
 
   const refreshProfile = useCallback(async () => {
     const {
@@ -34,14 +37,18 @@ function useAuthLocal(): AuthState {
     } = await supabase.auth.getUser();
     if (!current) {
       setTier('free');
+      setCommunityAccess(false);
       return;
     }
     const { data } = await supabase
       .from('profiles')
-      .select('tier')
+      .select('tier, community_access')
       .eq('id', current.id)
       .maybeSingle();
-    setTier((data?.tier as MembershipTier) || 'free');
+    const nextTier = (data?.tier as MembershipTier) || 'free';
+    const access = Boolean(data?.community_access);
+    setTier(nextTier);
+    setCommunityAccess(access);
   }, []);
 
   useEffect(() => {
@@ -80,13 +87,19 @@ function useAuthLocal(): AuthState {
   const signOut = async () => {
     await supabase.auth.signOut();
     setTier('free');
+    setCommunityAccess(false);
   };
+
+  const canUseCommunity =
+    tier === 'community' || tier === 'premium' || communityAccess;
 
   return {
     user,
     session,
     loading,
     tier,
+    communityAccess,
+    canUseCommunity,
     refreshProfile,
     signInWithMagicLink,
     signOut,

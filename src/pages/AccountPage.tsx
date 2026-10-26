@@ -104,6 +104,9 @@ export function AccountPage({ navigate }: Props) {
             Current tier: <span className="text-cream font-semibold">{tier}</span>
           </p>
           <div className="flex flex-wrap gap-2.5">
+            <Button size="small" variant="glass" onClick={() => navigate('/community')}>
+              Open community
+            </Button>
             {tier === 'free' && (
               <Button size="small" onClick={() => navigate('/membership')}>
                 Upgrade

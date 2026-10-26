@@ -32,6 +32,7 @@ export function Header({ onNavigate, current }: Props) {
 
   const navItems = [
     { label: 'Explore', route: '/explore' },
+    { label: 'Community', route: '/community' },
     { label: 'Webinars', route: '/webinars' },
     { label: 'Membership', route: '/membership' },
     { label: 'Coach', route: '/coach' },

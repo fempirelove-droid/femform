@@ -26,7 +26,7 @@ const tiers = [
     features: [
       'Everything in Free',
       'Every webinar replay',
-      'Founding member community (coming soon)',
+      'Closed community on Fempire.Love',
       'Monthly live Q&A',
     ],
     cta: 'Join Community',
@@ -80,7 +80,7 @@ const faqs = [
   },
   {
     q: 'Is the community live yet?',
-    a: 'Founding members join now and get every benefit that is ready. The closed community follows soon. You will be first through the door.',
+    a: 'Founding members join now and get the closed Circle on Fempire.Love, webinar replays, and first seats at live Q&A.',
     open: false,
   },
 ];
@@ -199,8 +199,7 @@ export function MembershipPage({ navigate }: Props) {
           ))}
         </div>
         <p data-reveal className="text-center text-[13px] text-soft-2 mt-8 max-w-[560px] mx-auto">
-          Founding members: the closed community launches soon. You join now for every benefit that
-          is ready, and you will be first when the door opens.
+          Founding members get the closed Circle built into Fempire.Love, not a third party app.
         </p>
       </div>
 

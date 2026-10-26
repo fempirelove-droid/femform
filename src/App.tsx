@@ -17,6 +17,7 @@ import { ContactPage } from '@/pages/ContactPage';
 import { WebinarsPage } from '@/pages/WebinarsPage';
 import { AccountPage } from '@/pages/AccountPage';
 import { ExplorePage } from '@/pages/ExplorePage';
+import { CommunityPage } from '@/pages/CommunityPage';
 import { useRouter } from '@/hooks/useRouter';
 import { useSEO } from '@/hooks/useSEO';
 import { trackPageView } from '@/lib/analytics';
@@ -24,6 +25,7 @@ import { trackPageView } from '@/lib/analytics';
 const STATIC_PAGES = new Set([
   '/',
   '/explore',
+  '/community',
   '/membership',
   '/vision',
   '/privacy',
@@ -67,6 +69,8 @@ function App() {
       switch (pathOnly) {
         case '/explore':
           return <ExplorePage navigate={navigate} />;
+        case '/community':
+          return <CommunityPage navigate={navigate} />;
         case '/membership':
           return <MembershipPage navigate={navigate} />;
         case '/vision':

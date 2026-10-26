@@ -52,7 +52,7 @@ const tiers = [
     name: 'Community',
     price: '$10',
     suffix: ' / mo',
-    features: ['Everything in Free', 'Webinar replays', 'Founding member community', 'Monthly live Q&A'],
+    features: ['Everything in Free', 'Webinar replays', 'Closed community on Fempire.Love', 'Monthly live Q&A'],
     cta: 'Join Community',
     premium: false,
   },
@@ -348,8 +348,8 @@ export function HomePage({ navigate }: Props) {
             ))}
           </div>
           <p data-reveal className="text-center text-[13px] text-soft-2 mt-6">
-            Founding members: the community launches soon. Join now and you'll be the first to walk
-            through the door.
+            Founding members get the closed Circle on Fempire.Love from day one, plus first seats at
+            live Q&amp;A.
           </p>
         </div>
       </section>

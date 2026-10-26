@@ -375,4 +375,99 @@
   .animate-float {
     animation: float-bob 5s ease-in-out infinite;
   }
+
+  /* Brand scene slow ken-burns */
+  @keyframes scene-ken {
+    0% {
+      transform: scale(1.05) translate(0, 0);
+    }
+    50% {
+      transform: scale(1.12) translate(-1.5%, -1%);
+    }
+    100% {
+      transform: scale(1.05) translate(0, 0);
+    }
+  }
+  .scene-ken {
+    animation: scene-ken 28s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  /* Topic motif micro-motions */
+  @keyframes motif-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.08);
+      opacity: 0.85;
+    }
+  }
+  @keyframes motif-orbit {
+    from {
+      transform: rotate(0deg);
+      transform-origin: 32px 32px;
+    }
+    to {
+      transform: rotate(360deg);
+      transform-origin: 32px 32px;
+    }
+  }
+  @keyframes motif-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+  @keyframes motif-blink {
+    0%,
+    92%,
+    100% {
+      opacity: 1;
+    }
+    96% {
+      opacity: 0.2;
+    }
+  }
+  @keyframes motif-draw {
+    0% {
+      stroke-dashoffset: 80;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  .topic-motif .motif-pulse {
+    transform-origin: center;
+    animation: motif-pulse 4.5s ease-in-out infinite;
+  }
+  .topic-motif .motif-orbit {
+    animation: motif-orbit 12s linear infinite;
+  }
+  .topic-motif .motif-float {
+    animation: motif-float 3.8s ease-in-out infinite;
+  }
+  .topic-motif .motif-blink {
+    animation: motif-blink 5s ease-in-out infinite;
+  }
+  .topic-motif .motif-draw {
+    stroke-dasharray: 80;
+    animation: motif-draw 2.4s ease forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene-ken,
+    .topic-motif .motif-pulse,
+    .topic-motif .motif-orbit,
+    .topic-motif .motif-float,
+    .topic-motif .motif-blink,
+    .topic-motif .motif-draw {
+      animation: none !important;
+    }
+  }
 }

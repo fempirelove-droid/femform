@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import { Clock, Lock } from 'lucide-react';
 import type { NavigateFn } from '@/types';
 import { fetchCategoryBySlug, fetchArticlesByCategory } from '@/lib/data';
+import { TOPIC_CATALOG } from '@/lib/catalog';
 import type { Category, Article } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
+import { ArticleCover, TopicMotif } from '@/components/visuals';
+import { MEDIA } from '@/lib/media';
 
 type Props = { navigate: NavigateFn; categorySlug: string };
 
@@ -16,6 +19,7 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
     title: category ? `${category.name} · Fempire.Love` : 'Loading… · Fempire.Love',
     description: category?.description,
     canonical: `/${categorySlug}`,
+    image: `https://fempire.love${MEDIA.bloomTexture}`,
   });
 
   useEffect(() => {
@@ -23,17 +27,23 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
     setLoading(true);
     fetchCategoryBySlug(categorySlug).then((cat) => {
       if (cancelled) return;
-      if (!cat) {
+      const resolved = cat || TOPIC_CATALOG.find((c) => c.slug === categorySlug) || null;
+      if (!resolved) {
         setLoading(false);
         return;
       }
-      setCategory(cat);
-      fetchArticlesByCategory(cat.id).then((arts) => {
-        if (!cancelled) {
-          setArticles(arts);
-          setLoading(false);
-        }
-      });
+      setCategory(resolved);
+      if (cat) {
+        fetchArticlesByCategory(cat.id).then((arts) => {
+          if (!cancelled) {
+            setArticles(arts);
+            setLoading(false);
+          }
+        });
+      } else {
+        setArticles([]);
+        setLoading(false);
+      }
     });
     return () => {
       cancelled = true;
@@ -61,23 +71,35 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
 
   return (
     <main>
-      <div className="pt-[50px] pb-8">
-        <div className="max-w-site mx-auto px-[22px]">
+      <div className="relative overflow-hidden pt-[50px] pb-10">
+        <div className="absolute inset-0 z-0 opacity-40" aria-hidden>
+          <img src={MEDIA.bloomTexture} alt="" className="w-full h-full object-cover scene-ken" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(36,16,25,0.7), rgba(36,16,25,0.95))',
+            }}
+          />
+        </div>
+        <div className="max-w-site mx-auto px-[22px] relative z-[1]">
           <div className="flex items-center gap-4 mb-5">
             <div
-              className="w-14 h-14 rounded-full flex-shrink-0"
+              className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center"
               style={{
                 background: category.orb_gradient,
                 boxShadow: `0 0 24px 2px ${category.glow_color}`,
               }}
-            />
+            >
+              <TopicMotif slug={category.slug} size={46} />
+            </div>
             <div>
               <h1 className="font-display font-bold text-[clamp(30px,5vw,44px)] leading-[1.05] tracking-tight">
                 {category.name}
               </h1>
             </div>
           </div>
-          <p className="text-soft text-[16px] max-w-[560px] leading-[1.7] mb-10">
+          <p className="text-soft text-[16px] max-w-[560px] leading-[1.7] mb-4">
             {category.description}
           </p>
         </div>
@@ -96,25 +118,34 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
               <a
                 key={article.id}
                 href={`/${category.slug}/${article.slug}`}
-                className="glass p-6 no-underline text-cream hover:-translate-y-1 transition-transform cursor-pointer block"
+                className="glass p-0 no-underline text-cream hover:-translate-y-1 transition-transform cursor-pointer block overflow-hidden"
                 onClick={(e) => {
                   e.preventDefault();
                   navigate(`/${category.slug}/${article.slug}`);
                 }}
               >
-                <h3 className="font-display font-bold text-[18px] mb-2 leading-[1.3]">
-                  {article.title}
-                </h3>
-                <p className="text-[13px] text-soft leading-[1.6] mb-3">{article.excerpt}</p>
-                <div className="flex gap-3 text-[12px] text-soft-2 items-center">
-                  <span className="inline-flex items-center gap-1">
-                    <Clock size={12} /> {article.reading_time_min} min
-                  </span>
-                  {!article.is_free && (
-                    <span className="inline-flex items-center gap-1 text-mustard-hi">
-                      <Lock size={12} /> Members
+                <ArticleCover
+                  slug={category.slug}
+                  coverImage={article.cover_image}
+                  title={article.title}
+                  compact
+                  className="rounded-none border-0"
+                />
+                <div className="p-6">
+                  <h3 className="font-display font-bold text-[18px] mb-2 leading-[1.3]">
+                    {article.title}
+                  </h3>
+                  <p className="text-[13px] text-soft leading-[1.6] mb-3">{article.excerpt}</p>
+                  <div className="flex gap-3 text-[12px] text-soft-2 items-center">
+                    <span className="inline-flex items-center gap-1">
+                      <Clock size={12} /> {article.reading_time_min} min
                     </span>
-                  )}
+                    {!article.is_free && (
+                      <span className="inline-flex items-center gap-1 text-mustard-hi">
+                        <Lock size={12} /> Members
+                      </span>
+                    )}
+                  </div>
                 </div>
               </a>
             ))}

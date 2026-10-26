@@ -4,10 +4,12 @@ import type { NavigateFn } from '@/types';
 import { fetchAllArticles, fetchCategories } from '@/lib/data';
 import { mergeTopics } from '@/lib/catalog';
 import { FREE_GUIDE_URL } from '@/lib/segments';
+import { MEDIA } from '@/lib/media';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import type { Article, Category } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
 import { Button, EyebrowChip, GlassPanel, SectionHeading } from '@/components/ui';
+import { ArticleCover, SceneBanner, TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 
 type Props = { navigate: NavigateFn };
@@ -19,6 +21,7 @@ const pathways = [
     cta: 'Latest reads',
     action: 'articles' as const,
     icon: BookOpen,
+    scene: MEDIA.bloomTexture,
   },
   {
     title: 'Live webinars',
@@ -26,6 +29,7 @@ const pathways = [
     cta: 'Browse webinars',
     route: '/webinars',
     icon: CalendarHeart,
+    scene: MEDIA.circleOrbs,
   },
   {
     title: 'Member community',
@@ -33,6 +37,7 @@ const pathways = [
     cta: 'Enter community',
     route: '/community',
     icon: HeartHandshake,
+    scene: MEDIA.circleOrbs,
   },
   {
     title: 'Free cycle diary',
@@ -40,6 +45,7 @@ const pathways = [
     cta: 'Open guide',
     href: FREE_GUIDE_URL,
     icon: Sparkles,
+    scene: MEDIA.bloomTexture,
   },
 ];
 
@@ -98,23 +104,30 @@ export function ExplorePage({ navigate }: Props) {
 
   return (
     <main ref={ref} className="reveal-ready">
-      <section className="max-w-site mx-auto px-[22px] pt-[60px] pb-10">
-        <EyebrowChip className="mb-5" data-reveal>
-          Explore
-        </EyebrowChip>
-        <h1
-          data-reveal
-          className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[740px] mb-4"
-        >
-          More than topics. A whole way in.
-        </h1>
-        <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[560px]">
-          Articles, live rooms, the member Circle, free tools, and eight theme doors. Start wherever
-          your body is asking.
-        </p>
-      </section>
+      <SceneBanner
+        src={MEDIA.circleOrbs}
+        alt="Soft circle of light suggesting a women’s gathering"
+        className="min-h-[42vh] flex items-end"
+        overlay="heavy"
+      >
+        <div className="max-w-site mx-auto px-[22px] pt-[80px] pb-12 w-full">
+          <EyebrowChip className="mb-5" data-reveal>
+            Explore
+          </EyebrowChip>
+          <h1
+            data-reveal
+            className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[740px] mb-4"
+          >
+            More than topics. A whole way in.
+          </h1>
+          <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[560px]">
+            Articles, live rooms, the member Circle, free tools, and eight theme doors. Start wherever
+            your body is asking.
+          </p>
+        </div>
+      </SceneBanner>
 
-      <section className="max-w-site mx-auto px-[22px] pb-16">
+      <section className="max-w-site mx-auto px-[22px] py-16">
         <div data-reveal>
           <SectionHeading
             eyebrow="Start here"
@@ -126,40 +139,58 @@ export function ExplorePage({ navigate }: Props) {
           {pathways.map((item) => {
             const Icon = item.icon;
             return (
-              <GlassPanel key={item.title} data-reveal className="p-6 sm:p-7 flex flex-col gap-3">
-                <span
-                  className="w-10 h-10 rounded-full flex items-center justify-center"
-                  style={{
-                    background: 'rgba(255,92,138,0.18)',
-                    border: '1px solid rgba(255,92,138,0.35)',
-                  }}
-                >
-                  <Icon size={18} className="text-bougain" />
-                </span>
-                <h3 className="font-display font-bold text-lg m-0">{item.title}</h3>
-                <p className="text-soft text-sm leading-[1.65] m-0 flex-1">{item.text}</p>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-glass small inline-flex items-center gap-2 no-underline w-fit"
-                  >
-                    {item.cta} <ArrowRight size={14} />
-                  </a>
-                ) : (
-                  <Button
-                    size="small"
-                    variant="glass"
-                    className="inline-flex items-center gap-2 w-fit"
-                    onClick={() => {
-                      if (item.action === 'articles') scrollToArticles();
-                      else if (item.route) navigate(item.route);
+              <GlassPanel key={item.title} data-reveal className="p-0 overflow-hidden flex flex-col">
+                <div className="relative h-[100px]">
+                  <img
+                    src={item.scene}
+                    alt=""
+                    aria-hidden
+                    className="absolute inset-0 w-full h-full object-cover scene-ken opacity-75"
+                    loading="lazy"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        'linear-gradient(180deg, rgba(36,16,25,0.2), rgba(36,16,25,0.85))',
+                    }}
+                  />
+                  <span
+                    className="absolute bottom-3 left-4 w-10 h-10 rounded-full flex items-center justify-center"
+                    style={{
+                      background: 'rgba(255,92,138,0.28)',
+                      border: '1px solid rgba(255,92,138,0.45)',
                     }}
                   >
-                    {item.cta} <ArrowRight size={14} />
-                  </Button>
-                )}
+                    <Icon size={18} className="text-bougain" />
+                  </span>
+                </div>
+                <div className="p-6 sm:p-7 flex flex-col gap-3 flex-1">
+                  <h3 className="font-display font-bold text-lg m-0">{item.title}</h3>
+                  <p className="text-soft text-sm leading-[1.65] m-0 flex-1">{item.text}</p>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-glass small inline-flex items-center gap-2 no-underline w-fit"
+                    >
+                      {item.cta} <ArrowRight size={14} />
+                    </a>
+                  ) : (
+                    <Button
+                      size="small"
+                      variant="glass"
+                      className="inline-flex items-center gap-2 w-fit"
+                      onClick={() => {
+                        if (item.action === 'articles') scrollToArticles();
+                        else if (item.route) navigate(item.route);
+                      }}
+                    >
+                      {item.cta} <ArrowRight size={14} />
+                    </Button>
+                  )}
+                </div>
               </GlassPanel>
             );
           })}
@@ -192,13 +223,14 @@ export function ExplorePage({ navigate }: Props) {
                 onClick={() => navigate(`/${theme.slug}`)}
               >
                 <div
-                  className="w-11 h-11 rounded-full mb-4"
+                  className="w-14 h-14 rounded-full mb-4 flex items-center justify-center"
                   style={{
                     background: theme.orb_gradient,
-                    filter: 'blur(0.3px)',
                     boxShadow: `0 0 24px 2px ${theme.glow_color}`,
                   }}
-                />
+                >
+                  <TopicMotif slug={theme.slug} size={40} />
+                </div>
                 <h2 className="font-display font-bold text-[17px] mb-2">{theme.name}</h2>
                 <p className="text-[13px] text-soft leading-[1.6] m-0">{theme.description}</p>
               </GlassPanel>
@@ -232,22 +264,33 @@ export function ExplorePage({ navigate }: Props) {
                 key={article.id}
                 data-reveal
                 href={`/${article.category?.slug}/${article.slug}`}
-                className="glass p-6 no-underline text-cream hover:-translate-y-1 transition-transform block"
+                className="glass p-0 no-underline text-cream hover:-translate-y-1 transition-transform block overflow-hidden"
                 onClick={(e) => {
                   e.preventDefault();
                   navigate(`/${article.category?.slug}/${article.slug}`);
                 }}
               >
-                <span
-                  className="text-[11px] font-bold uppercase tracking-[0.06em]"
-                  style={{ color: 'var(--bougain)' }}
-                >
-                  {article.category?.name || 'Article'}
-                </span>
-                <h3 className="font-display font-bold text-[18px] mt-2.5 mb-2 leading-[1.3]">
-                  {article.title}
-                </h3>
-                <p className="text-[13px] text-soft leading-[1.6] m-0 line-clamp-2">{article.excerpt}</p>
+                <ArticleCover
+                  slug={article.category?.slug}
+                  coverImage={article.cover_image}
+                  title={article.title}
+                  compact
+                  className="rounded-none border-0"
+                />
+                <div className="p-6 pt-4">
+                  <span
+                    className="text-[11px] font-bold uppercase tracking-[0.06em]"
+                    style={{ color: 'var(--bougain)' }}
+                  >
+                    {article.category?.name || 'Article'}
+                  </span>
+                  <h3 className="font-display font-bold text-[18px] mt-2.5 mb-2 leading-[1.3]">
+                    {article.title}
+                  </h3>
+                  <p className="text-[13px] text-soft leading-[1.6] m-0 line-clamp-2">
+                    {article.excerpt}
+                  </p>
+                </div>
               </a>
             ))}
           </div>

@@ -6,6 +6,8 @@ import type { Article } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
 import { useAuth } from '@/hooks/useAuth';
 import { Button, GlassPanel } from '@/components/ui';
+import { ArticleCover } from '@/components/visuals';
+import { coverForTopic } from '@/lib/media';
 
 type Props = { navigate: NavigateFn; slug: string };
 
@@ -18,9 +20,12 @@ export function ArticlePage({ navigate, slug }: Props) {
   const isMember = tier === 'community' || tier === 'premium';
 
   useSEO({
-    title: article ? `${article.title} Â· Fempire.Love` : 'Loadingï¿½ Â· Fempire.Love',
+    title: article ? `${article.title} · Fempire.Love` : 'Loading? · Fempire.Love',
     description: article?.excerpt,
     type: 'article',
+    image: article
+      ? article.cover_image?.trim() || `https://fempire.love${coverForTopic(article.category?.slug)}`
+      : undefined,
     canonical: article ? `/${article.category?.slug}/${article.slug}` : undefined,
     jsonLd: article
       ? [
@@ -77,7 +82,7 @@ export function ArticlePage({ navigate, slug }: Props) {
   if (loading) {
     return (
       <main className="min-h-[60vh] flex items-center justify-center">
-        <p className="text-soft text-sm">Loadingï¿½</p>
+        <p className="text-soft text-sm">Loading?</p>
       </main>
     );
   }
@@ -113,7 +118,7 @@ export function ArticlePage({ navigate, slug }: Props) {
         >
           Home
         </a>
-        {' ï¿½ '}
+        {' · '}
         <a
           href={`/${article.category?.slug}`}
           className="text-soft no-underline hover:text-cream cursor-pointer"
@@ -128,6 +133,12 @@ export function ArticlePage({ navigate, slug }: Props) {
 
       {/* Article hero */}
       <div className="max-w-[760px] mx-auto px-[22px] pt-[26px] pb-10">
+        <ArticleCover
+          slug={article.category?.slug}
+          coverImage={article.cover_image}
+          title={article.title}
+          className="mb-7"
+        />
         <span
           className="inline-block px-4 py-[7px] rounded-full text-xs font-bold mb-[18px]"
           style={{
@@ -170,7 +181,7 @@ export function ArticlePage({ navigate, slug }: Props) {
                 WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
               }}
               dangerouslySetInnerHTML={{
-                __html: article.body.slice(0, 480) + (article.body.length > 480 ? 'ï¿½' : ''),
+                __html: article.body.slice(0, 480) + (article.body.length > 480 ? '?' : ''),
               }}
             />
             <GlassPanel className="p-8 text-center mt-6">
@@ -233,7 +244,7 @@ export function ArticlePage({ navigate, slug }: Props) {
             <div className="mt-8 pt-6" style={{ borderTop: '1px solid var(--glass-b)' }}>
               <p className="text-[13px] text-soft-2">
                 <span className="text-cream font-semibold">{article.author_name}</span>
-                {article.author_bio ? ` ï¿½ ${article.author_bio}` : ''}
+                {article.author_bio ? ` · ${article.author_bio}` : ''}
               </p>
             </div>
           </>
@@ -251,20 +262,29 @@ export function ArticlePage({ navigate, slug }: Props) {
               <a
                 key={item.id}
                 href={`/${item.category?.slug}/${item.slug}`}
-                className="glass p-[22px] no-underline text-cream hover:-translate-y-1 transition-transform cursor-pointer block"
+                className="glass p-0 no-underline text-cream hover:-translate-y-1 transition-transform cursor-pointer block overflow-hidden"
                 onClick={(e) => {
                   e.preventDefault();
                   navigate(`/${item.category?.slug}/${item.slug}`);
                 }}
               >
-                <span
-                  className="text-[11px] font-bold uppercase tracking-[0.06em]"
-                  style={{ color: 'var(--bougain)' }}
-                >
-                  {item.category?.name}
-                </span>
-                <h4 className="font-display font-bold text-base mt-2.5 mb-1.5">{item.title}</h4>
-                <p className="text-[13px] text-soft-2 m-0">{item.reading_time_min} min read</p>
+                <ArticleCover
+                  slug={item.category?.slug}
+                  coverImage={item.cover_image}
+                  title={item.title}
+                  compact
+                  className="rounded-none border-0"
+                />
+                <div className="p-[18px]">
+                  <span
+                    className="text-[11px] font-bold uppercase tracking-[0.06em]"
+                    style={{ color: 'var(--bougain)' }}
+                  >
+                    {item.category?.name}
+                  </span>
+                  <h4 className="font-display font-bold text-base mt-2.5 mb-1.5">{item.title}</h4>
+                  <p className="text-[13px] text-soft-2 m-0">{item.reading_time_min} min read</p>
+                </div>
               </a>
             ))}
           </div>

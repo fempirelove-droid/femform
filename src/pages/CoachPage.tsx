@@ -3,6 +3,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { Button, EyebrowChip, GlassPanel } from '@/components/ui';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 import { CALENDLY_URL } from '@/lib/calendly';
+import { MEDIA } from '@/lib/media';
 
 type Props = { navigate: NavigateFn };
 
@@ -14,6 +15,7 @@ export function CoachPage({ navigate }: Props) {
     description:
       'Meet the coach behind Fempire.Love and With Love Academy: warm, practical guidance on hormones, the change, motherhood, and mental wellness.',
     canonical: '/coach',
+    image: `https://fempire.love${MEDIA.coachStill}`,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Person',
@@ -31,7 +33,7 @@ export function CoachPage({ navigate }: Props) {
   return (
     <main ref={ref} className="reveal-ready">
       <section className="max-w-site mx-auto px-[22px] pt-[60px] pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 items-start">
           <div>
             <EyebrowChip className="mb-5" data-reveal>
               With Love Academy
@@ -58,27 +60,29 @@ export function CoachPage({ navigate }: Props) {
             </div>
           </div>
 
-          <GlassPanel data-reveal className="p-8 relative overflow-hidden">
-            <div
-              className="absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-50"
-              style={{ background: 'var(--bougain)', filter: 'blur(48px)' }}
-            />
-            <div
-              className="w-full aspect-[4/5] rounded-2xl mb-5 flex items-end p-5 relative"
-              style={{
-                background:
-                  'linear-gradient(160deg, rgba(255,92,138,0.35), rgba(158,19,69,0.55) 55%, rgba(36,16,25,0.7))',
-                border: '1px solid var(--glass-b)',
-              }}
-            >
-              <div>
+          <GlassPanel data-reveal className="p-4 sm:p-5 relative overflow-hidden">
+            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5">
+              <img
+                src={MEDIA.coachStill}
+                alt="Warm coaching space: linen chair, bougainvillea, golden afternoon light"
+                className="absolute inset-0 w-full h-full object-cover scene-ken"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(180deg, transparent 45%, rgba(36,16,25,0.88) 100%)',
+                }}
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
                 <p className="font-display font-bold text-2xl m-0">Roeleke</p>
                 <p className="text-soft text-sm m-0 mt-1">Coach · With Love Academy</p>
               </div>
             </div>
-            <p className="text-soft text-[14.5px] leading-[1.7] m-0 relative">
-              Photo coming soon. Until then, her voice lives in every article, webinar, and Premium
-              coaching session, the expertise behind the platform&apos;s warmth.
+            <p className="text-soft text-[14.5px] leading-[1.7] m-0 px-1">
+              Her portrait arrives soon. Until then, this is the room her work lives in: soft light,
+              honest talk, and every article, webinar, and Premium session shaped by that same
+              warmth.
             </p>
           </GlassPanel>
         </div>

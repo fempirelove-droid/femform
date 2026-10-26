@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { Bloom } from '@/components/Bloom';
 import { Button, EyebrowChip, GlassPanel, SectionHeading } from '@/components/ui';
 import { NewsletterForm } from '@/components/NewsletterForm';
+import { ArticleCover, TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 import { Clock, Lock, ArrowRight } from 'lucide-react';
 import type { NavigateFn } from '@/types';
 import { fetchCategories, fetchAllArticles } from '@/lib/data';
+import { mergeTopics } from '@/lib/catalog';
+import { MEDIA } from '@/lib/media';
 import type { Category, Article } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -93,14 +96,30 @@ export function HomePage({ navigate }: Props) {
   });
 
   useEffect(() => {
-    fetchCategories().then(setCategories);
+    fetchCategories().then((c) => setCategories(mergeTopics(c)));
     fetchAllArticles().then(setArticles);
   }, []);
 
   return (
     <main>
-      <section className="min-h-[94vh] flex items-center pt-[110px] pb-16 relative">
-        <div className="max-w-site mx-auto px-[22px] w-full">
+      <section className="min-h-[94vh] flex items-center pt-[110px] pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 z-0" aria-hidden>
+          <img
+            src={MEDIA.heroDusk}
+            alt=""
+            className="w-full h-full object-cover scene-ken opacity-55"
+            fetchPriority="high"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(105deg, rgba(36,16,25,0.92) 0%, rgba(36,16,25,0.72) 42%, rgba(96,23,51,0.45) 100%)',
+            }}
+          />
+        </div>
+
+        <div className="max-w-site mx-auto px-[22px] w-full relative z-[1]">
           <div
             ref={heroRef}
             className="reveal-ready grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-11 items-center w-full"
@@ -157,17 +176,23 @@ export function HomePage({ navigate }: Props) {
                   <span className="text-xs text-soft-2">Real talk, from women who've been there too.</span>
                 </GlassPanel>
                 <GlassPanel
-                  className="absolute top-[120px] right-[60px] z-1 max-w-[220px] p-5 animate-float"
+                  className="absolute top-[120px] right-[60px] z-1 max-w-[220px] p-5 animate-float overflow-hidden"
                   style={{ transform: 'rotate(4deg)', animationDelay: '1s' }}
                 >
-                  <p className="font-display text-[14px] font-semibold m-0">$0 to start</p>
+                  <img
+                    src={MEDIA.bloomTexture}
+                    alt=""
+                    aria-hidden
+                    className="absolute inset-0 w-full h-full object-cover opacity-40"
+                  />
+                  <p className="font-display text-[14px] font-semibold m-0 relative">$0 to start</p>
                 </GlassPanel>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-[22px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[11px] text-soft-2 tracking-[0.08em] uppercase">
+        <div className="absolute bottom-[22px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[11px] text-soft-2 tracking-[0.08em] uppercase z-[1]">
           <span>Scroll</span>
           <span
             className="block w-px h-[34px]"
@@ -207,17 +232,34 @@ export function HomePage({ navigate }: Props) {
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {tracks.map((track, i) => (
-              <GlassPanel key={i} as="article" data-reveal className="relative overflow-hidden p-7">
-                <div
-                  className="absolute -top-10 -right-10 w-[120px] h-[120px] rounded-full opacity-55"
-                  style={{ background: track.glow, filter: 'blur(40px)' }}
-                />
-                <span className="block font-display font-bold text-[18px] mb-3 relative">{track.tag}</span>
-                <p className="text-sm leading-[1.7] text-soft m-0 relative mb-3">{track.text}</p>
-                <p className="text-[12.5px] leading-[1.6] text-soft-2 m-0 relative">{track.soft}</p>
-              </GlassPanel>
-            ))}
+            {tracks.map((track, i) => {
+              const scene =
+                i === 0 ? MEDIA.heroDusk : i === 1 ? MEDIA.circleOrbs : MEDIA.bloomTexture;
+              return (
+                <GlassPanel key={i} as="article" data-reveal className="relative overflow-hidden p-0">
+                  <div className="relative h-[120px] overflow-hidden">
+                    <img
+                      src={scene}
+                      alt=""
+                      aria-hidden
+                      className="absolute inset-0 w-full h-full object-cover scene-ken opacity-80"
+                      loading="lazy"
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(180deg, transparent, rgba(36,16,25,0.85)), radial-gradient(circle at 80% 20%, ${track.glow}, transparent 55%)`,
+                      }}
+                    />
+                  </div>
+                  <div className="p-7 pt-5">
+                    <span className="block font-display font-bold text-[18px] mb-3">{track.tag}</span>
+                    <p className="text-sm leading-[1.7] text-soft m-0 mb-3">{track.text}</p>
+                    <p className="text-[12.5px] leading-[1.6] text-soft-2 m-0">{track.soft}</p>
+                  </div>
+                </GlassPanel>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -243,13 +285,14 @@ export function HomePage({ navigate }: Props) {
                   onClick={() => navigate(`/${theme.slug}`)}
                 >
                   <div
-                    className="w-11 h-11 rounded-full mb-4"
+                    className="w-14 h-14 rounded-full mb-4 flex items-center justify-center"
                     style={{
                       background: theme.orb_gradient,
-                      filter: 'blur(0.3px)',
                       boxShadow: `0 0 24px 2px ${theme.glow_color}`,
                     }}
-                  />
+                  >
+                    <TopicMotif slug={theme.slug} size={40} />
+                  </div>
                   <h3 className="font-display font-bold text-[17px] mb-2">{theme.name}</h3>
                   <p className="text-[13px] text-soft leading-[1.6] m-0">{theme.description}</p>
                 </GlassPanel>
@@ -271,31 +314,42 @@ export function HomePage({ navigate }: Props) {
                   key={article.id}
                   data-reveal
                   href={`/${article.category?.slug}/${article.slug}`}
-                  className="glass p-6 no-underline text-cream hover:-translate-y-1 transition-transform cursor-pointer block"
+                  className="glass p-0 no-underline text-cream hover:-translate-y-1 transition-transform cursor-pointer block overflow-hidden"
                   onClick={(e) => {
                     e.preventDefault();
                     navigate(`/${article.category?.slug}/${article.slug}`);
                   }}
                 >
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-[0.06em]"
-                    style={{ color: 'var(--bougain)' }}
-                  >
-                    {article.category?.name}
-                  </span>
-                  <h3 className="font-display font-bold text-[18px] mt-2.5 mb-2 leading-[1.3]">
-                    {article.title}
-                  </h3>
-                  <p className="text-[13px] text-soft leading-[1.6] mb-3 line-clamp-2">{article.excerpt}</p>
-                  <div className="flex gap-3 text-[12px] text-soft-2 items-center">
-                    <span className="inline-flex items-center gap-1">
-                      <Clock size={12} /> {article.reading_time_min} min
+                  <ArticleCover
+                    slug={article.category?.slug}
+                    coverImage={article.cover_image}
+                    title={article.title}
+                    compact
+                    className="rounded-none border-0"
+                  />
+                  <div className="p-6 pt-4">
+                    <span
+                      className="text-[11px] font-bold uppercase tracking-[0.06em]"
+                      style={{ color: 'var(--bougain)' }}
+                    >
+                      {article.category?.name}
                     </span>
-                    {!article.is_free && (
-                      <span className="inline-flex items-center gap-1 text-mustard-hi">
-                        <Lock size={12} /> Members
+                    <h3 className="font-display font-bold text-[18px] mt-2.5 mb-2 leading-[1.3]">
+                      {article.title}
+                    </h3>
+                    <p className="text-[13px] text-soft leading-[1.6] mb-3 line-clamp-2">
+                      {article.excerpt}
+                    </p>
+                    <div className="flex gap-3 text-[12px] text-soft-2 items-center">
+                      <span className="inline-flex items-center gap-1">
+                        <Clock size={12} /> {article.reading_time_min} min
                       </span>
-                    )}
+                      {!article.is_free && (
+                        <span className="inline-flex items-center gap-1 text-mustard-hi">
+                          <Lock size={12} /> Members
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </a>
               ))}
@@ -376,22 +430,29 @@ export function HomePage({ navigate }: Props) {
         <div className="max-w-site mx-auto px-[22px]">
           <GlassPanel
             data-reveal
-            className="relative overflow-hidden p-[46px] sm:p-9"
+            className="relative overflow-hidden p-0"
             style={{
-              background: 'linear-gradient(115deg, #6E0D2E 0%, #F2789C 45%, #9E1345 60%, #6E0D2E 100%)',
               border: '1px solid var(--glass-b)',
               borderRadius: 'var(--r)',
               boxShadow: '0 10px 40px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.07)',
             }}
           >
-            <div
-              className="absolute inset-0 opacity-90"
-              style={{
-                background:
-                  'linear-gradient(115deg, #6E0D2E 0%, #F2789C 45%, #9E1345 60%, #6E0D2E 100%)',
-              }}
-            />
-            <div className="relative">
+            <div className="absolute inset-0" aria-hidden>
+              <img
+                src={MEDIA.heroDusk}
+                alt=""
+                className="w-full h-full object-cover scene-ken"
+                loading="lazy"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(115deg, rgba(110,13,46,0.88) 0%, rgba(242,120,156,0.55) 45%, rgba(158,19,69,0.82) 100%)',
+                }}
+              />
+            </div>
+            <div className="relative p-[46px] sm:p-9">
               <EyebrowChip className="mb-5">Why this matters</EyebrowChip>
               <blockquote className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35] text-cream">
                 Today you found a place that gets it. Tomorrow, that place grows into something you

@@ -5,7 +5,7 @@ export type NewsletterSegment =
 
 export const SEGMENT_OPTIONS: { value: NewsletterSegment; label: string }[] = [
   { value: 'curacao', label: 'Curaçao' },
-  { value: 'caribbean_suriname', label: 'Caribbean or Suriname' },
+  { value: 'caribbean_suriname', label: 'Wider Caribbean' },
   { value: 'diaspora_international', label: 'Elsewhere / diaspora' },
 ];
 

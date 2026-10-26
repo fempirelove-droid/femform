@@ -29,9 +29,9 @@ const tracks = [
     glow: 'var(--bougain)',
   },
   {
-    tag: 'Caribbean & Suriname',
-    text: 'Aruba, Bonaire, Trinidad, Jamaica, Barbados, Suriname. Everything here is for you, the full conversation, no matter where you call home.',
-    soft: 'Your journey stays fully digital, with a community that understands your region.',
+    tag: 'The wider Caribbean',
+    text: 'From the ABC islands to Jamaica, Trinidad, Barbados, Guyana, Suriname, Haiti, the Dominican Republic, and every shore in between. The full conversation, wherever home is in this region.',
+    soft: 'Your journey stays fully digital, with a community that understands the Caribbean.',
     glow: 'var(--mustard)',
   },
   {

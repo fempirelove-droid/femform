@@ -103,18 +103,26 @@ export function HomePage({ navigate }: Props) {
   return (
     <main>
       <section className="min-h-[94vh] flex items-center pt-[110px] pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 z-0" aria-hidden>
+        {/* Pull image up under the sticky header so the top strip is never bare mesh */}
+        <div
+          className="absolute inset-x-0 bottom-0 z-0 pointer-events-none"
+          style={{ top: '-5.5rem' }}
+          aria-hidden
+        >
           <img
             src={MEDIA.heroCoast}
             alt=""
-            className="w-full h-full object-cover scene-ken"
+            className="w-full h-full object-cover object-center scene-ken"
+            style={{ opacity: 0.62 }}
             fetchPriority="high"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(105deg, rgba(36,16,25,0.55) 0%, rgba(36,16,25,0.28) 48%, rgba(158,19,69,0.18) 100%)',
+                'linear-gradient(105deg, rgba(36,16,25,0.38) 0%, rgba(96,23,51,0.18) 45%, rgba(158,19,69,0.12) 100%)',
+              backdropFilter: 'blur(10px) saturate(130%)',
+              WebkitBackdropFilter: 'blur(10px) saturate(130%)',
             }}
           />
         </div>
@@ -176,16 +184,10 @@ export function HomePage({ navigate }: Props) {
                   <span className="text-xs text-soft-2">Real talk, from women who've been there too.</span>
                 </GlassPanel>
                 <GlassPanel
-                  className="absolute top-[120px] right-[60px] z-1 max-w-[220px] p-5 animate-float overflow-hidden"
+                  className="absolute top-[120px] right-[60px] z-1 max-w-[220px] p-5 animate-float"
                   style={{ transform: 'rotate(4deg)', animationDelay: '1s' }}
                 >
-                  <img
-                    src={MEDIA.bougainvillea}
-                    alt=""
-                    aria-hidden
-                    className="absolute inset-0 w-full h-full object-cover opacity-55"
-                  />
-                  <p className="font-display text-[14px] font-semibold m-0 relative">$0 to start</p>
+                  <p className="font-display text-[14px] font-semibold m-0">$0 to start</p>
                 </GlassPanel>
               </div>
             </div>

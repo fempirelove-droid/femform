@@ -3,6 +3,7 @@ import { MeshBackground } from '@/components/MeshBackground';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CookieConsent } from '@/components/CookieConsent';
+import { ConfigBanner } from '@/components/ConfigBanner';
 import { HomePage } from '@/pages/HomePage';
 import { MembershipPage } from '@/pages/MembershipPage';
 import { ArticlePage } from '@/pages/ArticlePage';
@@ -100,6 +101,7 @@ function App() {
 
   return (
     <>
+      <ConfigBanner />
       <MeshBackground />
       <Header onNavigate={navigate} current={pathOnly} />
       {renderPage()}

@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /$
+
+# AI crawlers welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://fempire.love/sitemap.xml

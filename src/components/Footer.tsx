@@ -23,7 +23,7 @@ export function Footer({ onNavigate }: Props) {
             <h4 className="font-display text-base mb-4">Explore</h4>
             <div className="flex flex-col gap-2.5">
               {[
-                { label: 'Topics', route: '/#explore' },
+                { label: 'Topics', route: '/explore' },
                 { label: 'Webinars', route: '/webinars' },
                 { label: 'Membership', route: '/membership' },
                 { label: 'Journey', route: '/journey' },

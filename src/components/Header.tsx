@@ -31,7 +31,7 @@ export function Header({ onNavigate, current }: Props) {
   };
 
   const navItems = [
-    { label: 'Explore', route: '/#explore' },
+    { label: 'Explore', route: '/explore' },
     { label: 'Webinars', route: '/webinars' },
     { label: 'Membership', route: '/membership' },
     { label: 'Journey', route: '/journey' },

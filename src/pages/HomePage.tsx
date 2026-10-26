@@ -124,7 +124,7 @@ export function HomePage({ navigate }: Props) {
               </p>
               <div data-reveal className="flex flex-wrap gap-3.5 mb-7">
                 <Button onClick={() => navigate('/membership')}>Start free</Button>
-                <Button variant="glass" onClick={() => navigate('/#explore')}>
+                <Button variant="glass" onClick={() => navigate('/explore')}>
                   Explore topics
                 </Button>
               </div>

@@ -17,11 +17,13 @@ import { ContactPage } from '@/pages/ContactPage';
 import { WebinarsPage } from '@/pages/WebinarsPage';
 import { JourneyPage } from '@/pages/JourneyPage';
 import { AccountPage } from '@/pages/AccountPage';
+import { ExplorePage } from '@/pages/ExplorePage';
 import { useRouter } from '@/hooks/useRouter';
 import { useSEO } from '@/hooks/useSEO';
 
 const STATIC_PAGES = new Set([
   '/',
+  '/explore',
   '/membership',
   '/vision',
   '/privacy',
@@ -63,6 +65,8 @@ function App() {
   const renderPage = () => {
     if (STATIC_PAGES.has(pathOnly)) {
       switch (pathOnly) {
+        case '/explore':
+          return <ExplorePage navigate={navigate} />;
         case '/membership':
           return <MembershipPage navigate={navigate} />;
         case '/vision':

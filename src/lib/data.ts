@@ -2,15 +2,20 @@ import { supabase } from './supabase';
 import type { Article, Category } from './types';
 
 export async function fetchCategories(): Promise<Category[]> {
-  const { data, error } = await supabase
-    .from('categories')
-    .select('*')
-    .order('sort_order');
-  if (error) {
-    console.error('fetchCategories error:', error);
+  try {
+    const { data, error } = await supabase
+      .from('categories')
+      .select('*')
+      .order('sort_order');
+    if (error) {
+      console.error('fetchCategories error:', error);
+      return [];
+    }
+    return (data as Category[]) || [];
+  } catch (e) {
+    console.error('fetchCategories failed:', e);
     return [];
   }
-  return (data as Category[]) || [];
 }
 
 export async function fetchCategoryBySlug(slug: string): Promise<Category | null> {

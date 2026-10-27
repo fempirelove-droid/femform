@@ -300,6 +300,57 @@ export function HomePage({ navigate }: Props) {
         </div>
       </section>
 
+      <section id="vision" ref={visionRef} className="reveal-ready py-20 scroll-mt-24">
+        <div className="max-w-site mx-auto px-[22px]">
+          <GlassPanel
+            data-reveal
+            className="relative overflow-hidden p-0"
+            style={{
+              border: '1px solid var(--glass-b)',
+              borderRadius: 'var(--r)',
+              boxShadow: '0 10px 40px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.07)',
+            }}
+          >
+            <div className="absolute inset-0" aria-hidden>
+              <img
+                src={MEDIA.willemstad}
+                alt=""
+                className="w-full h-full object-cover scene-ken"
+                style={{ opacity: 0.78 }}
+                loading="lazy"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(115deg, rgba(110,13,46,0.58) 0%, rgba(158,19,69,0.42) 45%, rgba(96,23,51,0.55) 100%)',
+                }}
+              />
+            </div>
+            <div className="relative p-[46px] sm:p-9">
+              <EyebrowChip className="mb-5">Why this matters</EyebrowChip>
+              <blockquote className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35] text-cream">
+                Today you found a place that gets it. Tomorrow, that place grows into something you
+                can walk into.
+              </blockquote>
+              <p className="text-cream/80 text-[14.5px] leading-[1.75] max-w-[560px] m-0 mb-6">
+                When you join Fempire.Love, you're not just reading articles. You're helping create a
+                real space on the island where women can come together. Part of every paid membership
+                opens the door for a woman who can't afford it, because no one should be left out of
+                this conversation.
+              </p>
+              <Button
+                variant="glass"
+                className="inline-flex items-center gap-2"
+                onClick={() => navigate('/vision')}
+              >
+                Read our vision <ArrowRight size={16} />
+              </Button>
+            </div>
+          </GlassPanel>
+        </div>
+      </section>
+
       {articles.length > 0 && (
         <section ref={articlesRef} className="reveal-ready py-20">
           <div className="max-w-site mx-auto px-[22px]">
@@ -420,57 +471,6 @@ export function HomePage({ navigate }: Props) {
               </p>
             </div>
             <NewsletterForm source="home" onNavigatePrivacy={() => navigate('/privacy')} />
-          </GlassPanel>
-        </div>
-      </section>
-
-      <section id="vision" ref={visionRef} className="reveal-ready py-20 scroll-mt-24">
-        <div className="max-w-site mx-auto px-[22px]">
-          <GlassPanel
-            data-reveal
-            className="relative overflow-hidden p-0"
-            style={{
-              border: '1px solid var(--glass-b)',
-              borderRadius: 'var(--r)',
-              boxShadow: '0 10px 40px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.07)',
-            }}
-          >
-            <div className="absolute inset-0" aria-hidden>
-              <img
-                src={MEDIA.willemstad}
-                alt=""
-                className="w-full h-full object-cover scene-ken"
-                style={{ opacity: 0.78 }}
-                loading="lazy"
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    'linear-gradient(115deg, rgba(110,13,46,0.58) 0%, rgba(158,19,69,0.42) 45%, rgba(96,23,51,0.55) 100%)',
-                }}
-              />
-            </div>
-            <div className="relative p-[46px] sm:p-9">
-              <EyebrowChip className="mb-5">Why this matters</EyebrowChip>
-              <blockquote className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35] text-cream">
-                Today you found a place that gets it. Tomorrow, that place grows into something you
-                can walk into.
-              </blockquote>
-              <p className="text-cream/80 text-[14.5px] leading-[1.75] max-w-[560px] m-0 mb-6">
-                When you join Fempire.Love, you're not just reading articles. You're helping create a
-                real space on the island where women can come together. Part of every paid membership
-                opens the door for a woman who can't afford it, because no one should be left out of
-                this conversation.
-              </p>
-              <Button
-                variant="glass"
-                className="inline-flex items-center gap-2"
-                onClick={() => navigate('/vision')}
-              >
-                Read our vision <ArrowRight size={16} />
-              </Button>
-            </div>
           </GlassPanel>
         </div>
       </section>

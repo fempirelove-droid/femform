@@ -440,14 +440,14 @@ export function HomePage({ navigate }: Props) {
                 src={MEDIA.willemstad}
                 alt=""
                 className="w-full h-full object-cover scene-ken"
-                style={{ opacity: 0.55 }}
+                style={{ opacity: 0.78 }}
                 loading="lazy"
               />
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(115deg, rgba(110,13,46,0.82) 0%, rgba(158,19,69,0.72) 42%, rgba(96,23,51,0.78) 100%)',
+                    'linear-gradient(115deg, rgba(110,13,46,0.58) 0%, rgba(158,19,69,0.42) 45%, rgba(96,23,51,0.55) 100%)',
                 }}
               />
             </div>

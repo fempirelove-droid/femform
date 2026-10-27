@@ -1,5 +1,5 @@
-ï»¿import { useEffect, useState } from 'react';
-import { ArrowRight, BookOpen, CalendarHeart, HeartHandshake, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowRight, BookOpen, CalendarHeart, Gift, HeartHandshake } from 'lucide-react';
 import type { NavigateFn } from '@/types';
 import { fetchAllArticles, fetchCategories } from '@/lib/data';
 import { mergeTopics } from '@/lib/catalog';
@@ -39,12 +39,15 @@ const pathways = [
     icon: HeartHandshake,
     scene: MEDIA.curacaoAerial,
   },
+];
+
+const careKit = [
   {
     title: 'Free cycle diary',
-    text: 'A printable guide to track mood, energy, sleep and symptoms.',
-    cta: 'Open guide',
+    text: 'A printable guide to track mood, energy, sleep and symptoms. Yours to keep, no signup wall.',
+    cta: 'Get the diary',
     href: FREE_GUIDE_URL,
-    icon: Sparkles,
+    icon: Gift,
     scene: MEDIA.heroCoast,
   },
 ];
@@ -57,9 +60,9 @@ export function ExplorePage({ navigate }: Props) {
   const ref = useAnimeReveal<HTMLElement>({ staggerMs: 50 });
 
   useSEO({
-    title: 'Explore ï¿½ Fempire.Love',
+    title: 'Explore · Fempire.Love',
     description:
-      'Explore topics, articles, webinars, community and free guides for women across Curaï¿½ao, the Caribbean and the diaspora.',
+      'Explore topics, articles, webinars, community and free care-kit gifts for women across Curaçao, the Caribbean and the diaspora.',
     canonical: '/explore',
   });
 
@@ -115,8 +118,8 @@ export function ExplorePage({ navigate }: Props) {
           More than topics. A whole way in.
         </h1>
         <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[560px]">
-          Articles, live rooms, the member Circle, free tools, and eight theme doors. Start wherever
-          your body is asking.
+          Articles, live rooms, the member Circle, a free care kit, and eight theme doors. Start
+          wherever your body is asking.
         </p>
       </section>
 
@@ -124,11 +127,11 @@ export function ExplorePage({ navigate }: Props) {
         <div data-reveal>
           <SectionHeading
             eyebrow="Start here"
-            title="Four doors, one home."
+            title="Three doors, one home."
             description="Pick the format that fits this moment."
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
           {pathways.map((item) => {
             const Icon = item.icon;
             return (
@@ -161,28 +164,73 @@ export function ExplorePage({ navigate }: Props) {
                 <div className="p-6 sm:p-7 flex flex-col gap-3 flex-1">
                   <h3 className="font-display font-bold text-lg m-0">{item.title}</h3>
                   <p className="text-soft text-sm leading-[1.65] m-0 flex-1">{item.text}</p>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-glass small inline-flex items-center gap-2 no-underline w-fit"
-                    >
-                      {item.cta} <ArrowRight size={14} />
-                    </a>
-                  ) : (
-                    <Button
-                      size="small"
-                      variant="glass"
-                      className="inline-flex items-center gap-2 w-fit"
-                      onClick={() => {
-                        if (item.action === 'articles') scrollToArticles();
-                        else if (item.route) navigate(item.route);
-                      }}
-                    >
-                      {item.cta} <ArrowRight size={14} />
-                    </Button>
-                  )}
+                  <Button
+                    size="small"
+                    variant="glass"
+                    className="inline-flex items-center gap-2 w-fit"
+                    onClick={() => {
+                      if (item.action === 'articles') scrollToArticles();
+                      else if (item.route) navigate(item.route);
+                    }}
+                  >
+                    {item.cta} <ArrowRight size={14} />
+                  </Button>
+                </div>
+              </GlassPanel>
+            );
+          })}
+        </div>
+      </section>
+
+      <section id="care-kit" className="max-w-site mx-auto px-[22px] pb-16 scroll-mt-28">
+        <div data-reveal>
+          <SectionHeading
+            eyebrow="Care kit"
+            title="Free gifts that stay with you."
+            description="Soft tools for real life. Take one home, no pressure."
+          />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          {careKit.map((item) => {
+            const Icon = item.icon;
+            return (
+              <GlassPanel key={item.title} data-reveal className="p-0 overflow-hidden flex flex-col sm:flex-row">
+                <div className="relative h-[140px] sm:h-auto sm:w-[42%] sm:min-h-[180px] shrink-0">
+                  <img
+                    src={item.scene}
+                    alt=""
+                    aria-hidden
+                    className="absolute inset-0 w-full h-full object-cover scene-ken"
+                    loading="lazy"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        'linear-gradient(180deg, rgba(36,16,25,0.05), rgba(36,16,25,0.4))',
+                    }}
+                  />
+                  <span
+                    className="absolute bottom-3 left-4 w-10 h-10 rounded-full flex items-center justify-center"
+                    style={{
+                      background: 'rgba(227,181,100,0.28)',
+                      border: '1px solid rgba(227,181,100,0.5)',
+                    }}
+                  >
+                    <Icon size={18} className="text-mustard-hi" />
+                  </span>
+                </div>
+                <div className="p-6 sm:p-7 flex flex-col gap-3 flex-1 justify-center">
+                  <h3 className="font-display font-bold text-lg m-0">{item.title}</h3>
+                  <p className="text-soft text-sm leading-[1.65] m-0 flex-1">{item.text}</p>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-glass small inline-flex items-center gap-2 no-underline w-fit"
+                  >
+                    {item.cta} <ArrowRight size={14} />
+                  </a>
                 </div>
               </GlassPanel>
             );
@@ -204,7 +252,7 @@ export function ExplorePage({ navigate }: Props) {
           </p>
         )}
         {loading && categories.length === 0 ? (
-          <p className="text-soft text-sm">Loading topicsï¿½</p>
+          <p className="text-soft text-sm">Loading topics?</p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
             {categories.map((theme) => (
@@ -313,4 +361,3 @@ export function ExplorePage({ navigate }: Props) {
     </main>
   );
 }
-

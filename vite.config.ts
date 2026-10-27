@@ -43,7 +43,15 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['robots.txt', 'sitemap.xml', 'og-default.jpg', 'apple-touch-icon.jpg', 'icons/icon-1024.jpg'],
+      includeAssets: [
+        'robots.txt',
+        'sitemap.xml',
+        'og-default.jpg',
+        'favicon.png',
+        'apple-touch-icon.png',
+        'brand/logo-mark.png',
+        'icons/icon-1024.jpg',
+      ],
       manifest: {
         name: 'Fempire.Love',
         short_name: 'Fempire',
@@ -57,15 +65,21 @@ export default defineConfig({
         lang: 'en',
         icons: [
           {
-            src: '/icons/icon-1024.jpg',
-            sizes: '1024x1024',
-            type: 'image/jpeg',
+            src: '/favicon.png',
+            sizes: '192x192',
+            type: 'image/png',
             purpose: 'any',
           },
           {
-            src: '/icons/icon-1024.jpg',
-            sizes: '1024x1024',
-            type: 'image/jpeg',
+            src: '/brand/logo-mark.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: '/brand/logo-mark.png',
+            sizes: '512x512',
+            type: 'image/png',
             purpose: 'maskable',
           },
         ],

@@ -8,7 +8,6 @@ import { MEDIA } from '@/lib/media';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import type { Article, Category } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
-import { Bloom } from '@/components/Bloom';
 import { Button, EyebrowChip, GlassPanel, SectionHeading, VoiceCard } from '@/components/ui';
 import { ArticleCover, TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
@@ -109,13 +108,7 @@ export function ExplorePage({ navigate }: Props) {
   return (
     <main ref={ref} className="reveal-ready">
       <section className="relative overflow-hidden pt-[72px] pb-14 text-center">
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-70"
-          aria-hidden
-        >
-          <Bloom className="w-full max-w-[520px]" />
-        </div>
-        <div className="page-hero-wash page-hero-wash--bloom" aria-hidden />
+        <div className="page-hero-wash" aria-hidden />
         <div className="relative z-[1] max-w-site mx-auto px-[22px]">
           <EyebrowChip className="mb-5" data-reveal>
             Explore
@@ -130,6 +123,13 @@ export function ExplorePage({ navigate }: Props) {
             Articles, live rooms, the member Circle, a free care kit, and eight theme doors. Start
             wherever your body is asking.
           </p>
+          <div data-reveal className="flex justify-center mt-8">
+            <VoiceCard
+              quote="Start wherever your body is asking. There is a door for that."
+              caption="Explore, not a maze."
+              tilt={-2}
+            />
+          </div>
         </div>
       </section>
 

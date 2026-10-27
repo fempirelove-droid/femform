@@ -208,15 +208,15 @@ export function HomePage({ navigate }: Props) {
                       alt=""
                       aria-hidden
                       className="absolute inset-0 w-full h-full object-cover object-center scene-ken"
-                      style={{ opacity: 0.93 }}
+                      style={{ opacity: 0.96 }}
                       loading="lazy"
                     />
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: `linear-gradient(180deg, rgba(251,242,237,0.08) 0%, rgba(251,242,237,0.03) 40%, rgba(36,16,25,0.28) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
-                        backdropFilter: 'blur(3px) saturate(110%)',
-                        WebkitBackdropFilter: 'blur(3px) saturate(110%)',
+                        background: `linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(251,242,237,0.08) 45%, rgba(251,242,237,0.12) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
+                        backdropFilter: 'blur(2px) saturate(108%)',
+                        WebkitBackdropFilter: 'blur(2px) saturate(108%)',
                       }}
                     />
                   </div>
@@ -286,17 +286,17 @@ export function HomePage({ navigate }: Props) {
                 src={MEDIA.natureSerenity}
                 alt=""
                 className="w-full h-full object-cover object-center scene-ken"
-                style={{ opacity: 0.95 }}
+                style={{ opacity: 0.97 }}
                 loading="lazy"
               />
-              {/* Light frost + transparency */}
+              {/* Soft white frost ? light veil, photo still clear */}
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(90deg, rgba(36,16,25,0.5) 0%, rgba(36,16,25,0.24) 40%, rgba(251,242,237,0.07) 72%, rgba(251,242,237,0.05) 100%)',
-                  backdropFilter: 'blur(3px) saturate(110%)',
-                  WebkitBackdropFilter: 'blur(3px) saturate(110%)',
+                    'linear-gradient(90deg, rgba(36,16,25,0.38) 0%, rgba(255,255,255,0.12) 38%, rgba(251,242,237,0.16) 70%, rgba(255,255,255,0.1) 100%)',
+                  backdropFilter: 'blur(2px) saturate(108%)',
+                  WebkitBackdropFilter: 'blur(2px) saturate(108%)',
                 }}
               />
             </div>

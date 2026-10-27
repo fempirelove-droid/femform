@@ -9,6 +9,7 @@ import {
   Users,
   X,
 } from 'lucide-react';
+import { LogoMark } from '@/components/LogoMark';
 import { settleIn } from '@/lib/motion';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -56,13 +57,17 @@ export function Header({ onNavigate, current }: Props) {
         <div className="site-header-glass glass flex max-w-site mx-auto items-center justify-between gap-3 rounded-full pl-5 pr-2.5 py-2.5 opacity-0">
           <a
             href="/"
-            className="font-display font-extrabold text-[20px] sm:text-[21px] text-cream no-underline shrink-0"
+            className="inline-flex items-center gap-2.5 font-display font-extrabold text-[20px] sm:text-[21px] text-cream no-underline shrink-0"
             onClick={(e) => {
               e.preventDefault();
               go('/');
             }}
+            aria-label="Fempire.Love home"
           >
-            Fempire<span className="grad-text">.Love</span>
+            <LogoMark size={36} />
+            <span>
+              Fempire<span className="grad-text">.Love</span>
+            </span>
           </a>
 
           <nav className="hidden lg:flex items-center gap-1" aria-label="Primary">
@@ -137,8 +142,11 @@ export function Header({ onNavigate, current }: Props) {
           }}
         >
           <div className="flex items-center justify-between px-5 pt-5 pb-4">
-            <span className="font-display font-extrabold text-[21px]">
-              Fempire<span className="grad-text">.Love</span>
+            <span className="inline-flex items-center gap-2.5 font-display font-extrabold text-[21px]">
+              <LogoMark size={36} />
+              <span>
+                Fempire<span className="grad-text">.Love</span>
+              </span>
             </span>
             <button
               type="button"

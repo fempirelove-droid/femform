@@ -65,6 +65,50 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.07);
   }
 
+  /* Top nav: frosty white, not see-through red mesh */
+  .site-header-glass.glass {
+    background:
+      linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(251, 242, 237, 0.82) 55%,
+        rgba(244, 198, 211, 0.55) 100%
+      );
+    -webkit-backdrop-filter: blur(24px) saturate(130%);
+    backdrop-filter: blur(24px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow:
+      0 12px 36px rgba(36, 16, 25, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .site-header-glass .header-brand,
+  .site-header-glass .header-link {
+    color: #3a1a26;
+  }
+
+  .site-header-glass .header-link:hover,
+  .site-header-glass .header-link.is-active {
+    color: #9e1345;
+  }
+
+  .site-header-glass .btn-glass {
+    color: #3a1a26;
+    background: rgba(255, 255, 255, 0.55);
+    border-color: rgba(158, 19, 69, 0.22);
+  }
+
+  .site-header-glass .btn-glass:hover {
+    background: rgba(255, 255, 255, 0.78);
+    color: #6e0d2e;
+  }
+
+  .site-header-glass .header-menu-btn {
+    background: rgba(255, 255, 255, 0.55) !important;
+    border-color: rgba(158, 19, 69, 0.22) !important;
+    color: #3a1a26;
+  }
+
   /* Lighter glass on mid-range mobile / slow Caribbean connections */
   @media (max-width: 640px) {
     .glass {

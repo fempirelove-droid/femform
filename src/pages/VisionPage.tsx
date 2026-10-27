@@ -1,7 +1,6 @@
 import type { NavigateFn } from '@/types';
 import { useSEO } from '@/hooks/useSEO';
 import { Button, EyebrowChip, GlassPanel } from '@/components/ui';
-import { SceneBanner } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 import { MEDIA } from '@/lib/media';
 
@@ -26,27 +25,16 @@ export function VisionPage({ navigate }: Props) {
   });
 
   return (
-    <main ref={ref} className="reveal-ready pb-20">
-      <SceneBanner
-        src={MEDIA.natureSerenity}
-        alt="Calm Curaçao shoreline, the serene island home this vision is building toward"
-        className="min-h-[38vh] flex items-end mb-10"
-        overlay="soft"
+    <main ref={ref} className="reveal-ready max-w-[720px] mx-auto px-[22px] pt-[60px] pb-20">
+      <EyebrowChip className="mb-5" data-reveal>
+        Our Vision
+      </EyebrowChip>
+      <h1
+        data-reveal
+        className="font-display font-bold text-[clamp(32px,6vw,52px)] leading-[1.05] tracking-tight mb-8"
       >
-        <div className="max-w-[720px] mx-auto px-[22px] pt-[70px] pb-10 w-full">
-          <EyebrowChip className="mb-5" data-reveal>
-            Our Vision
-          </EyebrowChip>
-          <h1
-            data-reveal
-            className="font-display font-bold text-[clamp(32px,6vw,52px)] leading-[1.05] tracking-tight"
-          >
-            Change or repeat. The choice is always yours.
-          </h1>
-        </div>
-      </SceneBanner>
-
-      <div className="max-w-[720px] mx-auto px-[22px]">
+        Change or repeat. The choice is always yours.
+      </h1>
 
       <div data-reveal className="text-soft text-[16.5px] leading-[1.85] article-body">
         <p>
@@ -101,20 +89,19 @@ export function VisionPage({ navigate }: Props) {
         </p>
       </div>
 
-        <GlassPanel data-reveal className="p-8 text-center mt-10">
-          <h3 className="font-display font-bold text-[22px] mb-2.5">Join the Circle</h3>
-          <p className="text-soft text-[14.5px] mb-[22px] max-w-[440px] mx-auto">
-            Start free. Read, learn, and become part of a community that gets it, and helps open doors
-            on the island.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Button onClick={() => navigate('/membership')}>Start free</Button>
-            <Button variant="glass" onClick={() => navigate('/coach')}>
-              Meet the coach
-            </Button>
-          </div>
-        </GlassPanel>
-      </div>
+      <GlassPanel data-reveal className="p-8 text-center mt-10">
+        <h3 className="font-display font-bold text-[22px] mb-2.5">Join the Circle</h3>
+        <p className="text-soft text-[14.5px] mb-[22px] max-w-[440px] mx-auto">
+          Start free. Read, learn, and become part of a community that gets it, and helps open doors
+          on the island.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <Button onClick={() => navigate('/membership')}>Start free</Button>
+          <Button variant="glass" onClick={() => navigate('/coach')}>
+            Meet the coach
+          </Button>
+        </div>
+      </GlassPanel>
     </main>
   );
 }

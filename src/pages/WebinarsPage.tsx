@@ -6,7 +6,6 @@ import { TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 import { useAuth } from '@/hooks/useAuth';
 import { startWebinarCheckout } from '@/lib/stripe';
-import { MEDIA } from '@/lib/media';
 
 type Props = { navigate: NavigateFn };
 
@@ -70,36 +69,20 @@ export function WebinarsPage({ navigate }: Props) {
 
   return (
     <main ref={ref} className="reveal-ready">
-      <section className="relative overflow-hidden pt-[60px] pb-12 text-center">
-        <div className="absolute inset-0 z-0" aria-hidden>
-          <img
-            src={MEDIA.curacaoSea}
-            alt=""
-            className="w-full h-full object-cover object-center scene-ken"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(36,16,25,0.28), rgba(36,16,25,0.62))',
-            }}
-          />
-        </div>
-        <div className="max-w-site mx-auto px-[22px] relative z-[1]">
-          <EyebrowChip className="mb-5" data-reveal>
-            Webinars
-          </EyebrowChip>
-          <h1
-            data-reveal
-            className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[700px] mx-auto mb-4"
-          >
-            Live rooms. Honest questions. Real answers.
-          </h1>
-          <p data-reveal className="text-soft text-[16.5px] max-w-[520px] mx-auto leading-[1.75]">
-            Members get access included. Guests can buy a single ticket for $20 to $35, a low pressure
-            way to meet the Circle.
-          </p>
-        </div>
+      <section className="max-w-site mx-auto px-[22px] pt-[60px] pb-10 text-center">
+        <EyebrowChip className="mb-5" data-reveal>
+          Webinars
+        </EyebrowChip>
+        <h1
+          data-reveal
+          className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[700px] mx-auto mb-4"
+        >
+          Live rooms. Honest questions. Real answers.
+        </h1>
+        <p data-reveal className="text-soft text-[16.5px] max-w-[520px] mx-auto leading-[1.75]">
+          Members get access included. Guests can buy a single ticket for $20 to $35, a low pressure
+          way to meet the Circle.
+        </p>
       </section>
 
       {error && (

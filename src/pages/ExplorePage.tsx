@@ -9,7 +9,7 @@ import { isSupabaseConfigured } from '@/lib/supabase';
 import type { Article, Category } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
 import { Button, EyebrowChip, GlassPanel, SectionHeading } from '@/components/ui';
-import { ArticleCover, SceneBanner, TopicMotif } from '@/components/visuals';
+import { ArticleCover, TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 
 type Props = { navigate: NavigateFn };
@@ -104,30 +104,23 @@ export function ExplorePage({ navigate }: Props) {
 
   return (
     <main ref={ref} className="reveal-ready">
-      <SceneBanner
-        src={MEDIA.heroCoast}
-        alt="Bright Curaçao coast with turquoise sea and bougainvillea"
-        className="min-h-[42vh] flex items-end"
-        overlay="soft"
-      >
-        <div className="max-w-site mx-auto px-[22px] pt-[80px] pb-12 w-full">
-          <EyebrowChip className="mb-5" data-reveal>
-            Explore
-          </EyebrowChip>
-          <h1
-            data-reveal
-            className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[740px] mb-4"
-          >
-            More than topics. A whole way in.
-          </h1>
-          <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[560px]">
-            Articles, live rooms, the member Circle, free tools, and eight theme doors. Start wherever
-            your body is asking.
-          </p>
-        </div>
-      </SceneBanner>
+      <section className="max-w-site mx-auto px-[22px] pt-[60px] pb-10">
+        <EyebrowChip className="mb-5" data-reveal>
+          Explore
+        </EyebrowChip>
+        <h1
+          data-reveal
+          className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[740px] mb-4"
+        >
+          More than topics. A whole way in.
+        </h1>
+        <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[560px]">
+          Articles, live rooms, the member Circle, free tools, and eight theme doors. Start wherever
+          your body is asking.
+        </p>
+      </section>
 
-      <section className="max-w-site mx-auto px-[22px] py-16">
+      <section className="max-w-site mx-auto px-[22px] pb-16">
         <div data-reveal>
           <SectionHeading
             eyebrow="Start here"

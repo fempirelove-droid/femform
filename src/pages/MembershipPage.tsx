@@ -131,7 +131,7 @@ export function MembershipPage({ navigate }: Props) {
 
   return (
     <main>
-      <div ref={heroRef} className="reveal-ready pt-[70px] pb-5 text-center">
+      <div ref={heroRef} className="reveal-ready pt-[60px] pb-5 text-center">
         <div className="max-w-site mx-auto px-[22px]">
           <EyebrowChip className="mb-5" data-reveal>
             Membership

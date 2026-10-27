@@ -71,38 +71,26 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
 
   return (
     <main>
-      <div className="relative overflow-hidden pt-[50px] pb-10">
-        <div className="absolute inset-0 z-0" aria-hidden>
-          <img src={MEDIA.bougainvillea} alt="" className="w-full h-full object-cover scene-ken" />
+      <div className="max-w-site mx-auto px-[22px] pt-[60px] pb-10">
+        <div className="flex items-center gap-4 mb-5">
           <div
-            className="absolute inset-0"
+            className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center"
             style={{
-              background:
-                'linear-gradient(180deg, rgba(36,16,25,0.35), rgba(36,16,25,0.72))',
+              background: category.orb_gradient,
+              boxShadow: `0 0 24px 2px ${category.glow_color}`,
             }}
-          />
-        </div>
-        <div className="max-w-site mx-auto px-[22px] relative z-[1]">
-          <div className="flex items-center gap-4 mb-5">
-            <div
-              className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center"
-              style={{
-                background: category.orb_gradient,
-                boxShadow: `0 0 24px 2px ${category.glow_color}`,
-              }}
-            >
-              <TopicMotif slug={category.slug} size={46} />
-            </div>
-            <div>
-              <h1 className="font-display font-bold text-[clamp(30px,5vw,44px)] leading-[1.05] tracking-tight">
-                {category.name}
-              </h1>
-            </div>
+          >
+            <TopicMotif slug={category.slug} size={46} />
           </div>
-          <p className="text-soft text-[16px] max-w-[560px] leading-[1.7] mb-4">
-            {category.description}
-          </p>
+          <div>
+            <h1 className="font-display font-bold text-[clamp(30px,5vw,44px)] leading-[1.05] tracking-tight">
+              {category.name}
+            </h1>
+          </div>
         </div>
+        <p className="text-soft text-[16px] max-w-[560px] leading-[1.7] mb-4">
+          {category.description}
+        </p>
       </div>
 
       <div className="max-w-site mx-auto px-[22px] pb-20">

@@ -219,13 +219,15 @@ export function HomePage({ navigate }: Props) {
                       alt=""
                       aria-hidden
                       className="absolute inset-0 w-full h-full object-cover object-center scene-ken"
-                      style={{ opacity: 0.98 }}
+                      style={{ opacity: 0.9 }}
                       loading="lazy"
                     />
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: `linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 35%, rgba(36,16,25,0.28) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
+                        background: `linear-gradient(180deg, rgba(251,242,237,0.14) 0%, rgba(251,242,237,0.05) 40%, rgba(36,16,25,0.32) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
+                        backdropFilter: 'blur(4px) saturate(115%)',
+                        WebkitBackdropFilter: 'blur(4px) saturate(115%)',
                       }}
                     />
                   </div>
@@ -295,14 +297,17 @@ export function HomePage({ navigate }: Props) {
                 src={MEDIA.natureSerenity}
                 alt=""
                 className="w-full h-full object-cover object-center scene-ken"
+                style={{ opacity: 0.92 }}
                 loading="lazy"
               />
-              {/* Soft left vignette only — image stays sharp, no heavy frost wash */}
+              {/* Light frost + transparency ? shoreline still readable */}
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(90deg, rgba(36,16,25,0.55) 0%, rgba(36,16,25,0.28) 42%, rgba(36,16,25,0.08) 70%, transparent 100%)',
+                    'linear-gradient(90deg, rgba(36,16,25,0.52) 0%, rgba(36,16,25,0.26) 40%, rgba(251,242,237,0.12) 72%, rgba(251,242,237,0.08) 100%)',
+                  backdropFilter: 'blur(5px) saturate(115%)',
+                  WebkitBackdropFilter: 'blur(5px) saturate(115%)',
                 }}
               />
             </div>

@@ -232,7 +232,7 @@ export function HomePage({ navigate }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {tracks.map((track, i) => {
               const scene =
-                i === 0 ? MEDIA.heroCoast : i === 1 ? MEDIA.curacaoSea : MEDIA.bougainvillea;
+                i === 0 ? MEDIA.curacaoKenepa : i === 1 ? MEDIA.curacaoSea : MEDIA.bougainvillea;
               return (
                 <GlassPanel key={i} as="article" data-reveal className="relative overflow-hidden p-0">
                   <div className="relative h-[140px] overflow-hidden">

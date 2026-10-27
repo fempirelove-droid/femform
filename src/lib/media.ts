@@ -5,19 +5,21 @@
  * Credits: see public/media/CREDITS.txt
  */
 export const MEDIA = {
-  /** Real Kenepa / Knip coast, Curaçao */
-  heroCoast: '/media/curacao-kenepa.jpg',
+  /** Home hero: coast with pink flowers (do not swap without asking) */
+  heroCoast: '/media/hero-curacao-coast.jpg',
   /** Soft nature serenity for vision / Why this matters */
   natureSerenity: '/media/nature-serenity.jpg',
   /** Turquoise Curaçao water, nature, no cityscape */
   curacaoSea: '/media/curacao-turquoise.jpg',
   /** Aerial Knip / Kenepa for island mood */
   curacaoAerial: '/media/curacao-knip-aerial.jpg',
+  /** Real Kenepa beach when we need island nature (not hero) */
+  curacaoKenepa: '/media/curacao-kenepa.jpg',
   bougainvillea: '/media/scene-bougainvillea.jpg',
   coachRoom: '/media/coach-room-light.jpg',
   circleLight: '/media/circle-light.jpg',
   /** Aliases */
-  heroDusk: '/media/curacao-kenepa.jpg',
+  heroDusk: '/media/hero-curacao-coast.jpg',
   coachStill: '/media/coach-room-light.jpg',
   circleOrbs: '/media/circle-light.jpg',
   bloomTexture: '/media/scene-bougainvillea.jpg',
@@ -50,7 +52,7 @@ export function coverForTopic(slug?: string | null): string {
       return MEDIA.curacaoAerial;
     case 'tech-for-women':
     case 'did-you-know':
-      return MEDIA.heroCoast;
+      return MEDIA.curacaoKenepa;
     default:
       return MEDIA.bougainvillea;
   }

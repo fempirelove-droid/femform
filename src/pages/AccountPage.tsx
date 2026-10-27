@@ -17,7 +17,7 @@ export function AccountPage({ navigate }: Props) {
   const [busy, setBusy] = useState(false);
 
   useSEO({
-    title: 'Account Â· Fempire.Love',
+    title: 'Account · Fempire.Love',
     description: 'Sign in to Fempire.Love with a magic link. Manage membership and coaching.',
     canonical: '/account',
   });
@@ -39,12 +39,12 @@ export function AccountPage({ navigate }: Props) {
     else setSent(true);
   };
 
-  const next = new URLSearchParams(window.location.search).get('next') || '/membership';
+  const next = new URLSearchParams(window.location.search).get('next') || '/community';
 
   if (loading) {
     return (
       <main className="min-h-[50vh] flex items-center justify-center">
-        <p className="text-soft text-sm">Loadingâ€¦</p>
+        <p className="text-soft text-sm">Loading…</p>
       </main>
     );
   }
@@ -88,7 +88,7 @@ export function AccountPage({ navigate }: Props) {
                   </p>
                 )}
                 <Button type="submit" disabled={busy}>
-                  {busy ? 'Sendingâ€¦' : 'Email me a magic link'}
+                  {busy ? 'Sending…' : 'Email me a magic link'}
                 </Button>
               </form>
             )}
@@ -117,7 +117,7 @@ export function AccountPage({ navigate }: Props) {
               Open community
             </Button>
             {tier === 'free' && (
-              <Button size="small" onClick={() => navigate('/membership')}>
+              <Button size="small" onClick={() => navigate('/community#join')}>
                 Upgrade
               </Button>
             )}

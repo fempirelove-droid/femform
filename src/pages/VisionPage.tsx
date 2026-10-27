@@ -10,9 +10,9 @@ export function VisionPage({ navigate }: Props) {
   const ref = useAnimeReveal<HTMLElement>({ staggerMs: 70, y: 16 });
 
   useSEO({
-    title: 'Our Vision Â· Fempire.Love',
+    title: 'Our Vision · Fempire.Love',
     description:
-      'Fempire.Love is the digital first voice of the Vrouwencentrum CuraÃ§ao, a warm home for women across the Caribbean and the diaspora.',
+      'Fempire.Love is the digital first voice of the Vrouwencentrum Curaçao, a warm home for women across the Caribbean and the diaspora.',
     canonical: '/vision',
     image: `https://fempire.love${MEDIA.natureSerenity}`,
     jsonLd: {
@@ -47,7 +47,7 @@ export function VisionPage({ navigate }: Props) {
         <h2>The first voice of the Vrouwencentrum</h2>
         <p>
           This platform starts as a standalone digital home. It is also the first voice of the
-          Women&apos;s Center CuraÃ§ao, the medium that builds community before the physical doors
+          Women&apos;s Center Curaçao, the medium that builds community before the physical doors
           open. Who knows the platform knows the vision. Who knows the vision will walk inside when
           the time comes.
         </p>
@@ -74,7 +74,7 @@ export function VisionPage({ navigate }: Props) {
         <h2>The bridge to something real</h2>
         <p>
           Today, Fempire.Love is a digital home. Part of every paid membership opens the door for a
-          woman on CuraÃ§ao who cannot afford it. Over time, this platform builds toward a physical
+          woman on Curaçao who cannot afford it. Over time, this platform builds toward a physical
           space: a women&apos;s center on the island where women can come together, learn, rest, and
           heal. The platform builds the community. The center gives her a home.
         </p>
@@ -96,7 +96,7 @@ export function VisionPage({ navigate }: Props) {
           on the island.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
-          <Button onClick={() => navigate('/membership')}>Start free</Button>
+          <Button onClick={() => navigate('/community#join')}>Start free</Button>
           <Button variant="glass" onClick={() => navigate('/coach')}>
             Meet the coach
           </Button>

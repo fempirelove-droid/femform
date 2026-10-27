@@ -9,6 +9,7 @@ import type { NavigateFn } from '@/types';
 import { fetchCategories, fetchAllArticles } from '@/lib/data';
 import { mergeTopics } from '@/lib/catalog';
 import { MEDIA } from '@/lib/media';
+import { MEMBERSHIP_TIERS } from '@/lib/plans';
 import type { Category, Article } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -23,7 +24,7 @@ const forYouCards = [
 
 const tracks = [
   {
-    tag: 'CuraÃ§ao',
+    tag: 'Curaçao',
     text: 'Workshops, sessions at the salon, and soon, a space of your own on the island. This is where you can show up in person, not just on a screen.',
     soft: 'When you are ready, we will gently introduce you to the salon: an invitation, never a hard sell.',
     glow: 'var(--bougain)',
@@ -42,33 +43,6 @@ const tracks = [
   },
 ];
 
-const tiers = [
-  {
-    name: 'Free',
-    price: '$0',
-    suffix: '',
-    features: ['All free articles', 'Weekly newsletter', 'Public social content'],
-    cta: 'Join free',
-    premium: false,
-  },
-  {
-    name: 'Community',
-    price: '$10',
-    suffix: ' / mo',
-    features: ['Everything in Free', 'Webinar replays', 'Closed community on Fempire.Love', 'Monthly live Q&A'],
-    cta: 'Join Community',
-    premium: false,
-  },
-  {
-    name: 'Premium',
-    price: '$33',
-    suffix: ' / mo',
-    features: ['Everything above', 'One quarterly 1:1 coaching session', 'Priority webinar seats'],
-    cta: 'Go Premium',
-    premium: true,
-  },
-];
-
 export function HomePage({ navigate }: Props) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [articles, setArticles] = useState<Article[]>([]);
@@ -82,9 +56,9 @@ export function HomePage({ navigate }: Props) {
   const visionRef = useAnimeReveal<HTMLElement>({ y: 24 });
 
   useSEO({
-    title: 'Fempire.Love Â· A digital home for women of the Caribbean & beyond',
+    title: 'Fempire.Love · A digital home for women of the Caribbean & beyond',
     description:
-      'Fempire.Love is a warm, modern digital home for women across CuraÃ§ao, the Caribbean and the diaspora: hormones, the change, motherhood, mind and body, without judgement.',
+      'Fempire.Love is a warm, modern digital home for women across Curaçao, the Caribbean and the diaspora: hormones, the change, motherhood, mind and body, without judgement.',
     canonical: '/',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -146,7 +120,7 @@ export function HomePage({ navigate }: Props) {
                 never ask out loud.
               </p>
               <div data-reveal className="flex flex-wrap gap-3.5 mb-7">
-                <Button onClick={() => navigate('/membership')}>Start free</Button>
+                <Button onClick={() => navigate('/community#join')}>Start free</Button>
                 <Button variant="glass" onClick={() => navigate('/explore')}>
                   Explore topics
                 </Button>
@@ -276,7 +250,7 @@ export function HomePage({ navigate }: Props) {
             />
           </div>
           {categories.length === 0 ? (
-            <p className="text-soft text-sm">Loading topicsâ€¦</p>
+            <p className="text-soft text-sm">Loading topics…</p>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
               {categories.map((theme) => (
@@ -323,7 +297,7 @@ export function HomePage({ navigate }: Props) {
                 className="w-full h-full object-cover object-center scene-ken"
                 loading="lazy"
               />
-              {/* Soft left vignette only â€” image stays sharp, no heavy frost wash */}
+              {/* Soft left vignette only — image stays sharp, no heavy frost wash */}
               <div
                 className="absolute inset-0"
                 style={{
@@ -421,16 +395,16 @@ export function HomePage({ navigate }: Props) {
         </section>
       )}
 
-      <section id="membership" ref={tiersRef} className="reveal-ready py-20 scroll-mt-24">
+      <section id="join" ref={tiersRef} className="reveal-ready py-20 scroll-mt-24">
         <div className="max-w-site mx-auto px-[22px]">
           <div data-reveal>
             <SectionHeading
-              eyebrow="Membership"
+              eyebrow="The Circle"
               title="Free to start. Built to grow with you."
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.1fr] gap-[18px] md:items-end">
-            {tiers.map((tier) => (
+            {MEMBERSHIP_TIERS.map((tier) => (
               <GlassPanel
                 key={tier.name}
                 data-reveal
@@ -457,7 +431,7 @@ export function HomePage({ navigate }: Props) {
                 </ul>
                 <Button
                   variant={tier.premium ? 'primary' : 'glass'}
-                  onClick={() => navigate('/membership')}
+                  onClick={() => navigate('/community#join')}
                 >
                   {tier.cta}
                 </Button>
@@ -480,7 +454,7 @@ export function HomePage({ navigate }: Props) {
                 One warm letter. Tell us where you are.
               </h2>
               <p className="text-soft text-[15px] leading-[1.7] m-0">
-                That single answer (CuraÃ§ao, the wider Caribbean, or elsewhere) shapes how we
+                That single answer (Curaçao, the wider Caribbean, or elsewhere) shapes how we
                 meet you. Soft invitations for the island. A full digital home everywhere else.
               </p>
             </div>

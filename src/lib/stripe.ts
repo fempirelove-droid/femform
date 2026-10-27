@@ -38,7 +38,7 @@ export async function startCheckout(plan: PlanId) {
     mode: 'subscription',
     plan,
     successUrl: `${window.location.origin}/account?checkout=success`,
-    cancelUrl: `${window.location.origin}/membership?checkout=cancel`,
+    cancelUrl: `${window.location.origin}/community#join`,
   });
 }
 

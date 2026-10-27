@@ -26,7 +26,7 @@ export function Footer({ onNavigate }: Props) {
                 { label: 'Topics', route: '/explore' },
                 { label: 'Community', route: '/community' },
                 { label: 'Webinars', route: '/webinars' },
-                { label: 'Membership', route: '/membership' },
+                { label: 'Join the Circle', route: '/community' },
                 { label: 'Our Vision', route: '/vision' },
                 { label: 'Coach', route: '/coach' },
                 { label: 'Contact', route: '/contact' },

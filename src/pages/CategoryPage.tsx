@@ -16,7 +16,7 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
   const [loading, setLoading] = useState(true);
 
   useSEO({
-    title: category ? `${category.name} Â· Fempire.Love` : 'Loadingâ€¦ Â· Fempire.Love',
+    title: category ? `${category.name} · Fempire.Love` : 'Loading… · Fempire.Love',
     description: category?.description,
     canonical: `/${categorySlug}`,
     image: `https://fempire.love${MEDIA.bougainvillea}`,
@@ -53,7 +53,7 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
   if (loading) {
     return (
       <main className="min-h-[60vh] flex items-center justify-center">
-        <p className="text-soft text-sm">Loadingâ€¦</p>
+        <p className="text-soft text-sm">Loading…</p>
       </main>
     );
   }

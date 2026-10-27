@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+ï»¿import { useEffect, useState } from 'react';
 import { Lock, Clock, Calendar, ShieldCheck } from 'lucide-react';
 import type { NavigateFn } from '@/types';
 import { fetchArticleBySlug, fetchRelatedArticles } from '@/lib/data';
@@ -20,7 +20,7 @@ export function ArticlePage({ navigate, slug }: Props) {
   const isMember = tier === 'community' || tier === 'premium';
 
   useSEO({
-    title: article ? `${article.title} · Fempire.Love` : 'Loading? · Fempire.Love',
+    title: article ? `${article.title} ? Fempire.Love` : 'Loading? ? Fempire.Love',
     description: article?.excerpt,
     type: 'article',
     image: article
@@ -118,7 +118,7 @@ export function ArticlePage({ navigate, slug }: Props) {
         >
           Home
         </a>
-        {' · '}
+        {' ? '}
         <a
           href={`/${article.category?.slug}`}
           className="text-soft no-underline hover:text-cream cursor-pointer"
@@ -192,7 +192,7 @@ export function ArticlePage({ navigate, slug }: Props) {
                 Fempire.Love.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
-                <Button onClick={() => navigate('/membership')}>See membership</Button>
+                <Button onClick={() => navigate('/community#join')}>Join the Circle</Button>
                 <Button variant="glass" onClick={() => navigate('/account?next=/' + encodeURIComponent(`${article.category?.slug}/${article.slug}`))}>
                   Sign in
                 </Button>
@@ -244,7 +244,7 @@ export function ArticlePage({ navigate, slug }: Props) {
             <div className="mt-8 pt-6" style={{ borderTop: '1px solid var(--glass-b)' }}>
               <p className="text-[13px] text-soft-2">
                 <span className="text-cream font-semibold">{article.author_name}</span>
-                {article.author_bio ? ` · ${article.author_bio}` : ''}
+                {article.author_bio ? ` ? ${article.author_bio}` : ''}
               </p>
             </div>
           </>
@@ -293,3 +293,4 @@ export function ArticlePage({ navigate, slug }: Props) {
     </main>
   );
 }
+

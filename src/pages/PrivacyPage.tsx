@@ -5,7 +5,7 @@ type Props = { navigate: NavigateFn };
 
 export function PrivacyPage({ navigate: _navigate }: Props) {
   useSEO({
-    title: 'Privacy Policy Â· Fempire.Love',
+    title: 'Privacy Policy · Fempire.Love',
     description: 'How Fempire.Love collects, uses, and protects your personal data in line with GDPR.',
     canonical: '/privacy',
   });

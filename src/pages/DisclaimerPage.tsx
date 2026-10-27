@@ -5,7 +5,7 @@ type Props = { navigate: NavigateFn };
 
 export function DisclaimerPage({ navigate: _navigate }: Props) {
   useSEO({
-    title: 'Medical Disclaimer Â· Fempire.Love',
+    title: 'Medical Disclaimer · Fempire.Love',
     description: 'Fempire.Love provides educational content, not medical advice. Always consult a qualified healthcare provider.',
     canonical: '/disclaimer',
   });

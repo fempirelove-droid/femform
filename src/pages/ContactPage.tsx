@@ -18,7 +18,7 @@ export function ContactPage({ navigate }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   useSEO({
-    title: 'Contact Â· Fempire.Love',
+    title: 'Contact · Fempire.Love',
     description: 'Reach the Fempire.Love team: questions, partnerships, or a warm hello.',
     canonical: '/contact',
   });
@@ -94,7 +94,7 @@ export function ContactPage({ navigate }: Props) {
                 </p>
               )}
               <Button type="submit" disabled={busy}>
-                {busy ? 'Sendingâ€¦' : 'Send message'}
+                {busy ? 'Sending…' : 'Send message'}
               </Button>
             </form>
           )}

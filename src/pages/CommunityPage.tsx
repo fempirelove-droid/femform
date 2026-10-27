@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import type { NavigateFn } from '@/types';
 import { useSEO } from '@/hooks/useSEO';
 import { useAuth } from '@/hooks/useAuth';
-import { Bloom } from '@/components/Bloom';
+import { MembershipJoin } from '@/components/MembershipJoin';
 import { Button, EyebrowChip, GlassPanel } from '@/components/ui';
 import {
   createPost,
@@ -40,8 +40,12 @@ export function CommunityPage({ navigate }: Props) {
   const [busyReply, setBusyReply] = useState<string | null>(null);
 
   useSEO({
-    title: 'Community Â· Fempire.Love',
-    description: 'The closed Fempire.Love member circle: ask, share, and show up for each other.',
+    title: isMember
+      ? 'Community · Fempire.Love'
+      : 'Join the Circle · Fempire.Love',
+    description: isMember
+      ? 'The closed Fempire.Love member circle: ask, share, and show up for each other.'
+      : 'Start free, or join Community ($10/mo) or Premium ($33/mo). The closed Circle lives here.',
     canonical: '/community',
   });
 
@@ -129,60 +133,23 @@ export function CommunityPage({ navigate }: Props) {
   if (authLoading) {
     return (
       <main className="min-h-[50vh] flex items-center justify-center">
-        <p className="text-soft text-sm">Loadingâ€¦</p>
+        <p className="text-soft text-sm">Loading…</p>
       </main>
     );
   }
 
-  if (!user) {
+  if (!user || !isMember) {
     return (
-      <main className="relative overflow-hidden min-h-[70vh] flex items-center">
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-80"
-          aria-hidden
-        >
-          <Bloom className="w-full max-w-[520px]" />
-        </div>
-        <div className="relative z-[1] max-w-[560px] mx-auto px-[22px] pt-[60px] pb-20 text-center">
-          <EyebrowChip className="mb-5">Community</EyebrowChip>
-          <h1 className="font-display font-bold text-[clamp(32px,5vw,46px)] tracking-tight mb-4">
-            Sign in to enter the Circle
-          </h1>
-          <p className="text-soft text-[15.5px] leading-[1.7] mb-8">
-            The community is for Community and Premium members. Start free, then upgrade when you are
-            ready.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Button onClick={() => navigate('/account?next=/community')}>Sign in</Button>
-            <Button variant="glass" onClick={() => navigate('/membership')}>
-              See membership
+      <main>
+        <MembershipJoin navigate={navigate} context="community" />
+        {!user && (
+          <div className="max-w-site mx-auto px-[22px] pb-16 text-center">
+            <p className="text-soft text-sm m-0 mb-3">Already have a seat?</p>
+            <Button variant="glass" size="small" onClick={() => navigate('/account?next=/community')}>
+              Sign in
             </Button>
           </div>
-        </div>
-      </main>
-    );
-  }
-
-  if (!isMember) {
-    return (
-      <main className="relative overflow-hidden min-h-[70vh] flex items-center">
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-70"
-          aria-hidden
-        >
-          <Bloom className="w-full max-w-[480px]" />
-        </div>
-        <div className="relative z-[1] max-w-[560px] mx-auto px-[22px] pt-[60px] pb-20 text-center">
-          <EyebrowChip className="mb-5">Members only</EyebrowChip>
-          <h1 className="font-display font-bold text-[clamp(32px,5vw,46px)] tracking-tight mb-4">
-            Your seat is one upgrade away
-          </h1>
-          <p className="text-soft text-[15.5px] leading-[1.7] mb-8">
-            Community ($10 / mo) unlocks the closed Circle and live Q&amp;A. Premium adds quarterly
-            coaching too.
-          </p>
-          <Button onClick={() => navigate('/membership')}>Join Community</Button>
-        </div>
+        )}
       </main>
     );
   }
@@ -219,7 +186,7 @@ export function CommunityPage({ navigate }: Props) {
           />
           <div className="flex justify-end">
             <Button type="submit" size="small" disabled={posting}>
-              {posting ? 'Postingâ€¦' : 'Post'}
+              {posting ? 'Posting…' : 'Post'}
             </Button>
           </div>
         </form>
@@ -232,7 +199,7 @@ export function CommunityPage({ navigate }: Props) {
       )}
 
       {loading ? (
-        <p className="text-soft text-sm">Loading conversationsâ€¦</p>
+        <p className="text-soft text-sm">Loading conversations…</p>
       ) : posts.length === 0 ? (
         <GlassPanel className="p-8 text-center">
           <p className="text-soft m-0">
@@ -252,7 +219,7 @@ export function CommunityPage({ navigate }: Props) {
                   )}
                   <h3 className="font-display font-bold text-xl m-0 leading-[1.25]">{post.title}</h3>
                   <p className="text-[12.5px] text-soft-2 m-0 mt-1">
-                    {post.author_name} Â· {formatWhen(post.created_at)}
+                    {post.author_name} · {formatWhen(post.created_at)}
                   </p>
                 </div>
                 {user.id === post.author_id && (
@@ -281,7 +248,7 @@ export function CommunityPage({ navigate }: Props) {
                   {(replies[post.id] || []).map((r) => (
                     <div key={r.id} className="pl-3" style={{ borderLeft: '2px solid rgba(255,92,138,0.35)' }}>
                       <p className="text-[12px] text-soft-2 m-0 mb-1">
-                        {r.author_name} Â· {formatWhen(r.created_at)}
+                        {r.author_name} · {formatWhen(r.created_at)}
                       </p>
                       <p className="text-soft text-sm leading-[1.65] m-0 whitespace-pre-wrap">{r.body}</p>
                     </div>
@@ -292,7 +259,7 @@ export function CommunityPage({ navigate }: Props) {
                   <div className="flex flex-col sm:flex-row gap-2 mt-2">
                     <input
                       className="field-input flex-1"
-                      placeholder="Write a replyâ€¦"
+                      placeholder="Write a reply…"
                       value={replyDraft[post.id] || ''}
                       onChange={(e) =>
                         setReplyDraft((prev) => ({ ...prev, [post.id]: e.target.value }))
@@ -303,7 +270,7 @@ export function CommunityPage({ navigate }: Props) {
                       disabled={busyReply === post.id}
                       onClick={() => onReply(post.id)}
                     >
-                      {busyReply === post.id ? 'Sendingâ€¦' : 'Reply'}
+                      {busyReply === post.id ? 'Sending…' : 'Reply'}
                     </Button>
                   </div>
                 </div>

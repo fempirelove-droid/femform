@@ -5,7 +5,7 @@ type Props = { navigate: NavigateFn };
 
 export function TermsPage({ navigate: _navigate }: Props) {
   useSEO({
-    title: 'Terms & Conditions · Fempire.Love',
+    title: 'Terms & Conditions ? Fempire.Love',
     description: 'The terms and conditions for using Fempire.Love and its membership services.',
     canonical: '/terms',
   });

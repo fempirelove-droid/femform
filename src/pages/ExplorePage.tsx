@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { ArrowRight, BookOpen, CalendarHeart, HeartHandshake, Sparkles } from 'lucide-react';
 import type { NavigateFn } from '@/types';
 import { fetchAllArticles, fetchCategories } from '@/lib/data';
@@ -57,9 +57,9 @@ export function ExplorePage({ navigate }: Props) {
   const ref = useAnimeReveal<HTMLElement>({ staggerMs: 50 });
 
   useSEO({
-    title: 'Explore · Fempire.Love',
+    title: 'Explore � Fempire.Love',
     description:
-      'Explore topics, articles, webinars, community and free guides for women across Curaçao, the Caribbean and the diaspora.',
+      'Explore topics, articles, webinars, community and free guides for women across Cura�ao, the Caribbean and the diaspora.',
     canonical: '/explore',
   });
 
@@ -204,7 +204,7 @@ export function ExplorePage({ navigate }: Props) {
           </p>
         )}
         {loading && categories.length === 0 ? (
-          <p className="text-soft text-sm">Loading topics…</p>
+          <p className="text-soft text-sm">Loading topics�</p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
             {categories.map((theme) => (
@@ -246,7 +246,7 @@ export function ExplorePage({ navigate }: Props) {
               Articles will appear here as soon as the live library connects. Meanwhile open any
               theme above.
             </p>
-            <Button size="small" variant="glass" onClick={() => navigate('/membership')}>
+            <Button size="small" variant="glass" onClick={() => navigate('/community#join')}>
               Start free
             </Button>
           </GlassPanel>
@@ -303,7 +303,7 @@ export function ExplorePage({ navigate }: Props) {
             </p>
           </div>
           <div className="flex flex-wrap gap-2.5">
-            <Button onClick={() => navigate('/membership')}>See membership</Button>
+            <Button onClick={() => navigate('/community#join')}>Join the Circle</Button>
             <Button variant="glass" onClick={() => navigate('/coach')}>
               Meet the coach
             </Button>
@@ -313,3 +313,4 @@ export function ExplorePage({ navigate }: Props) {
     </main>
   );
 }
+

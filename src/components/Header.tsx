@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
   Compass,
-  HeartHandshake,
   Menu,
   Sparkles,
   Ticket,
@@ -22,7 +21,6 @@ const navItems = [
   { label: 'Explore', route: '/explore', Icon: Compass },
   { label: 'Community', route: '/community', Icon: Users },
   { label: 'Webinars', route: '/webinars', Icon: Ticket },
-  { label: 'Membership', route: '/membership', Icon: HeartHandshake },
   { label: 'Coach', route: '/coach', Icon: Sparkles },
 ] as const;
 
@@ -111,7 +109,7 @@ export function Header({ onNavigate, current }: Props) {
               <button
                 type="button"
                 className="btn-primary small hidden sm:inline-flex"
-                onClick={() => go('/membership')}
+                onClick={() => go('/community#join')}
               >
                 Start free
               </button>
@@ -220,7 +218,11 @@ export function Header({ onNavigate, current }: Props) {
             </div>
 
             {showStartFree && (
-              <button type="button" className="btn-primary mt-6 w-full" onClick={() => go('/membership')}>
+              <button
+                type="button"
+                className="btn-primary mt-6 w-full"
+                onClick={() => go('/community#join')}
+              >
                 Start free
               </button>
             )}

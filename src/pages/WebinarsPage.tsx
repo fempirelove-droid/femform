@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import type { NavigateFn } from '@/types';
 import { useSEO } from '@/hooks/useSEO';
 import { Button, EyebrowChip, GlassPanel, SectionHeading } from '@/components/ui';
@@ -14,7 +14,7 @@ const webinars = [
     id: 'boundaries-without-guilt',
     title: 'How do I set boundaries without guilt?',
     blurb: 'A live hour on the language of no: soft, clear, and rooted in Caribbean reality.',
-    dateLabel: 'Launch webinar · TBA',
+    dateLabel: 'Launch webinar � TBA',
     price: 25,
     tag: 'Mind & Wellness',
     topicSlug: 'mind-wellness',
@@ -23,7 +23,7 @@ const webinars = [
     id: 'first-signs-change',
     title: 'What are the first signs of perimenopause?',
     blurb: 'Practical signs, what to ask your doctor, and how Caribbean heat can change the story.',
-    dateLabel: 'Members Q&A · monthly',
+    dateLabel: 'Members Q&A � monthly',
     price: 20,
     tag: 'The Change',
     topicSlug: 'the-change',
@@ -32,7 +32,7 @@ const webinars = [
     id: 'hormones-week',
     title: 'Why do I feel so different every week of my cycle?',
     blurb: 'A clear map of your cycle in plain language, with no jargon, no shame.',
-    dateLabel: 'Guest session · TBA',
+    dateLabel: 'Guest session � TBA',
     price: 35,
     tag: 'Hormones & Cycle',
     topicSlug: 'hormones-cycle',
@@ -46,7 +46,7 @@ export function WebinarsPage({ navigate }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   useSEO({
-    title: 'Webinars · Fempire.Love',
+    title: 'Webinars � Fempire.Love',
     description:
       'Join live Fempire.Love webinars as a member or buy a single ticket for $20 to $35. Replays for Community and Premium.',
     canonical: '/webinars',
@@ -113,7 +113,7 @@ export function WebinarsPage({ navigate }: Props) {
                   disabled={busyId === w.id}
                   onClick={() => buyTicket(w.id, w.price)}
                 >
-                  {busyId === w.id ? 'Redirecting…' : 'Buy ticket'}
+                  {busyId === w.id ? 'Redirecting�' : 'Buy ticket'}
                 </Button>
               </div>
             </GlassPanel>
@@ -130,7 +130,7 @@ export function WebinarsPage({ navigate }: Props) {
               description="Community and Premium include webinar replays. Premium adds a quarterly coaching session."
             />
           </div>
-          <Button onClick={() => navigate('/membership')}>See membership</Button>
+          <Button onClick={() => navigate('/community#join')}>Join the Circle</Button>
         </GlassPanel>
         <p data-reveal className="text-center text-[13px] text-soft-2 mt-6">
           Replays sit behind the membership wall once the community is live. Founding members get
@@ -140,3 +140,4 @@ export function WebinarsPage({ navigate }: Props) {
     </main>
   );
 }
+

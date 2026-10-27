@@ -321,32 +321,33 @@ export function HomePage({ navigate }: Props) {
                 src={MEDIA.natureSerenity}
                 alt=""
                 className="w-full h-full object-cover object-center scene-ken"
-                style={{ opacity: 0.95 }}
                 loading="lazy"
               />
+              {/* Soft left vignette only — image stays sharp, no heavy frost wash */}
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(115deg, rgba(251,242,237,0.42) 0%, rgba(244,198,211,0.28) 40%, rgba(110,13,46,0.28) 100%)',
-                  backdropFilter: 'blur(8px) saturate(120%)',
-                  WebkitBackdropFilter: 'blur(8px) saturate(120%)',
+                    'linear-gradient(90deg, rgba(36,16,25,0.55) 0%, rgba(36,16,25,0.28) 42%, rgba(36,16,25,0.08) 70%, transparent 100%)',
                 }}
               />
             </div>
-            <div className="relative p-[46px] sm:p-9">
-              <EyebrowChip className="mb-5">Why this matters</EyebrowChip>
-              <blockquote
-                className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35]"
-                style={{ color: '#2a121c' }}
+            <div className="relative p-[46px] sm:p-9 max-w-[560px]">
+              <EyebrowChip
+                className="mb-5"
+                style={{
+                  background: 'rgba(96, 23, 51, 0.55)',
+                  border: '1px solid rgba(255, 158, 187, 0.35)',
+                  color: 'var(--blush)',
+                }}
               >
+                Why this matters
+              </EyebrowChip>
+              <blockquote className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35] text-cream">
                 Today you found a place that gets it. Tomorrow, that place grows into something you
                 can walk into.
               </blockquote>
-              <p
-                className="text-[14.5px] leading-[1.75] max-w-[560px] m-0 mb-6"
-                style={{ color: 'rgba(42,18,28,0.82)' }}
-              >
+              <p className="text-soft text-[14.5px] leading-[1.75] m-0 mb-6">
                 When you join Fempire.Love, you're not just reading articles. You're helping create a
                 real space on the island where women can come together. Part of every paid membership
                 opens the door for a woman who can't afford it, because no one should be left out of
@@ -355,7 +356,6 @@ export function HomePage({ navigate }: Props) {
               <Button
                 variant="glass"
                 className="inline-flex items-center gap-2"
-                style={{ color: '#2a121c', borderColor: 'rgba(42,18,28,0.28)' }}
                 onClick={() => navigate('/vision')}
               >
                 Read our vision <ArrowRight size={16} />

@@ -316,24 +316,26 @@ export function HomePage({ navigate }: Props) {
                 src={MEDIA.natureSerenity}
                 alt=""
                 className="w-full h-full object-cover object-center scene-ken"
-                style={{ opacity: 0.82 }}
+                style={{ opacity: 0.95 }}
                 loading="lazy"
               />
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(115deg, rgba(110,13,46,0.52) 0%, rgba(158,19,69,0.36) 45%, rgba(96,23,51,0.48) 100%)',
+                    'linear-gradient(115deg, rgba(251,242,237,0.42) 0%, rgba(244,198,211,0.28) 40%, rgba(110,13,46,0.28) 100%)',
+                  backdropFilter: 'blur(8px) saturate(120%)',
+                  WebkitBackdropFilter: 'blur(8px) saturate(120%)',
                 }}
               />
             </div>
             <div className="relative p-[46px] sm:p-9">
               <EyebrowChip className="mb-5">Why this matters</EyebrowChip>
-              <blockquote className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35] text-cream">
+              <blockquote className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35] text-cream drop-shadow-[0_1px_10px_rgba(36,16,25,0.45)]">
                 Today you found a place that gets it. Tomorrow, that place grows into something you
                 can walk into.
               </blockquote>
-              <p className="text-cream/80 text-[14.5px] leading-[1.75] max-w-[560px] m-0 mb-6">
+              <p className="text-cream text-[14.5px] leading-[1.75] max-w-[560px] m-0 mb-6 drop-shadow-[0_1px_8px_rgba(36,16,25,0.4)]">
                 When you join Fempire.Love, you're not just reading articles. You're helping create a
                 real space on the island where women can come together. Part of every paid membership
                 opens the door for a woman who can't afford it, because no one should be left out of

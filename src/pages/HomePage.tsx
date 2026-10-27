@@ -164,13 +164,6 @@ export function HomePage({ navigate }: Props) {
           </div>
         </div>
 
-        <div className="absolute bottom-[22px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[11px] text-soft-2 tracking-[0.08em] uppercase z-[1]">
-          <span>Scroll</span>
-          <span
-            className="block w-px h-[34px]"
-            style={{ background: 'linear-gradient(var(--soft-2), transparent)' }}
-          />
-        </div>
       </section>
 
       <section ref={forYouRef} className="reveal-ready py-20">

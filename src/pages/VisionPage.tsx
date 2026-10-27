@@ -1,6 +1,6 @@
 import type { NavigateFn } from '@/types';
 import { useSEO } from '@/hooks/useSEO';
-import { Button, EyebrowChip, GlassPanel, VoiceCard } from '@/components/ui';
+import { Button, EyebrowChip, GlassPanel } from '@/components/ui';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 import { MEDIA } from '@/lib/media';
 

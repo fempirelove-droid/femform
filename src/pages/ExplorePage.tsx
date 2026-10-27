@@ -8,7 +8,7 @@ import { MEDIA } from '@/lib/media';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import type { Article, Category } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
-import { Button, EyebrowChip, GlassPanel, SectionHeading } from '@/components/ui';
+import { Button, EyebrowChip, GlassPanel, SectionHeading, VoiceCard } from '@/components/ui';
 import { ArticleCover, TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 
@@ -190,7 +190,7 @@ export function ExplorePage({ navigate }: Props) {
             description="Soft tools for real life. Take one home, no pressure."
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-3.5 items-stretch">
           {careKit.map((item) => {
             const Icon = item.icon;
             return (
@@ -235,6 +235,13 @@ export function ExplorePage({ navigate }: Props) {
               </GlassPanel>
             );
           })}
+          <div data-reveal className="flex items-center justify-center lg:justify-start p-2">
+            <VoiceCard
+              quote="Keep this close. A small ritual for the nights you need an honest map."
+              caption="From the Care kit, with love."
+              tilt={2}
+            />
+          </div>
         </div>
       </section>
 

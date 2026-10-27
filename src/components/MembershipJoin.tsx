@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { NavigateFn } from '@/types';
 import { Bloom } from '@/components/Bloom';
-import { Button, EyebrowChip, GlassPanel, SectionHeading } from '@/components/ui';
+import { Button, EyebrowChip, GlassPanel, SectionHeading, VoiceCard } from '@/components/ui';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 import { useAuth } from '@/hooks/useAuth';
 import { MEMBERSHIP_COMPARE, MEMBERSHIP_FAQS, MEMBERSHIP_TIERS } from '@/lib/plans';
@@ -85,6 +85,13 @@ export function MembershipJoin({ navigate, context = 'community' }: Props) {
               </button>
             </p>
           )}
+          <div data-reveal className="flex justify-center mt-8">
+            <VoiceCard
+              quote="A seat where you do not have to explain yourself first."
+              caption="The Circle, for women who get it."
+              tilt={-2}
+            />
+          </div>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Bloom } from '@/components/Bloom';
-import { Button, EyebrowChip, GlassPanel, SectionHeading } from '@/components/ui';
+import { Button, EyebrowChip, GlassPanel, SectionHeading, VoiceCard } from '@/components/ui';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import { ArticleCover, TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
@@ -144,15 +144,11 @@ export function HomePage({ navigate }: Props) {
                 <Bloom className="w-full max-w-[460px]" />
               </div>
               <div className="relative z-1 min-h-[280px] sm:min-h-[340px]">
-                <GlassPanel
-                  className="absolute top-0 right-0 z-2 max-w-[320px] p-6 animate-float"
-                  style={{ transform: 'rotate(-3deg)' }}
-                >
-                  <p className="font-display font-semibold text-[19px] leading-[1.45] mb-2.5">
-                    "This is more than a feed. It feels like coming home to yourself."
-                  </p>
-                  <span className="text-xs text-soft-2">Real talk, from women who've been there too.</span>
-                </GlassPanel>
+                <VoiceCard
+                  className="absolute top-0 right-0 z-2"
+                  quote="This is more than a feed. It feels like coming home to yourself."
+                  caption="Real talk, from women who've been there too."
+                />
                 <GlassPanel
                   className="absolute top-[120px] right-[60px] z-1 max-w-[220px] p-5 animate-float"
                   style={{ transform: 'rotate(4deg)', animationDelay: '1s' }}
@@ -445,7 +441,7 @@ export function HomePage({ navigate }: Props) {
 
       <section className="py-16">
         <div className="max-w-site mx-auto px-[22px]">
-          <GlassPanel className="p-8 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <GlassPanel className="p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-[1fr_0.85fr_1fr] gap-8 items-center">
             <div>
               <EyebrowChip className="mb-4">Newsletter</EyebrowChip>
               <h2 className="font-display font-bold text-[clamp(26px,4vw,36px)] tracking-tight mb-3">
@@ -455,6 +451,13 @@ export function HomePage({ navigate }: Props) {
                 That single answer (Curaçao, the wider Caribbean, or elsewhere) shapes how we
                 meet you. Soft invitations for the island. A full digital home everywhere else.
               </p>
+            </div>
+            <div className="hidden lg:flex justify-center">
+              <VoiceCard
+                quote="A letter that still sounds like home."
+                caption="One soft note, where you are."
+                tilt={2}
+              />
             </div>
             <NewsletterForm source="home" onNavigatePrivacy={() => navigate('/privacy')} />
           </GlassPanel>

@@ -1,6 +1,6 @@
 import type { NavigateFn } from '@/types';
 import { useSEO } from '@/hooks/useSEO';
-import { Button, EyebrowChip, GlassPanel } from '@/components/ui';
+import { Button, EyebrowChip, GlassPanel, VoiceCard } from '@/components/ui';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 import { CALENDLY_URL } from '@/lib/calendly';
 import { MEDIA } from '@/lib/media';
@@ -60,31 +60,39 @@ export function CoachPage({ navigate }: Props) {
             </div>
           </div>
 
-          <GlassPanel data-reveal className="p-4 sm:p-5 relative overflow-hidden">
-            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5">
-              <img
-                src={MEDIA.coachRoom}
-                alt="Bright coaching room with Caribbean light, linen chair and bougainvillea by the window"
-                className="absolute inset-0 w-full h-full object-cover scene-ken"
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    'linear-gradient(180deg, transparent 55%, rgba(36,16,25,0.55) 100%)',
-                }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <p className="font-display font-bold text-2xl m-0">Roeleke</p>
-                <p className="text-soft text-sm m-0 mt-1">Coach · With Love Academy</p>
+          <div data-reveal className="relative">
+            <GlassPanel className="p-4 sm:p-5 relative overflow-hidden">
+              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5">
+                <img
+                  src={MEDIA.coachRoom}
+                  alt="Bright coaching room with Caribbean light, linen chair and bougainvillea by the window"
+                  className="absolute inset-0 w-full h-full object-cover scene-ken"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, transparent 55%, rgba(36,16,25,0.55) 100%)',
+                  }}
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="font-display font-bold text-2xl m-0">Roeleke</p>
+                  <p className="text-soft text-sm m-0 mt-1">Coach · With Love Academy</p>
+                </div>
               </div>
-            </div>
-            <p className="text-soft text-[14.5px] leading-[1.7] m-0 px-1">
-              Her portrait arrives soon. Until then, this is the room her work lives in: soft light,
-              honest talk, and every article, webinar, and Premium session shaped by that same
-              warmth.
-            </p>
-          </GlassPanel>
+              <p className="text-soft text-[14.5px] leading-[1.7] m-0 px-1">
+                Her portrait arrives soon. Until then, this is the room her work lives in: soft light,
+                honest talk, and every article, webinar, and Premium session shaped by that same
+                warmth.
+              </p>
+            </GlassPanel>
+            <VoiceCard
+              className="absolute -bottom-4 -left-2 sm:-left-6 z-[2] max-w-[260px]"
+              quote="Warm. Direct. Never clinical for the sake of sounding smart."
+              caption="The voice behind the Circle."
+              tilt={3}
+            />
+          </div>
         </div>
       </section>
 

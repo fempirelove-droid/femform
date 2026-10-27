@@ -15,6 +15,9 @@ export const MEDIA = {
   curacaoAerial: '/media/curacao-knip-aerial.jpg',
   /** Real Kenepa beach when we need island nature (not hero) */
   curacaoKenepa: '/media/curacao-kenepa.jpg',
+  /** Bright Caribbean paradise / peace (track cards) */
+  caribbeanParadise: '/media/caribbean-paradise.jpg',
+  caribbeanPeace: '/media/caribbean-peace.jpg',
   bougainvillea: '/media/scene-bougainvillea.jpg',
   coachRoom: '/media/coach-room-light.jpg',
   circleLight: '/media/circle-light.jpg',

@@ -232,21 +232,26 @@ export function HomePage({ navigate }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {tracks.map((track, i) => {
               const scene =
-                i === 0 ? MEDIA.curacaoKenepa : i === 1 ? MEDIA.curacaoSea : MEDIA.bougainvillea;
+                i === 0
+                  ? MEDIA.curacaoKenepa
+                  : i === 1
+                    ? MEDIA.caribbeanParadise
+                    : MEDIA.caribbeanPeace;
               return (
                 <GlassPanel key={i} as="article" data-reveal className="relative overflow-hidden p-0">
-                  <div className="relative h-[140px] overflow-hidden">
+                  <div className="relative h-[168px] overflow-hidden">
                     <img
                       src={scene}
                       alt=""
                       aria-hidden
-                      className="absolute inset-0 w-full h-full object-cover scene-ken"
+                      className="absolute inset-0 w-full h-full object-cover object-center scene-ken"
+                      style={{ opacity: 0.98 }}
                       loading="lazy"
                     />
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: `linear-gradient(180deg, transparent 20%, rgba(36,16,25,0.55)), radial-gradient(circle at 80% 20%, ${track.glow}, transparent 60%)`,
+                        background: `linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 35%, rgba(36,16,25,0.28) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
                       }}
                     />
                   </div>

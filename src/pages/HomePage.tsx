@@ -297,17 +297,17 @@ export function HomePage({ navigate }: Props) {
                 src={MEDIA.natureSerenity}
                 alt=""
                 className="w-full h-full object-cover object-center scene-ken"
-                style={{ opacity: 0.92 }}
+                style={{ opacity: 0.88 }}
                 loading="lazy"
               />
-              {/* Light frost + transparency ? shoreline still readable */}
+              {/* Light frost + transparency */}
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(90deg, rgba(36,16,25,0.52) 0%, rgba(36,16,25,0.26) 40%, rgba(251,242,237,0.12) 72%, rgba(251,242,237,0.08) 100%)',
-                  backdropFilter: 'blur(5px) saturate(115%)',
-                  WebkitBackdropFilter: 'blur(5px) saturate(115%)',
+                    'linear-gradient(90deg, rgba(36,16,25,0.5) 0%, rgba(36,16,25,0.24) 38%, rgba(251,242,237,0.18) 70%, rgba(251,242,237,0.14) 100%)',
+                  backdropFilter: 'blur(8px) saturate(118%)',
+                  WebkitBackdropFilter: 'blur(8px) saturate(118%)',
                 }}
               />
             </div>

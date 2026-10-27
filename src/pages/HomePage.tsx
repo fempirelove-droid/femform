@@ -214,9 +214,7 @@ export function HomePage({ navigate }: Props) {
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: `linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(251,242,237,0.08) 45%, rgba(251,242,237,0.12) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
-                        backdropFilter: 'blur(2px) saturate(108%)',
-                        WebkitBackdropFilter: 'blur(2px) saturate(108%)',
+                        background: `linear-gradient(180deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.14) 40%, rgba(251,242,237,0.18) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
                       }}
                     />
                   </div>

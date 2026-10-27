@@ -155,15 +155,21 @@ export function CommunityPage({ navigate }: Props) {
   }
 
   return (
-    <main className="max-w-site mx-auto px-[22px] pt-[50px] pb-20">
-      <EyebrowChip className="mb-5">Founding Circle</EyebrowChip>
-      <h1 className="font-display font-bold text-[clamp(32px,5vw,48px)] tracking-tight mb-3 max-w-[640px]">
-        Ask. Share. Show up for each other.
-      </h1>
-      <p className="text-soft text-[15.5px] leading-[1.7] max-w-[520px] mb-10">
-        This is our own member room on Fempire.Love. Warm, private, and built for the women in this
-        Circle. Monthly Q&amp;A threads will live here too.
-      </p>
+    <main className="pb-20">
+      <section className="relative overflow-hidden pt-[50px] pb-2 mb-8">
+        <div className="page-hero-wash" aria-hidden />
+        <div className="relative z-[1] max-w-site mx-auto px-[22px]">
+          <EyebrowChip className="mb-5">Founding Circle</EyebrowChip>
+          <h1 className="font-display font-bold text-[clamp(32px,5vw,48px)] tracking-tight mb-3 max-w-[640px]">
+            Ask. Share. Show up for each other.
+          </h1>
+          <p className="text-soft text-[15.5px] leading-[1.7] max-w-[520px] m-0">
+            This is our own member room on Fempire.Love. Warm, private, and built for the women in this
+            Circle. Monthly Q&amp;A threads will live here too.
+          </p>
+        </div>
+      </section>
+      <div className="max-w-site mx-auto px-[22px]">
 
       <GlassPanel className="p-6 sm:p-8 mb-8">
         <h2 className="font-display font-bold text-lg mb-4">Start a conversation</h2>
@@ -279,6 +285,7 @@ export function CommunityPage({ navigate }: Props) {
           ))}
         </div>
       )}
+      </div>
     </main>
   );
 }

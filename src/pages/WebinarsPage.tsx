@@ -69,20 +69,23 @@ export function WebinarsPage({ navigate }: Props) {
 
   return (
     <main ref={ref} className="reveal-ready">
-      <section className="max-w-site mx-auto px-[22px] pt-[60px] pb-10 text-center">
-        <EyebrowChip className="mb-5" data-reveal>
-          Webinars
-        </EyebrowChip>
-        <h1
-          data-reveal
-          className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[700px] mx-auto mb-4"
-        >
-          Live rooms. Honest questions. Real answers.
-        </h1>
-        <p data-reveal className="text-soft text-[16.5px] max-w-[520px] mx-auto leading-[1.75]">
-          Members get access included. Guests can buy a single ticket for $20 to $35, a low pressure
-          way to meet the Circle.
-        </p>
+      <section className="relative overflow-hidden pt-[60px] pb-10 text-center">
+        <div className="page-hero-wash" aria-hidden />
+        <div className="relative z-[1] max-w-site mx-auto px-[22px]">
+          <EyebrowChip className="mb-5" data-reveal>
+            Webinars
+          </EyebrowChip>
+          <h1
+            data-reveal
+            className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[700px] mx-auto mb-4"
+          >
+            Live rooms. Honest questions. Real answers.
+          </h1>
+          <p data-reveal className="text-soft text-[16.5px] max-w-[520px] mx-auto leading-[1.75]">
+            Members get access included. Guests can buy a single ticket for $20 to $35, a low pressure
+            way to meet the Circle.
+          </p>
+        </div>
       </section>
 
       {error && (

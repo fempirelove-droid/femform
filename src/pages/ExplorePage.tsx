@@ -107,20 +107,23 @@ export function ExplorePage({ navigate }: Props) {
 
   return (
     <main ref={ref} className="reveal-ready">
-      <section className="max-w-site mx-auto px-[22px] pt-[60px] pb-10">
-        <EyebrowChip className="mb-5" data-reveal>
-          Explore
-        </EyebrowChip>
-        <h1
-          data-reveal
-          className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[740px] mb-4"
-        >
-          More than topics. A whole way in.
-        </h1>
-        <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[560px]">
-          Articles, live rooms, the member Circle, a free care kit, and eight theme doors. Start
-          wherever your body is asking.
-        </p>
+      <section className="relative overflow-hidden pt-[60px] pb-10">
+        <div className="page-hero-wash" aria-hidden />
+        <div className="relative z-[1] max-w-site mx-auto px-[22px]">
+          <EyebrowChip className="mb-5" data-reveal>
+            Explore
+          </EyebrowChip>
+          <h1
+            data-reveal
+            className="font-display font-bold text-[clamp(34px,6vw,56px)] leading-[1.05] tracking-tight max-w-[740px] mb-4"
+          >
+            More than topics. A whole way in.
+          </h1>
+          <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[560px]">
+            Articles, live rooms, the member Circle, a free care kit, and eight theme doors. Start
+            wherever your body is asking.
+          </p>
+        </div>
       </section>
 
       <section className="max-w-site mx-auto px-[22px] pb-16">

@@ -64,7 +64,7 @@ export function Header({ onNavigate, current }: Props) {
             }}
             aria-label="Fempire.Love home"
           >
-            <LogoMark size={36} />
+            <LogoMark size={42} />
             <span>
               Fempire<span className="grad-text">.Love</span>
             </span>
@@ -143,7 +143,7 @@ export function Header({ onNavigate, current }: Props) {
         >
           <div className="flex items-center justify-between px-5 pt-5 pb-4">
             <span className="inline-flex items-center gap-2.5 font-display font-extrabold text-[21px]">
-              <LogoMark size={36} />
+              <LogoMark size={42} />
               <span>
                 Fempire<span className="grad-text">.Love</span>
               </span>

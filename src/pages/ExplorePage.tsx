@@ -8,7 +8,6 @@ import { MEDIA } from '@/lib/media';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import type { Article, Category } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
-import { Bloom } from '@/components/Bloom';
 import { Button, GlassPanel, SectionHeading, VoiceCard } from '@/components/ui';
 import { ArticleCover, TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
@@ -111,10 +110,7 @@ export function ExplorePage({ navigate }: Props) {
       <section className="relative overflow-hidden pt-[64px] pb-16">
         <div className="page-hero-wash" aria-hidden />
         <div className="relative z-[1] max-w-site mx-auto px-[22px]">
-          <div data-reveal className="relative mx-auto w-full max-w-[560px] min-h-[300px] sm:min-h-[340px]">
-            <div className="absolute -inset-12 sm:-inset-16 flex items-center justify-center z-0 pointer-events-none opacity-90">
-              <Bloom className="w-full max-w-[480px]" />
-            </div>
+          <div data-reveal className="relative mx-auto w-full max-w-[560px]">
             <VoiceCard
               className="relative z-[2] !max-w-none w-full p-8 sm:p-10 [&_p.font-display]:text-[clamp(22px,4vw,30px)] [&_p.font-display]:leading-[1.25]"
               tilt={-2.5}

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import type { NavigateFn } from '@/types';
 import { useSEO } from '@/hooks/useSEO';
 import { useAuth } from '@/hooks/useAuth';
+import { Bloom } from '@/components/Bloom';
 import { Button, EyebrowChip, GlassPanel } from '@/components/ui';
 import {
   createPost,
@@ -135,20 +136,28 @@ export function CommunityPage({ navigate }: Props) {
 
   if (!user) {
     return (
-      <main className="max-w-[560px] mx-auto px-[22px] pt-[60px] pb-20 text-center">
-        <EyebrowChip className="mb-5">Community</EyebrowChip>
-        <h1 className="font-display font-bold text-[clamp(32px,5vw,46px)] tracking-tight mb-4">
-          Sign in to enter the Circle
-        </h1>
-        <p className="text-soft text-[15.5px] leading-[1.7] mb-8">
-          The community is for Community and Premium members. Start free, then upgrade when you are
-          ready.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <Button onClick={() => navigate('/account?next=/community')}>Sign in</Button>
-          <Button variant="glass" onClick={() => navigate('/membership')}>
-            See membership
-          </Button>
+      <main className="relative overflow-hidden min-h-[70vh] flex items-center">
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-80"
+          aria-hidden
+        >
+          <Bloom className="w-full max-w-[520px]" />
+        </div>
+        <div className="relative z-[1] max-w-[560px] mx-auto px-[22px] pt-[60px] pb-20 text-center">
+          <EyebrowChip className="mb-5">Community</EyebrowChip>
+          <h1 className="font-display font-bold text-[clamp(32px,5vw,46px)] tracking-tight mb-4">
+            Sign in to enter the Circle
+          </h1>
+          <p className="text-soft text-[15.5px] leading-[1.7] mb-8">
+            The community is for Community and Premium members. Start free, then upgrade when you are
+            ready.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Button onClick={() => navigate('/account?next=/community')}>Sign in</Button>
+            <Button variant="glass" onClick={() => navigate('/membership')}>
+              See membership
+            </Button>
+          </div>
         </div>
       </main>
     );
@@ -156,16 +165,24 @@ export function CommunityPage({ navigate }: Props) {
 
   if (!isMember) {
     return (
-      <main className="max-w-[560px] mx-auto px-[22px] pt-[60px] pb-20 text-center">
-        <EyebrowChip className="mb-5">Members only</EyebrowChip>
-        <h1 className="font-display font-bold text-[clamp(32px,5vw,46px)] tracking-tight mb-4">
-          Your seat is one upgrade away
-        </h1>
-        <p className="text-soft text-[15.5px] leading-[1.7] mb-8">
-          Community ($10 / mo) unlocks the closed Circle and live Q&amp;A. Premium adds quarterly
-          coaching too.
-        </p>
-        <Button onClick={() => navigate('/membership')}>Join Community</Button>
+      <main className="relative overflow-hidden min-h-[70vh] flex items-center">
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-70"
+          aria-hidden
+        >
+          <Bloom className="w-full max-w-[480px]" />
+        </div>
+        <div className="relative z-[1] max-w-[560px] mx-auto px-[22px] pt-[60px] pb-20 text-center">
+          <EyebrowChip className="mb-5">Members only</EyebrowChip>
+          <h1 className="font-display font-bold text-[clamp(32px,5vw,46px)] tracking-tight mb-4">
+            Your seat is one upgrade away
+          </h1>
+          <p className="text-soft text-[15.5px] leading-[1.7] mb-8">
+            Community ($10 / mo) unlocks the closed Circle and live Q&amp;A. Premium adds quarterly
+            coaching too.
+          </p>
+          <Button onClick={() => navigate('/membership')}>Join Community</Button>
+        </div>
       </main>
     );
   }

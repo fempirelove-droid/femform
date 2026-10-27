@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { NavigateFn } from '@/types';
 import { useSEO } from '@/hooks/useSEO';
+import { Bloom } from '@/components/Bloom';
 import { Button, EyebrowChip, GlassPanel } from '@/components/ui';
 import { useAuth } from '@/hooks/useAuth';
 import { openCustomerPortal } from '@/lib/stripe';
@@ -50,41 +51,49 @@ export function AccountPage({ navigate }: Props) {
 
   if (!user) {
     return (
-      <main className="max-w-[480px] mx-auto px-[22px] pt-[70px] pb-20">
-        <EyebrowChip className="mb-5">Account</EyebrowChip>
-        <h1 className="font-display font-bold text-[clamp(30px,5vw,42px)] leading-[1.08] mb-3">
-          Sign in with email
-        </h1>
-        <p className="text-soft text-[15px] leading-[1.7] mb-8">
-          No password. We&apos;ll send a magic link. Open it, and you&apos;re in.
-        </p>
-        <GlassPanel className="p-7">
-          {sent ? (
-            <p className="text-soft text-[15px] leading-[1.7] m-0">
-              Check your inbox for the link. After you sign in, we&apos;ll bring you back to{' '}
-              <span className="text-cream">{next}</span>.
-            </p>
-          ) : (
-            <form className="flex flex-col gap-3" onSubmit={onMagic}>
-              <input
-                type="email"
-                className="field-input"
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              {error && (
-                <p className="text-[13px] m-0" style={{ color: 'var(--bougain)' }}>
-                  {error}
-                </p>
-              )}
-              <Button type="submit" disabled={busy}>
-                {busy ? 'Sending…' : 'Email me a magic link'}
-              </Button>
-            </form>
-          )}
-        </GlassPanel>
+      <main className="relative overflow-hidden min-h-[70vh] flex items-center">
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-75"
+          aria-hidden
+        >
+          <Bloom className="w-full max-w-[480px]" />
+        </div>
+        <div className="relative z-[1] max-w-[480px] mx-auto px-[22px] pt-[60px] pb-20 w-full">
+          <EyebrowChip className="mb-5">Account</EyebrowChip>
+          <h1 className="font-display font-bold text-[clamp(30px,5vw,42px)] leading-[1.08] mb-3">
+            Sign in with email
+          </h1>
+          <p className="text-soft text-[15px] leading-[1.7] mb-8">
+            No password. We&apos;ll send a magic link. Open it, and you&apos;re in.
+          </p>
+          <GlassPanel className="p-7">
+            {sent ? (
+              <p className="text-soft text-[15px] leading-[1.7] m-0">
+                Check your inbox for the link. After you sign in, we&apos;ll bring you back to{' '}
+                <span className="text-cream">{next}</span>.
+              </p>
+            ) : (
+              <form className="flex flex-col gap-3" onSubmit={onMagic}>
+                <input
+                  type="email"
+                  className="field-input"
+                  placeholder="Your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                {error && (
+                  <p className="text-[13px] m-0" style={{ color: 'var(--bougain)' }}>
+                    {error}
+                  </p>
+                )}
+                <Button type="submit" disabled={busy}>
+                  {busy ? 'Sending…' : 'Email me a magic link'}
+                </Button>
+              </form>
+            )}
+          </GlassPanel>
+        </div>
       </main>
     );
   }

@@ -102,13 +102,9 @@ export function HomePage({ navigate }: Props) {
 
   return (
     <main>
-      <section className="min-h-[94vh] flex items-center pt-[110px] pb-16 relative overflow-hidden">
-        {/* Pull image up under the sticky header so the top strip is never bare mesh */}
-        <div
-          className="absolute inset-x-0 bottom-0 z-0 pointer-events-none"
-          style={{ top: '-5.5rem' }}
-          aria-hidden
-        >
+      {/* -mt pulls the hero under the sticky header so the top strip is the photo, not a bare band */}
+      <section className="min-h-[94vh] flex items-center -mt-[4.75rem] pt-[calc(110px+4.75rem)] pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
           <img
             src={MEDIA.heroCoast}
             alt=""

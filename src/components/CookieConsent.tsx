@@ -49,7 +49,7 @@ export function CookieConsent() {
           .
         </p>
         <div className="relative flex flex-col gap-2 w-full sm:flex-row">
-          <button className="btn-glass small w-full sm:w-auto" onClick={decline}>
+          <button className="cookie-btn-secondary w-full sm:w-auto" onClick={decline}>
             Essential only
           </button>
           <button className="btn-primary small w-full sm:w-auto" onClick={accept}>

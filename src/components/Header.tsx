@@ -44,7 +44,7 @@ export function Header({ onNavigate, current }: Props) {
         <div className="site-header-glass glass flex max-w-site mx-auto items-center justify-between rounded-full px-5 py-3 pr-3 opacity-0">
           <a
             href="/"
-            className="header-brand font-display font-extrabold text-[21px] no-underline"
+            className="font-display font-extrabold text-[21px] text-cream no-underline"
             onClick={(e) => {
               e.preventDefault();
               go('/');
@@ -62,8 +62,8 @@ export function Header({ onNavigate, current }: Props) {
                   e.preventDefault();
                   go(item.route);
                 }}
-                className={`header-link text-sm font-semibold transition-colors no-underline ${
-                  current === item.route ? 'is-active' : ''
+                className={`text-sm font-semibold transition-colors no-underline ${
+                  current === item.route ? 'text-cream' : 'text-soft hover:text-cream'
                 }`}
               >
                 {item.label}
@@ -78,14 +78,15 @@ export function Header({ onNavigate, current }: Props) {
           </nav>
 
           <button
-            className="header-menu-btn lg:hidden flex items-center justify-center w-[42px] h-[42px] rounded-full"
+            className="lg:hidden flex items-center justify-center w-[42px] h-[42px] rounded-full"
             style={{
-              border: '1px solid rgba(158, 19, 69, 0.22)',
+              background: 'var(--glass-2)',
+              border: '1px solid var(--glass-b)',
             }}
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
-            <Menu size={18} color="#3a1a26" />
+            <Menu size={18} color="var(--cream)" />
           </button>
         </div>
       </header>

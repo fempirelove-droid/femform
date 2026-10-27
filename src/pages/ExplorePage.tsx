@@ -8,7 +8,8 @@ import { MEDIA } from '@/lib/media';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import type { Article, Category } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
-import { Button, EyebrowChip, GlassPanel, SectionHeading, VoiceCard } from '@/components/ui';
+import { Bloom } from '@/components/Bloom';
+import { Button, GlassPanel, SectionHeading, VoiceCard } from '@/components/ui';
 import { ArticleCover, TopicMotif } from '@/components/visuals';
 import { useAnimeReveal } from '@/hooks/useAnimeReveal';
 
@@ -107,66 +108,79 @@ export function ExplorePage({ navigate }: Props) {
 
   return (
     <main ref={ref} className="reveal-ready">
-      <section className="relative overflow-hidden pt-[70px] pb-16">
+      <section className="relative overflow-hidden pt-[64px] pb-16">
         <div className="page-hero-wash" aria-hidden />
-        <div className="relative z-[1] max-w-site mx-auto px-[22px] flex justify-center">
-          <GlassPanel
-            data-reveal
-            className="animate-float w-full max-w-[640px] p-8 sm:p-11 text-center"
-            style={{ transform: 'rotate(-2deg)' }}
-          >
-            <EyebrowChip className="mb-5">Explore</EyebrowChip>
-            <h1 className="font-display font-bold text-[clamp(32px,5.5vw,48px)] leading-[1.08] tracking-tight m-0 mb-5">
-              More than topics. A whole way in.
-            </h1>
-            <p className="text-soft text-[16.5px] leading-[1.85] m-0 max-w-[520px] mx-auto">
-              <button
-                type="button"
-                className="explore-jump"
-                style={{ animationDelay: '0s' }}
-                onClick={() => scrollTo('latest-reads')}
-              >
-                Articles
-              </button>
-              {', '}
-              <button
-                type="button"
-                className="explore-jump"
-                style={{ animationDelay: '0.5s' }}
-                onClick={() => scrollTo('doors')}
-              >
-                live rooms
-              </button>
-              {', the '}
-              <button
-                type="button"
-                className="explore-jump"
-                style={{ animationDelay: '1s' }}
-                onClick={() => scrollTo('circle-cta')}
-              >
-                member Circle
-              </button>
-              {', a '}
-              <button
-                type="button"
-                className="explore-jump"
-                style={{ animationDelay: '1.5s' }}
-                onClick={() => scrollTo('care-kit')}
-              >
-                free care kit
-              </button>
-              {', and eight '}
-              <button
-                type="button"
-                className="explore-jump"
-                style={{ animationDelay: '2s' }}
-                onClick={() => scrollTo('themes')}
-              >
-                themes
-              </button>
-              {' you can explore here. Start wherever your body is asking.'}
-            </p>
-          </GlassPanel>
+        <div className="relative z-[1] max-w-site mx-auto px-[22px]">
+          <div data-reveal className="relative mx-auto w-full max-w-[560px] min-h-[300px] sm:min-h-[340px]">
+            <div className="absolute -inset-12 sm:-inset-16 flex items-center justify-center z-0 pointer-events-none opacity-90">
+              <Bloom className="w-full max-w-[480px]" />
+            </div>
+            <VoiceCard
+              className="relative z-[2] !max-w-none w-full p-8 sm:p-10 [&_p.font-display]:text-[clamp(22px,4vw,30px)] [&_p.font-display]:leading-[1.25]"
+              tilt={-2.5}
+              quote={
+                <>
+                  More than topics.{' '}
+                  <span className="grad-text">A whole way in.</span>
+                </>
+              }
+              caption="Start wherever your body is asking."
+            >
+              <p className="text-soft text-[15px] leading-[1.8] m-0 mt-4">
+                <button
+                  type="button"
+                  className="explore-jump"
+                  style={{ animationDelay: '0s' }}
+                  onClick={() => scrollTo('latest-reads')}
+                >
+                  Articles
+                </button>
+                {', '}
+                <button
+                  type="button"
+                  className="explore-jump"
+                  style={{ animationDelay: '0.45s' }}
+                  onClick={() => scrollTo('doors')}
+                >
+                  live rooms
+                </button>
+                {', the '}
+                <button
+                  type="button"
+                  className="explore-jump"
+                  style={{ animationDelay: '0.9s' }}
+                  onClick={() => scrollTo('circle-cta')}
+                >
+                  member Circle
+                </button>
+                {', a '}
+                <button
+                  type="button"
+                  className="explore-jump"
+                  style={{ animationDelay: '1.35s' }}
+                  onClick={() => scrollTo('care-kit')}
+                >
+                  free care kit
+                </button>
+                {', or a '}
+                <button
+                  type="button"
+                  className="explore-jump"
+                  style={{ animationDelay: '1.8s' }}
+                  onClick={() => scrollTo('themes')}
+                >
+                  topic
+                </button>
+                {' that fits tonight.'}
+              </p>
+            </VoiceCard>
+            <GlassPanel
+              className="absolute -bottom-3 right-2 sm:right-6 z-[1] max-w-[200px] p-4 animate-float"
+              style={{ transform: 'rotate(4deg)', animationDelay: '1s' }}
+            >
+              <p className="font-display text-[13px] font-semibold m-0">Pick a door. Go.</p>
+            </GlassPanel>
+          </div>
         </div>
       </section>
 

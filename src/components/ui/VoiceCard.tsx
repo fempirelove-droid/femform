@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import { GlassPanel } from './GlassPanel';
 
 type Props = {
-  quote: string;
+  quote: ReactNode;
   caption?: string;
   className?: string;
   style?: CSSProperties;
@@ -21,13 +21,16 @@ export function VoiceCard({
   float = true,
   children,
 }: Props) {
+  const body =
+    typeof quote === 'string' ? quote.replace(/^["“]|["”]$/g, '') : quote;
+
   return (
     <GlassPanel
       className={`p-6 max-w-[320px] ${float ? 'animate-float' : ''} ${className}`.trim()}
       style={{ transform: `rotate(${tilt}deg)`, ...style }}
     >
       <p className="font-display font-semibold text-[19px] leading-[1.45] mb-2.5 m-0">
-        “{quote.replace(/^["“]|["”]$/g, '')}”
+        “{body}”
       </p>
       {caption && <span className="text-xs text-soft-2">{caption}</span>}
       {children}

@@ -331,11 +331,17 @@ export function HomePage({ navigate }: Props) {
             </div>
             <div className="relative p-[46px] sm:p-9">
               <EyebrowChip className="mb-5">Why this matters</EyebrowChip>
-              <blockquote className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35] text-cream drop-shadow-[0_1px_10px_rgba(36,16,25,0.45)]">
+              <blockquote
+                className="m-0 mb-[18px] font-display font-semibold text-[clamp(22px,3.4vw,30px)] leading-[1.35]"
+                style={{ color: '#2a121c' }}
+              >
                 Today you found a place that gets it. Tomorrow, that place grows into something you
                 can walk into.
               </blockquote>
-              <p className="text-cream text-[14.5px] leading-[1.75] max-w-[560px] m-0 mb-6 drop-shadow-[0_1px_8px_rgba(36,16,25,0.4)]">
+              <p
+                className="text-[14.5px] leading-[1.75] max-w-[560px] m-0 mb-6"
+                style={{ color: 'rgba(42,18,28,0.82)' }}
+              >
                 When you join Fempire.Love, you're not just reading articles. You're helping create a
                 real space on the island where women can come together. Part of every paid membership
                 opens the door for a woman who can't afford it, because no one should be left out of
@@ -344,6 +350,7 @@ export function HomePage({ navigate }: Props) {
               <Button
                 variant="glass"
                 className="inline-flex items-center gap-2"
+                style={{ color: '#2a121c', borderColor: 'rgba(42,18,28,0.28)' }}
                 onClick={() => navigate('/vision')}
               >
                 Read our vision <ArrowRight size={16} />

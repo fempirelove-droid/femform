@@ -58,16 +58,13 @@ export function MembershipJoin({ navigate, context = 'community' }: Props) {
       >
         {context === 'community' && (
           <div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-60"
+            className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-85"
             aria-hidden
           >
-            <Bloom className="w-full max-w-[480px]" />
+            <Bloom className="w-full max-w-[520px]" />
           </div>
         )}
-        <div
-          className={`page-hero-wash${context === 'community' ? ' page-hero-wash--bloom' : ''}`}
-          aria-hidden
-        />
+        {context === 'community' && <div className="page-hero-wash page-hero-wash--bloom" aria-hidden />}
         <div className="relative z-[1] max-w-site mx-auto px-[22px]">
           <EyebrowChip className="mb-5" data-reveal>
             {context === 'community' ? 'The Circle' : 'Join'}

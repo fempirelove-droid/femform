@@ -156,14 +156,14 @@ export function CommunityPage({ navigate }: Props) {
 
   return (
     <main className="pb-20">
-      <section className="relative overflow-hidden pt-[50px] pb-2 mb-8">
+      <section className="relative overflow-hidden pt-[50px] pb-2 mb-8 text-center">
         <div className="page-hero-wash" aria-hidden />
         <div className="relative z-[1] max-w-site mx-auto px-[22px]">
           <EyebrowChip className="mb-5">Founding Circle</EyebrowChip>
-          <h1 className="font-display font-bold text-[clamp(32px,5vw,48px)] tracking-tight mb-3 max-w-[640px]">
+          <h1 className="font-display font-bold text-[clamp(32px,5vw,48px)] tracking-tight mb-3 max-w-[640px] mx-auto">
             Ask. Share. Show up for each other.
           </h1>
-          <p className="text-soft text-[15.5px] leading-[1.7] max-w-[520px] m-0">
+          <p className="text-soft text-[15.5px] leading-[1.7] max-w-[520px] mx-auto m-0">
             This is our own member room on Fempire.Love. Warm, private, and built for the women in this
             Circle. Monthly Q&amp;A threads will live here too.
           </p>

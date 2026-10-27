@@ -112,8 +112,9 @@ export function ExplorePage({ navigate }: Props) {
         <div className="relative z-[1] max-w-site mx-auto px-[22px]">
           <div data-reveal className="relative mx-auto w-full max-w-[560px]">
             <VoiceCard
-              className="relative z-[2] !max-w-none w-full p-8 sm:p-10 [&_p.font-display]:text-[clamp(22px,4vw,30px)] [&_p.font-display]:leading-[1.25]"
+              className="voice-bloom relative z-[2] !max-w-none w-full p-8 sm:p-10 [&_p.font-display]:text-[clamp(22px,4vw,30px)] [&_p.font-display]:leading-[1.25]"
               tilt={-2.5}
+              float={false}
               quote={
                 <>
                   More than topics.{' '}

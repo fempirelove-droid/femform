@@ -232,7 +232,7 @@ export function HomePage({ navigate }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {tracks.map((track, i) => {
               const scene =
-                i === 0 ? MEDIA.willemstad : i === 1 ? MEDIA.heroCoast : MEDIA.bougainvillea;
+                i === 0 ? MEDIA.heroCoast : i === 1 ? MEDIA.curacaoSea : MEDIA.bougainvillea;
               return (
                 <GlassPanel key={i} as="article" data-reveal className="relative overflow-hidden p-0">
                   <div className="relative h-[140px] overflow-hidden">
@@ -313,17 +313,17 @@ export function HomePage({ navigate }: Props) {
           >
             <div className="absolute inset-0" aria-hidden>
               <img
-                src={MEDIA.willemstad}
+                src={MEDIA.natureSerenity}
                 alt=""
-                className="w-full h-full object-cover scene-ken"
-                style={{ opacity: 0.78 }}
+                className="w-full h-full object-cover object-center scene-ken"
+                style={{ opacity: 0.82 }}
                 loading="lazy"
               />
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(115deg, rgba(110,13,46,0.58) 0%, rgba(158,19,69,0.42) 45%, rgba(96,23,51,0.55) 100%)',
+                    'linear-gradient(115deg, rgba(110,13,46,0.52) 0%, rgba(158,19,69,0.36) 45%, rgba(96,23,51,0.48) 100%)',
                 }}
               />
             </div>

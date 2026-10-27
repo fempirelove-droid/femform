@@ -1,15 +1,28 @@
-/** Brand scenes live in /public/media. Never use these on payment / pricing CTAs. */
+/**
+ * Brand scenes in /public/media.
+ * Prefer real photography (Unsplash/Pexels/Wikimedia) over AI.
+ * Never use these on payment / pricing CTAs.
+ * Credits: see public/media/CREDITS.txt
+ */
 export const MEDIA = {
-  heroCoast: '/media/hero-curacao-coast.jpg',
-  willemstad: '/media/scene-willemstad.jpg',
+  /** Real Kenepa / Knip coast, Curaçao */
+  heroCoast: '/media/curacao-kenepa.jpg',
+  /** Soft nature serenity for vision / Why this matters */
+  natureSerenity: '/media/nature-serenity.jpg',
+  /** Turquoise Curaçao water, nature, no cityscape */
+  curacaoSea: '/media/curacao-turquoise.jpg',
+  /** Aerial Knip / Kenepa for island mood */
+  curacaoAerial: '/media/curacao-knip-aerial.jpg',
   bougainvillea: '/media/scene-bougainvillea.jpg',
   coachRoom: '/media/coach-room-light.jpg',
   circleLight: '/media/circle-light.jpg',
-  /** @deprecated aliases kept so older refs keep working during rollout */
-  heroDusk: '/media/hero-curacao-coast.jpg',
+  /** Aliases */
+  heroDusk: '/media/curacao-kenepa.jpg',
   coachStill: '/media/coach-room-light.jpg',
   circleOrbs: '/media/circle-light.jpg',
   bloomTexture: '/media/scene-bougainvillea.jpg',
+  /** @deprecated buildings shot — do not use for webinars / vision */
+  willemstad: '/media/curacao-turquoise.jpg',
 } as const;
 
 export type TopicSlug =
@@ -23,7 +36,6 @@ export type TopicSlug =
   | 'tech-for-women'
   | string;
 
-/** Soft cover fallbacks by topic: bright Caribbean scenes, not dark red voids. */
 export function coverForTopic(slug?: string | null): string {
   if (!slug) return MEDIA.bougainvillea;
   switch (slug) {
@@ -33,9 +45,9 @@ export function coverForTopic(slug?: string | null): string {
       return MEDIA.bougainvillea;
     case 'mind-wellness':
     case 'body-wisdom':
-      return MEDIA.circleLight;
+      return MEDIA.natureSerenity;
     case 'women-in-history':
-      return MEDIA.willemstad;
+      return MEDIA.curacaoAerial;
     case 'tech-for-women':
     case 'did-you-know':
       return MEDIA.heroCoast;

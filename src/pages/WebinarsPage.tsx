@@ -72,12 +72,16 @@ export function WebinarsPage({ navigate }: Props) {
     <main ref={ref} className="reveal-ready">
       <section className="relative overflow-hidden pt-[60px] pb-12 text-center">
         <div className="absolute inset-0 z-0" aria-hidden>
-          <img src={MEDIA.willemstad} alt="" className="w-full h-full object-cover scene-ken" />
+          <img
+            src={MEDIA.curacaoSea}
+            alt=""
+            className="w-full h-full object-cover object-center scene-ken"
+          />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(36,16,25,0.32), rgba(36,16,25,0.68))',
+                'linear-gradient(180deg, rgba(36,16,25,0.28), rgba(36,16,25,0.62))',
             }}
           />
         </div>

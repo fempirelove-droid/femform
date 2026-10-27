@@ -37,7 +37,7 @@ const pathways = [
     cta: 'Enter community',
     route: '/community',
     icon: HeartHandshake,
-    scene: MEDIA.willemstad,
+    scene: MEDIA.curacaoAerial,
   },
   {
     title: 'Free cycle diary',

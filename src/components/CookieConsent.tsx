@@ -40,10 +40,10 @@ export function CookieConsent() {
       aria-label="Cookie preferences"
     >
       <div className="cookie-frost p-4 sm:p-5 flex flex-col gap-3.5">
-        <p className="relative text-[13px] sm:text-[13.5px] text-cream leading-[1.65] m-0 font-medium">
+        <p className="relative text-[13px] sm:text-[13.5px] leading-[1.65] m-0 font-medium">
           We use essential cookies to make the site work, and analytics cookies to understand what
           content resonates. Read our{' '}
-          <a href="/privacy" className="text-mustard-hi underline underline-offset-2 hover:text-cream">
+          <a href="/privacy" className="underline underline-offset-2">
             privacy policy
           </a>
           .

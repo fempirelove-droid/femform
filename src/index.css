@@ -124,26 +124,26 @@
     border: 0;
   }
 
-  /* Cookie bar: heavy frost so mesh/page text cannot read through */
+  /* Cookie bar: frosty white glass, readable on the dark mesh */
   .cookie-frost {
     position: relative;
     isolation: isolate;
     overflow: hidden;
     border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.72);
     background:
       linear-gradient(
         155deg,
-        rgba(251, 242, 237, 0.22) 0%,
-        rgba(118, 27, 65, 0.88) 42%,
-        rgba(96, 23, 51, 0.94) 100%
+        rgba(255, 255, 255, 0.78) 0%,
+        rgba(251, 242, 237, 0.7) 45%,
+        rgba(244, 198, 211, 0.42) 100%
       );
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
+    backdrop-filter: blur(28px) saturate(140%);
     box-shadow:
-      0 18px 50px rgba(36, 16, 25, 0.55),
-      inset 0 1px 0 rgba(255, 255, 255, 0.28),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+      0 18px 48px rgba(36, 16, 25, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 0 rgba(158, 19, 69, 0.06);
   }
 
   .cookie-frost::before {
@@ -152,8 +152,20 @@
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: rgba(96, 23, 51, 0.55);
+    background: rgba(251, 242, 237, 0.55);
     pointer-events: none;
+  }
+
+  .cookie-frost p {
+    color: #3a1a26;
+  }
+
+  .cookie-frost a {
+    color: #9e1345;
+  }
+
+  .cookie-frost a:hover {
+    color: #6e0d2e;
   }
 
   @media (max-width: 640px) {
@@ -161,22 +173,22 @@
       background:
         linear-gradient(
           155deg,
-          rgba(251, 242, 237, 0.18) 0%,
-          rgba(118, 27, 65, 0.92) 40%,
-          rgba(96, 23, 51, 0.97) 100%
+          rgba(255, 255, 255, 0.82) 0%,
+          rgba(251, 242, 237, 0.74) 50%,
+          rgba(244, 198, 211, 0.48) 100%
         );
-      -webkit-backdrop-filter: blur(32px) saturate(160%);
-      backdrop-filter: blur(32px) saturate(160%);
+      -webkit-backdrop-filter: blur(22px) saturate(130%);
+      backdrop-filter: blur(22px) saturate(130%);
     }
 
     .cookie-frost::before {
-      background: rgba(96, 23, 51, 0.62);
+      background: rgba(251, 242, 237, 0.62);
     }
   }
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .cookie-frost {
-      background: #761b41;
+      background: #fbf2ed;
     }
 
     .cookie-frost::before {

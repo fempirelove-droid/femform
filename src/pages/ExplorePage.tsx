@@ -101,39 +101,76 @@ export function ExplorePage({ navigate }: Props) {
     };
   }, []);
 
-  const scrollToArticles = () => {
-    document.getElementById('latest-reads')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <main ref={ref} className="reveal-ready">
-      <section className="relative overflow-hidden pt-[72px] pb-14 text-center">
+      <section className="relative overflow-hidden pt-[70px] pb-16">
         <div className="page-hero-wash" aria-hidden />
-        <div className="relative z-[1] max-w-site mx-auto px-[22px]">
-          <EyebrowChip className="mb-5" data-reveal>
-            Explore
-          </EyebrowChip>
-          <h1
+        <div className="relative z-[1] max-w-site mx-auto px-[22px] flex justify-center">
+          <GlassPanel
             data-reveal
-            className="font-display font-bold text-[clamp(36px,6.5vw,58px)] leading-[1.05] tracking-tight max-w-[720px] mx-auto mb-4"
+            className="animate-float w-full max-w-[640px] p-8 sm:p-11 text-center"
+            style={{ transform: 'rotate(-2deg)' }}
           >
-            More than topics. A whole way in.
-          </h1>
-          <p data-reveal className="text-soft text-[16.5px] leading-[1.75] max-w-[520px] mx-auto">
-            Articles, live rooms, the member Circle, a free care kit, and eight theme doors. Start
-            wherever your body is asking.
-          </p>
-          <div data-reveal className="flex justify-center mt-8">
-            <VoiceCard
-              quote="Start wherever your body is asking. There is a door for that."
-              caption="Explore, not a maze."
-              tilt={-2}
-            />
-          </div>
+            <EyebrowChip className="mb-5">Explore</EyebrowChip>
+            <h1 className="font-display font-bold text-[clamp(32px,5.5vw,48px)] leading-[1.08] tracking-tight m-0 mb-5">
+              More than topics. A whole way in.
+            </h1>
+            <p className="text-soft text-[16.5px] leading-[1.85] m-0 max-w-[520px] mx-auto">
+              <button
+                type="button"
+                className="explore-jump"
+                style={{ animationDelay: '0s' }}
+                onClick={() => scrollTo('latest-reads')}
+              >
+                Articles
+              </button>
+              {', '}
+              <button
+                type="button"
+                className="explore-jump"
+                style={{ animationDelay: '0.5s' }}
+                onClick={() => scrollTo('doors')}
+              >
+                live rooms
+              </button>
+              {', the '}
+              <button
+                type="button"
+                className="explore-jump"
+                style={{ animationDelay: '1s' }}
+                onClick={() => scrollTo('circle-cta')}
+              >
+                member Circle
+              </button>
+              {', a '}
+              <button
+                type="button"
+                className="explore-jump"
+                style={{ animationDelay: '1.5s' }}
+                onClick={() => scrollTo('care-kit')}
+              >
+                free care kit
+              </button>
+              {', and eight '}
+              <button
+                type="button"
+                className="explore-jump"
+                style={{ animationDelay: '2s' }}
+                onClick={() => scrollTo('themes')}
+              >
+                themes
+              </button>
+              {' you can explore here. Start wherever your body is asking.'}
+            </p>
+          </GlassPanel>
         </div>
       </section>
 
-      <section className="max-w-site mx-auto px-[22px] pb-16">
+      <section id="doors" className="max-w-site mx-auto px-[22px] pb-16 scroll-mt-28">
         <div data-reveal>
           <SectionHeading
             eyebrow="Start here"
@@ -179,7 +216,7 @@ export function ExplorePage({ navigate }: Props) {
                     variant="glass"
                     className="inline-flex items-center gap-2 w-fit"
                     onClick={() => {
-                      if (item.action === 'articles') scrollToArticles();
+                      if (item.action === 'articles') scrollTo('latest-reads');
                       else if (item.route) navigate(item.route);
                     }}
                   >
@@ -255,7 +292,7 @@ export function ExplorePage({ navigate }: Props) {
         </div>
       </section>
 
-      <section className="max-w-site mx-auto px-[22px] pb-16">
+      <section id="themes" className="max-w-site mx-auto px-[22px] pb-16 scroll-mt-28">
         <div data-reveal>
           <SectionHeading
             eyebrow="Themes"
@@ -355,7 +392,7 @@ export function ExplorePage({ navigate }: Props) {
         )}
       </section>
 
-      <section className="max-w-site mx-auto px-[22px] pb-20">
+      <section id="circle-cta" className="max-w-site mx-auto px-[22px] pb-20 scroll-mt-28">
         <GlassPanel
           data-reveal
           className="p-8 sm:p-10 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between"

@@ -262,6 +262,57 @@
     color: transparent;
   }
 
+  /* Explore hero: colorful in-page jump words */
+  @keyframes explore-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .explore-jump {
+    font: inherit;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: linear-gradient(
+      110deg,
+      var(--bougain) 0%,
+      var(--mustard-hi) 28%,
+      #ff9ebb 55%,
+      var(--mustard) 78%,
+      var(--bougain) 100%
+    );
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+    animation: explore-shift 5.5s ease-in-out infinite;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 158, 187, 0.45);
+    text-underline-offset: 3px;
+    transition: filter 0.2s ease, text-decoration-color 0.2s ease;
+  }
+
+  .explore-jump:hover {
+    filter: brightness(1.12);
+    text-decoration-color: rgba(227, 181, 100, 0.75);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .explore-jump {
+      animation: none;
+      background-position: 30% 50%;
+    }
+  }
+
   .btn-primary {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;

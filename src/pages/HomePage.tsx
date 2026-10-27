@@ -219,15 +219,15 @@ export function HomePage({ navigate }: Props) {
                       alt=""
                       aria-hidden
                       className="absolute inset-0 w-full h-full object-cover object-center scene-ken"
-                      style={{ opacity: 0.9 }}
+                      style={{ opacity: 0.86 }}
                       loading="lazy"
                     />
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: `linear-gradient(180deg, rgba(251,242,237,0.14) 0%, rgba(251,242,237,0.05) 40%, rgba(36,16,25,0.32) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
-                        backdropFilter: 'blur(4px) saturate(115%)',
-                        WebkitBackdropFilter: 'blur(4px) saturate(115%)',
+                        background: `linear-gradient(180deg, rgba(251,242,237,0.2) 0%, rgba(251,242,237,0.1) 40%, rgba(36,16,25,0.34) 100%), radial-gradient(circle at 85% 15%, ${track.glow}, transparent 55%)`,
+                        backdropFilter: 'blur(7px) saturate(118%)',
+                        WebkitBackdropFilter: 'blur(7px) saturate(118%)',
                       }}
                     />
                   </div>

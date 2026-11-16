@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, BookOpen, CalendarHeart, Gift, HeartHandshake } from 'lucide-react';
+import {
+  ArrowRight,
+  BookOpen,
+  CalendarHeart,
+  Gift,
+  GraduationCap,
+  HeartHandshake,
+} from 'lucide-react';
 import type { NavigateFn } from '@/types';
 import { fetchAllArticles, fetchCategories } from '@/lib/data';
 import { mergeTopics } from '@/lib/catalog';
@@ -24,6 +31,14 @@ const pathways = [
     scene: MEDIA.queenCrownMagenta,
   },
   {
+    title: 'Digital lessons',
+    text: 'Short soft maps for Queenerty, boundaries, body wisdom, and more.',
+    cta: 'Browse lessons',
+    route: '/lessons',
+    icon: GraduationCap,
+    scene: MEDIA.queenCrownPortrait,
+  },
+  {
     title: 'Live webinars',
     text: 'Join live or buy a single ticket. Replays for members.',
     cta: 'Browse webinars',
@@ -32,9 +47,9 @@ const pathways = [
     scene: MEDIA.circleLight,
   },
   {
-    title: 'Member community',
-    text: 'The closed Circle on Fempire.Love. Ask, share, show up.',
-    cta: 'Enter community',
+    title: 'Member rooms',
+    text: 'Chatrooms for the women’s realm. Ask, share, show up.',
+    cta: 'Enter rooms',
     route: '/community',
     icon: HeartHandshake,
     scene: MEDIA.queenCrownStreet,
@@ -189,11 +204,11 @@ export function ExplorePage({ navigate }: Props) {
         <div data-reveal>
           <SectionHeading
             eyebrow="Start here"
-            title="Three doors, one home."
+            title="Four doors, one home."
             description="Pick the format that fits this moment."
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {pathways.map((item) => {
             const Icon = item.icon;
             return (

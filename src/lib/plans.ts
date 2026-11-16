@@ -18,7 +18,7 @@ export const MEMBERSHIP_TIERS = [
     features: [
       'Everything in Free',
       'Every webinar replay',
-      'Closed community on Fempire.Love',
+      'Member rooms + digital lessons',
       'Monthly live Q&A',
     ],
     cta: 'Join Community',
@@ -43,7 +43,8 @@ export const MEMBERSHIP_COMPARE = [
   { feature: 'Full article library', free: true, community: true, premium: true },
   { feature: 'Weekly newsletter', free: true, community: true, premium: true },
   { feature: 'Webinar replays', free: false, community: true, premium: true },
-  { feature: 'Closed community', free: false, community: true, premium: true },
+  { feature: 'Member rooms', free: false, community: true, premium: true },
+  { feature: 'Digital lessons', free: false, community: true, premium: true },
   { feature: 'Monthly live Q&A', free: false, community: true, premium: true },
   { feature: 'Quarterly 1:1 coaching', free: false, community: false, premium: true },
   { feature: 'Priority webinar seats', free: false, community: false, premium: true },

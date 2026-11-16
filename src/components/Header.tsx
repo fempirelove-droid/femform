@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
+  BookOpen,
   Compass,
   Menu,
   Sparkles,
@@ -20,6 +21,7 @@ type Props = {
 const navItems = [
   { label: 'Explore', route: '/explore', Icon: Compass },
   { label: 'Community', route: '/community', Icon: Users },
+  { label: 'Lessons', route: '/lessons', Icon: BookOpen },
   { label: 'Webinars', route: '/webinars', Icon: Ticket },
   { label: 'Coach', route: '/coach', Icon: Sparkles },
 ] as const;

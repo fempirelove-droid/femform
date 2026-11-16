@@ -34,7 +34,8 @@ export function Footer({ onNavigate, current = '' }: Props) {
               {[
                 { label: 'Home', route: '/' },
                 { label: 'Topics', route: '/explore' },
-                { label: 'Community', route: '/community' },
+                { label: 'Community rooms', route: '/community' },
+                { label: 'Digital lessons', route: '/lessons' },
                 { label: 'Webinars', route: '/webinars' },
                 { label: 'Join the Circle', route: '/community' },
                 { label: 'Our Vision', route: '/vision' },

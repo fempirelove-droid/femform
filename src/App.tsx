@@ -18,6 +18,8 @@ import { WebinarsPage } from '@/pages/WebinarsPage';
 import { AccountPage } from '@/pages/AccountPage';
 import { ExplorePage } from '@/pages/ExplorePage';
 import { CommunityPage } from '@/pages/CommunityPage';
+import { LessonsPage } from '@/pages/LessonsPage';
+import { LessonDetailPage } from '@/pages/LessonDetailPage';
 import { useRouter } from '@/hooks/useRouter';
 import { useSEO } from '@/hooks/useSEO';
 import { trackPageView } from '@/lib/analytics';
@@ -26,6 +28,7 @@ const STATIC_PAGES = new Set([
   '/',
   '/explore',
   '/community',
+  '/lessons',
   '/membership',
   '/vision',
   '/privacy',
@@ -73,6 +76,8 @@ function App() {
           return <ExplorePage navigate={navigate} />;
         case '/community':
           return <CommunityPage navigate={navigate} />;
+        case '/lessons':
+          return <LessonsPage navigate={navigate} />;
         case '/membership':
           return <MembershipPage navigate={navigate} />;
         case '/vision':
@@ -97,6 +102,9 @@ function App() {
     }
 
     const segments = pathOnly.split('/').filter(Boolean);
+    if (segments[0] === 'lessons' && segments.length === 2) {
+      return <LessonDetailPage navigate={navigate} slug={segments[1]} />;
+    }
     if (segments.length === 1) {
       return <CategoryPage navigate={navigate} categorySlug={segments[0]} />;
     }

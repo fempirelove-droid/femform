@@ -9,30 +9,22 @@ import { startWebinarCheckout } from '@/lib/stripe';
 
 type Props = { navigate: NavigateFn };
 
+/** Guest-ticket webinars only. Members Q&A stays a membership benefit, not a paid guest listing. */
 const webinars = [
   {
     id: 'boundaries-without-guilt',
     title: 'How do I set boundaries without guilt?',
     blurb: 'A live hour on the language of no: soft, clear, and rooted in Caribbean reality.',
-    dateLabel: 'Launch webinar � TBA',
+    dateLabel: 'Launch webinar · date TBA',
     price: 25,
     tag: 'Mind & Wellness',
     topicSlug: 'mind-wellness',
   },
   {
-    id: 'first-signs-change',
-    title: 'What are the first signs of perimenopause?',
-    blurb: 'Practical signs, what to ask your doctor, and how Caribbean heat can change the story.',
-    dateLabel: 'Members Q&A � monthly',
-    price: 20,
-    tag: 'The Change',
-    topicSlug: 'the-change',
-  },
-  {
     id: 'hormones-week',
     title: 'Why do I feel so different every week of my cycle?',
     blurb: 'A clear map of your cycle in plain language, with no jargon, no shame.',
-    dateLabel: 'Guest session � TBA',
+    dateLabel: 'Guest session · date TBA',
     price: 35,
     tag: 'Hormones & Cycle',
     topicSlug: 'hormones-cycle',
@@ -46,7 +38,7 @@ export function WebinarsPage({ navigate }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   useSEO({
-    title: 'Webinars � Fempire.Love',
+    title: 'Webinars · Fempire.Love',
     description:
       'Join live Fempire.Love webinars as a member or buy a single ticket for $20 to $35. Replays for Community and Premium.',
     canonical: '/webinars',
@@ -83,7 +75,7 @@ export function WebinarsPage({ navigate }: Props) {
           </h1>
           <p data-reveal className="text-soft text-[16.5px] max-w-[520px] mx-auto leading-[1.75]">
             Members get access included. Guests can buy a single ticket for $20 to $35, a low pressure
-            way to meet the Circle.
+            way to meet the Circle. Monthly members Q&amp;A is included with membership.
           </p>
         </div>
       </section>
@@ -95,7 +87,7 @@ export function WebinarsPage({ navigate }: Props) {
       )}
 
       <section className="max-w-site mx-auto px-[22px] pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[820px] mx-auto">
           {webinars.map((w) => (
             <GlassPanel key={w.id} data-reveal className="p-7 flex flex-col gap-3">
               <div className="flex items-center justify-between gap-3">
@@ -107,7 +99,6 @@ export function WebinarsPage({ navigate }: Props) {
               <h3 className="font-display font-bold text-[20px] leading-[1.25] m-0">{w.title}</h3>
               <p className="text-soft text-sm leading-[1.7] m-0 flex-1">{w.blurb}</p>
               <p className="text-[12.5px] text-soft-2 m-0">{w.dateLabel}</p>
-              {/* Pay row stays typography-only: no decorative photos beside checkout */}
               <div className="flex items-center justify-between gap-3 pt-2">
                 <span className="font-display font-bold text-lg">${w.price}</span>
                 <Button
@@ -116,7 +107,7 @@ export function WebinarsPage({ navigate }: Props) {
                   disabled={busyId === w.id}
                   onClick={() => buyTicket(w.id, w.price)}
                 >
-                  {busyId === w.id ? 'Redirecting�' : 'Buy ticket'}
+                  {busyId === w.id ? 'Redirecting…' : 'Buy ticket'}
                 </Button>
               </div>
             </GlassPanel>
@@ -130,7 +121,7 @@ export function WebinarsPage({ navigate }: Props) {
             <SectionHeading
               className="mb-0"
               title="Prefer unlimited access?"
-              description="Community and Premium include webinar replays. Premium adds a quarterly coaching session."
+              description="Community and Premium include webinar replays and the monthly members Q&A. Premium adds a quarterly coaching session with With Love academy."
             />
           </div>
           <Button onClick={() => navigate('/community#join')}>Join the Circle</Button>
@@ -143,4 +134,3 @@ export function WebinarsPage({ navigate }: Props) {
     </main>
   );
 }
-

@@ -24,7 +24,7 @@ const forYouCards = [
 
 const tracks = [
   {
-    tag: 'Curaçao',
+    tag: 'CuraÃ§ao',
     text: 'Workshops, sessions at the salon, and soon, a space of your own on the island. This is where you can show up in person, not just on a screen.',
     soft: 'When you are ready, we will gently introduce you to the salon: an invitation, never a hard sell.',
     glow: 'var(--bougain)',
@@ -56,9 +56,9 @@ export function HomePage({ navigate }: Props) {
   const visionRef = useAnimeReveal<HTMLElement>({ y: 24 });
 
   useSEO({
-    title: 'Fempire.Love · A digital home for women of the Caribbean & beyond',
+    title: 'Fempire.Love Â· A digital home for women of the Caribbean & beyond',
     description:
-      'Fempire.Love is a warm, modern digital home for women across Curaçao, the Caribbean and the diaspora: hormones, the change, motherhood, mind and body, without judgement.',
+      'Fempire.Love is a warm, modern digital home for women across CuraÃ§ao, the Caribbean and the diaspora: hormones, the change, motherhood, mind and body, without judgement.',
     canonical: '/',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -239,7 +239,7 @@ export function HomePage({ navigate }: Props) {
             />
           </div>
           {categories.length === 0 ? (
-            <p className="text-soft text-sm">Loading topics…</p>
+            <p className="text-soft text-sm">Loading topicsâ€¦</p>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
               {categories.map((theme) => (
@@ -437,7 +437,7 @@ export function HomePage({ navigate }: Props) {
         </div>
       </section>
 
-      <section className="py-16">
+      <section id="newsletter" className="py-16 scroll-mt-28">
         <div className="max-w-site mx-auto px-[22px]">
           <GlassPanel className="p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-[1fr_0.85fr_1fr] gap-8 items-center">
             <div>
@@ -446,7 +446,7 @@ export function HomePage({ navigate }: Props) {
                 One warm letter. Tell us where you are.
               </h2>
               <p className="text-soft text-[15px] leading-[1.7] m-0">
-                That single answer (Curaçao, the wider Caribbean, or elsewhere) shapes how we
+                That single answer (CuraÃ§ao, the wider Caribbean, or elsewhere) shapes how we
                 meet you. Soft invitations for the island. A full digital home everywhere else.
               </p>
             </div>

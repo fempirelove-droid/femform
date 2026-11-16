@@ -67,6 +67,8 @@ function App() {
   const renderPage = () => {
     if (STATIC_PAGES.has(pathOnly)) {
       switch (pathOnly) {
+        case '/':
+          return <HomePage navigate={navigate} />;
         case '/explore':
           return <ExplorePage navigate={navigate} />;
         case '/community':
@@ -111,7 +113,7 @@ function App() {
       <MeshBackground />
       <Header onNavigate={navigate} current={pathOnly} />
       {renderPage()}
-      <Footer onNavigate={navigate} />
+      <Footer onNavigate={navigate} current={pathOnly} />
       <CookieConsent />
     </>
   );

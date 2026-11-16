@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { loadAnalyticsIfAllowed } from '@/lib/analytics';
-import { hasAnalyticsConsent, setAnalyticsConsent } from '@/lib/consent';
+import {
+  COOKIE_SETTINGS_EVENT,
+  hasAnalyticsConsent,
+  setAnalyticsConsent,
+} from '@/lib/consent';
 
 export { hasAnalyticsConsent };
 
@@ -10,13 +14,17 @@ export function CookieConsent() {
   useEffect(() => {
     if (hasAnalyticsConsent()) {
       loadAnalyticsIfAllowed();
-      return;
+    } else {
+      const existing = localStorage.getItem('fempire-cookie-consent');
+      if (!existing) {
+        const timer = setTimeout(() => setShow(true), 1500);
+        return () => clearTimeout(timer);
+      }
     }
-    const existing = localStorage.getItem('fempire-cookie-consent');
-    if (!existing) {
-      const timer = setTimeout(() => setShow(true), 1500);
-      return () => clearTimeout(timer);
-    }
+
+    const onSettings = () => setShow(true);
+    window.addEventListener(COOKIE_SETTINGS_EVENT, onSettings);
+    return () => window.removeEventListener(COOKIE_SETTINGS_EVENT, onSettings);
   }, []);
 
   const accept = () => {

@@ -31,7 +31,7 @@ export const MEMBERSHIP_TIERS = [
     suffix: ' / mo',
     features: [
       'Everything above',
-      'One quarterly 1:1 coaching session with your Fempire.Love coach',
+      'One quarterly 1:1 coaching session with With Love academy',
       'Priority webinar seats',
     ],
     cta: 'Go Premium',

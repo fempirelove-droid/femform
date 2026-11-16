@@ -9,9 +9,9 @@ type Props = { navigate: NavigateFn };
 const story = [
   {
     kicker: '01',
-    title: 'The first voice of the Vrouwencentrum',
+    title: 'The first voice of the Women’s Center Curaçao',
     body: [
-      "This platform starts as a standalone digital home. It is also the first voice of the Women's Center Curacao, the medium that builds community before the physical doors open.",
+      'This platform starts as a standalone digital home. It is also the first voice of the Women’s Center Curaçao, the medium that builds community before the physical doors open.',
       'Who knows the platform knows the vision. Who knows the vision will walk inside when the time comes.',
     ],
   },
@@ -19,7 +19,7 @@ const story = [
     kicker: '02',
     title: 'Why this matters',
     body: [
-      "For too long, the conversation around women's health has been shaped by people who do not look like us, do not live where we live, and do not eat what we eat.",
+      'For too long, the conversation around women’s health has been shaped by people who do not look like us, do not live where we live, and do not eat what we eat.',
       'The result is a world where women Google their symptoms at midnight and close twelve tabs, still unsure. We are changing that.',
     ],
   },
@@ -27,16 +27,16 @@ const story = [
     kicker: '03',
     title: 'The bridge to something real',
     body: [
-      'Today, Fempire.Love is a digital home. Part of every paid membership opens the door for a woman on Curacao who cannot afford it.',
-      "Over time, this platform builds toward a physical space: a women's center on the island where women can come together, learn, rest, and heal. The platform builds the community. The center gives her a home.",
+      'Today, Fempire.Love is a digital home. Part of every paid membership opens the door for a woman on Curaçao who cannot afford it.',
+      'Over time, this platform builds toward a physical space: the Women’s Center Curaçao, where women can come together, learn, rest, and heal. The platform builds the community. The center gives her a home.',
     ],
   },
   {
     kicker: '04',
     title: 'Who is behind this',
     body: [
-      'Vision and content are rooted in With Love Academy coaching expertise. The platform is built and grown with technical partnership so the work can scale.',
-      'Content is written with care and, where health is involved, reviewed by medical professionals, because who writes health information matters for your trust, and for how search engines and AI systems evaluate our work.',
+      'Vision and content are rooted in With Love academy coaching expertise. The platform is built and grown with technical partnership so the work can scale.',
+      'Content is written with care. Where health is involved, we aim for medical review as the library grows, and we will name reviewers when that process is in place.',
     ],
   },
 ];
@@ -64,9 +64,9 @@ export function VisionPage({ navigate }: Props) {
   const ref = useAnimeReveal<HTMLElement>({ staggerMs: 70, y: 16 });
 
   useSEO({
-    title: 'Our Vision � Fempire.Love',
+    title: 'Our Vision · Fempire.Love',
     description:
-      'Fempire.Love is the digital first voice of the Vrouwencentrum Curacao, a warm home for women across the Caribbean and the diaspora.',
+      'Fempire.Love is the digital first voice of the Women’s Center Curaçao, a warm home for women across the Caribbean and the diaspora.',
     canonical: '/vision',
     image: `https://fempire.love${MEDIA.natureSerenity}`,
     jsonLd: {

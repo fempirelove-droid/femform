@@ -60,9 +60,9 @@ export function ExplorePage({ navigate }: Props) {
   const ref = useAnimeReveal<HTMLElement>({ staggerMs: 50 });
 
   useSEO({
-    title: 'Explore · Fempire.Love',
+    title: 'Explore Â· Fempire.Love',
     description:
-      'Explore topics, articles, webinars, community and free care-kit gifts for women across Curaçao, the Caribbean and the diaspora.',
+      'Explore topics, articles, webinars, community and free care-kit gifts for women across CuraÃ§ao, the Caribbean and the diaspora.',
     canonical: '/explore',
   });
 
@@ -76,7 +76,9 @@ export function ExplorePage({ navigate }: Props) {
           if (!cancelled) {
             setCategories(mergeTopics([]));
             setArticles([]);
-            setLoadError('Live content feed is offline. Topics below are still open to browse.');
+            setLoadError(
+              'Topics below are ready to browse. Fresh articles join the library as they go live.',
+            );
           }
           return;
         }
@@ -85,12 +87,14 @@ export function ExplorePage({ navigate }: Props) {
         setCategories(mergeTopics(cats));
         setArticles(arts.slice(0, 8));
         if (!cats.length) {
-          setLoadError('Showing the topic map while the live catalog reconnects.');
+          setLoadError('Topics below are ready to browse. Fresh articles join as they go live.');
         }
       } catch {
         if (!cancelled) {
           setCategories(mergeTopics([]));
-          setLoadError('Could not reach the content library. Topic doors below still work.');
+          setLoadError(
+            'We could not reach the live library just now. Topic doors below still work.',
+          );
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -293,12 +297,23 @@ export function ExplorePage({ navigate }: Props) {
               </GlassPanel>
             );
           })}
-          <div data-reveal className="flex items-center justify-center lg:justify-start p-2">
+          <div data-reveal className="flex flex-col items-center lg:items-start justify-center gap-4 p-2">
             <VoiceCard
               quote="Keep this close. A small ritual for the nights you need an honest map."
               caption="From the Care kit, with love."
               tilt={2}
             />
+            <p className="text-soft text-[13.5px] leading-[1.65] m-0 max-w-[280px] text-center lg:text-left">
+              Want a soft letter with more care-kit gifts?{' '}
+              <button
+                type="button"
+                className="explore-jump"
+                onClick={() => navigate('/#newsletter')}
+              >
+                Join the newsletter
+              </button>
+              .
+            </p>
           </div>
         </div>
       </section>
@@ -356,8 +371,7 @@ export function ExplorePage({ navigate }: Props) {
         {articles.length === 0 ? (
           <GlassPanel data-reveal className="p-7">
             <p className="text-soft text-sm m-0 mb-4">
-              Articles will appear here as soon as the live library connects. Meanwhile open any
-              theme above.
+              New reads are on the way. Meanwhile, open any topic above and make yourself at home.
             </p>
             <Button size="small" variant="glass" onClick={() => navigate('/community#join')}>
               Start free
@@ -412,7 +426,7 @@ export function ExplorePage({ navigate }: Props) {
             <h3 className="font-display font-bold text-xl mb-2">Want the full seat?</h3>
             <p className="text-soft text-sm leading-[1.7] m-0 max-w-[440px]">
               Community and Premium unlock the closed Circle, webinar replays, and coaching paths
-              with With Love Academy.
+              with With Love academy.
             </p>
           </div>
           <div className="flex flex-wrap gap-2.5">

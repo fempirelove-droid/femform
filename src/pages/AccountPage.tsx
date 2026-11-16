@@ -17,7 +17,7 @@ export function AccountPage({ navigate }: Props) {
   const [busy, setBusy] = useState(false);
 
   useSEO({
-    title: 'Account · Fempire.Love',
+    title: 'Account Â· Fempire.Love',
     description: 'Sign in to Fempire.Love with a magic link. Manage membership and coaching.',
     canonical: '/account',
   });
@@ -44,7 +44,7 @@ export function AccountPage({ navigate }: Props) {
   if (loading) {
     return (
       <main className="min-h-[50vh] flex items-center justify-center">
-        <p className="text-soft text-sm">Loading…</p>
+        <p className="text-soft text-sm">Loadingâ€¦</p>
       </main>
     );
   }
@@ -88,7 +88,7 @@ export function AccountPage({ navigate }: Props) {
                   </p>
                 )}
                 <Button type="submit" disabled={busy}>
-                  {busy ? 'Sending…' : 'Email me a magic link'}
+                  {busy ? 'Sendingâ€¦' : 'Email me a magic link'}
                 </Button>
               </form>
             )}

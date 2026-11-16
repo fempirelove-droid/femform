@@ -11,7 +11,7 @@ export function MembershipPage({ navigate }: Props) {
 
   return (
     <main className="min-h-[40vh] flex items-center justify-center">
-      <p className="text-soft text-sm">Taking you to the Circle…</p>
+      <p className="text-soft text-sm">Taking you to the Circleâ€¦</p>
     </main>
   );
 }

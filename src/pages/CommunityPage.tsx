@@ -41,8 +41,8 @@ export function CommunityPage({ navigate }: Props) {
 
   useSEO({
     title: isMember
-      ? 'Community · Fempire.Love'
-      : 'Join the Circle · Fempire.Love',
+      ? 'Community Â· Fempire.Love'
+      : 'Join the Circle Â· Fempire.Love',
     description: isMember
       ? 'The closed Fempire.Love member circle: ask, share, and show up for each other.'
       : 'Start free, or join Community ($10/mo) or Premium ($33/mo). The closed Circle lives here.',
@@ -133,7 +133,7 @@ export function CommunityPage({ navigate }: Props) {
   if (authLoading) {
     return (
       <main className="min-h-[50vh] flex items-center justify-center">
-        <p className="text-soft text-sm">Loading…</p>
+        <p className="text-soft text-sm">Loadingâ€¦</p>
       </main>
     );
   }
@@ -192,7 +192,7 @@ export function CommunityPage({ navigate }: Props) {
           />
           <div className="flex justify-end">
             <Button type="submit" size="small" disabled={posting}>
-              {posting ? 'Posting…' : 'Post'}
+              {posting ? 'Postingâ€¦' : 'Post'}
             </Button>
           </div>
         </form>
@@ -205,7 +205,7 @@ export function CommunityPage({ navigate }: Props) {
       )}
 
       {loading ? (
-        <p className="text-soft text-sm">Loading conversations…</p>
+        <p className="text-soft text-sm">Loading conversationsâ€¦</p>
       ) : posts.length === 0 ? (
         <GlassPanel className="p-8 text-center">
           <p className="text-soft m-0">
@@ -225,7 +225,7 @@ export function CommunityPage({ navigate }: Props) {
                   )}
                   <h3 className="font-display font-bold text-xl m-0 leading-[1.25]">{post.title}</h3>
                   <p className="text-[12.5px] text-soft-2 m-0 mt-1">
-                    {post.author_name} · {formatWhen(post.created_at)}
+                    {post.author_name} Â· {formatWhen(post.created_at)}
                   </p>
                 </div>
                 {user.id === post.author_id && (
@@ -254,7 +254,7 @@ export function CommunityPage({ navigate }: Props) {
                   {(replies[post.id] || []).map((r) => (
                     <div key={r.id} className="pl-3" style={{ borderLeft: '2px solid rgba(255,92,138,0.35)' }}>
                       <p className="text-[12px] text-soft-2 m-0 mb-1">
-                        {r.author_name} · {formatWhen(r.created_at)}
+                        {r.author_name} Â· {formatWhen(r.created_at)}
                       </p>
                       <p className="text-soft text-sm leading-[1.65] m-0 whitespace-pre-wrap">{r.body}</p>
                     </div>
@@ -265,7 +265,7 @@ export function CommunityPage({ navigate }: Props) {
                   <div className="flex flex-col sm:flex-row gap-2 mt-2">
                     <input
                       className="field-input flex-1"
-                      placeholder="Write a reply…"
+                      placeholder="Write a replyâ€¦"
                       value={replyDraft[post.id] || ''}
                       onChange={(e) =>
                         setReplyDraft((prev) => ({ ...prev, [post.id]: e.target.value }))
@@ -276,7 +276,7 @@ export function CommunityPage({ navigate }: Props) {
                       disabled={busyReply === post.id}
                       onClick={() => onReply(post.id)}
                     >
-                      {busyReply === post.id ? 'Sending…' : 'Reply'}
+                      {busyReply === post.id ? 'Sendingâ€¦' : 'Reply'}
                     </Button>
                   </div>
                 </div>

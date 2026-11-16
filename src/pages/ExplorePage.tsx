@@ -21,7 +21,7 @@ const pathways = [
     cta: 'Latest reads',
     action: 'articles' as const,
     icon: BookOpen,
-    scene: MEDIA.bougainvillea,
+    scene: MEDIA.queenCrownMagenta,
   },
   {
     title: 'Live webinars',
@@ -37,7 +37,7 @@ const pathways = [
     cta: 'Enter community',
     route: '/community',
     icon: HeartHandshake,
-    scene: MEDIA.curacaoAerial,
+    scene: MEDIA.queenCrownStreet,
   },
 ];
 

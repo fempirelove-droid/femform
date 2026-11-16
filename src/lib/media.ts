@@ -21,6 +21,15 @@ export const MEDIA = {
   bougainvillea: '/media/scene-bougainvillea.jpg',
   coachRoom: '/media/coach-room-light.jpg',
   circleLight: '/media/circle-light.jpg',
+  /**
+   * Queen-crown murals (flower hair) — Queenerty / Hormones & Cycle signature.
+   * Street-art portraits where living blooms crown the woman.
+   */
+  queenCrownMagenta: '/media/queen-crown-magenta.jpg',
+  queenCrownStreet: '/media/queen-crown-street.jpg',
+  queenCrownYellow: '/media/queen-crown-yellow.jpg',
+  queenCrownPortrait: '/media/queen-crown-portrait.jpg',
+  queenCrownWide: '/media/queen-crown-wide.jpg',
   /** Aliases */
   heroDusk: '/media/hero-curacao-coast.jpg',
   coachStill: '/media/coach-room-light.jpg',
@@ -45,14 +54,16 @@ export function coverForTopic(slug?: string | null): string {
   if (!slug) return MEDIA.bougainvillea;
   switch (slug) {
     case 'hormones-cycle':
+      return MEDIA.queenCrownMagenta;
     case 'the-change':
+      return MEDIA.queenCrownYellow;
     case 'motherhood':
-      return MEDIA.bougainvillea;
+      return MEDIA.queenCrownPortrait;
+    case 'women-in-history':
+      return MEDIA.queenCrownStreet;
     case 'mind-wellness':
     case 'body-wisdom':
       return MEDIA.natureSerenity;
-    case 'women-in-history':
-      return MEDIA.curacaoAerial;
     case 'tech-for-women':
     case 'did-you-know':
       return MEDIA.curacaoKenepa;

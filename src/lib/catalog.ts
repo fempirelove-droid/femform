@@ -6,7 +6,8 @@ export const TOPIC_CATALOG: Category[] = [
     id: 'local-hormones-cycle',
     slug: 'hormones-cycle',
     name: 'Hormones & Cycle',
-    description: 'What really happens in your body, in plain language, including Queenerty energy.',
+    description:
+      'What really happens in your body, in plain language — including Queenerty energy, that crown-of-yourself power in your cycle.',
     sort_order: 1,
     glow_color: 'rgba(255,92,138,0.55)',
     orb_gradient: 'radial-gradient(circle at 30% 30%, #FF9EBB, #FF5C8A)',

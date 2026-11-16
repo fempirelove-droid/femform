@@ -6,7 +6,7 @@ import { TOPIC_CATALOG } from '@/lib/catalog';
 import type { Category, Article } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
 import { ArticleCover, TopicMotif } from '@/components/visuals';
-import { MEDIA } from '@/lib/media';
+import { coverForTopic, MEDIA } from '@/lib/media';
 
 type Props = { navigate: NavigateFn; categorySlug: string };
 
@@ -19,7 +19,7 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
     title: category ? `${category.name} · Fempire.Love` : 'Loading… · Fempire.Love',
     description: category?.description,
     canonical: `/${categorySlug}`,
-    image: `https://fempire.love${MEDIA.bougainvillea}`,
+    image: `https://fempire.love${coverForTopic(categorySlug)}`,
   });
 
   useEffect(() => {
@@ -69,29 +69,60 @@ export function CategoryPage({ navigate, categorySlug }: Props) {
     );
   }
 
+  const scene = coverForTopic(category.slug);
+  const isQueenerty = category.slug === 'hormones-cycle';
+
   return (
     <main>
-      <div className="max-w-site mx-auto px-[22px] pt-[60px] pb-10">
-        <div className="flex items-center gap-4 mb-5">
+      <section className="relative overflow-hidden pt-[50px] pb-10">
+        <div className="max-w-site mx-auto px-[22px]">
           <div
-            className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center"
-            style={{
-              background: category.orb_gradient,
-              boxShadow: `0 0 24px 2px ${category.glow_color}`,
-            }}
+            className="relative overflow-hidden rounded-[22px] mb-8"
+            style={{ border: '1px solid var(--glass-b)' }}
           >
-            <TopicMotif slug={category.slug} size={46} />
+            <div className="relative h-[180px] sm:h-[240px]">
+              <img
+                src={scene}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover object-center scene-ken"
+                loading="eager"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(36,16,25,0.15) 0%, rgba(96,23,51,0.55) 100%)',
+                }}
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7 flex items-end gap-4">
+                <div
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex-shrink-0 flex items-center justify-center"
+                  style={{
+                    background: category.orb_gradient,
+                    boxShadow: `0 0 24px 2px ${category.glow_color}`,
+                  }}
+                >
+                  <TopicMotif slug={category.slug} size={46} />
+                </div>
+                <div>
+                  {isQueenerty && (
+                    <span className="inline-block text-[11px] font-bold uppercase tracking-[0.08em] text-mustard-hi mb-1.5">
+                      Queenerty
+                    </span>
+                  )}
+                  <h1 className="font-display font-bold text-[clamp(28px,5vw,42px)] leading-[1.05] tracking-tight m-0">
+                    {category.name}
+                  </h1>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h1 className="font-display font-bold text-[clamp(30px,5vw,44px)] leading-[1.05] tracking-tight">
-              {category.name}
-            </h1>
-          </div>
+          <p className="text-soft text-[16px] max-w-[560px] leading-[1.7] m-0">
+            {category.description}
+          </p>
         </div>
-        <p className="text-soft text-[16px] max-w-[560px] leading-[1.7] mb-4">
-          {category.description}
-        </p>
-      </div>
+      </section>
 
       <div className="max-w-site mx-auto px-[22px] pb-20">
         {articles.length === 0 ? (

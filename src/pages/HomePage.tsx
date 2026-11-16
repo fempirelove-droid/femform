@@ -281,20 +281,18 @@ export function HomePage({ navigate }: Props) {
           >
             <div className="absolute inset-0" aria-hidden>
               <img
-                src={MEDIA.natureSerenity}
+                src={MEDIA.queenCrownStreet}
                 alt=""
                 className="w-full h-full object-cover object-center scene-ken"
                 style={{ opacity: 0.97 }}
                 loading="lazy"
               />
-              {/* Soft white frost ? light veil, photo still clear */}
+              {/* Soft white frost — light veil, photo still clear */}
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(90deg, rgba(36,16,25,0.38) 0%, rgba(255,255,255,0.12) 38%, rgba(251,242,237,0.16) 70%, rgba(255,255,255,0.1) 100%)',
-                  backdropFilter: 'blur(2px) saturate(108%)',
-                  WebkitBackdropFilter: 'blur(2px) saturate(108%)',
+                    'linear-gradient(90deg, rgba(36,16,25,0.42) 0%, rgba(255,255,255,0.1) 40%, rgba(251,242,237,0.12) 72%, rgba(255,255,255,0.08) 100%)',
                 }}
               />
             </div>

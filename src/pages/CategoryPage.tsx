@@ -6,7 +6,7 @@ import { TOPIC_CATALOG } from '@/lib/catalog';
 import type { Category, Article } from '@/lib/types';
 import { useSEO } from '@/hooks/useSEO';
 import { ArticleCover, TopicMotif } from '@/components/visuals';
-import { coverForTopic, MEDIA } from '@/lib/media';
+import { coverForTopic } from '@/lib/media';
 
 type Props = { navigate: NavigateFn; categorySlug: string };
 
